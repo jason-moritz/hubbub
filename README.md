@@ -26,7 +26,7 @@ _**Hubbub** is a blog app where users can post their thoughts on life and the wo
 
 ## MVP
 
-_The **Hubbub** MVP Users are able to sign up/sign in for an account and receive a JWT. Once signed in, they will be able to create posts, delete their own posts, and comment on other users' posts._
+_Users are able to sign up/sign in for an account and receive a JWT. Once signed in, they will be able to read, create, edit, and delete their own posts, and comment on other users' posts._
 
 <br>
 
@@ -45,17 +45,16 @@ _The **Hubbub** MVP Users are able to sign up/sign in for an account and receive
 
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
-|      Create React App       | _Used to create front-end of app_ |
-|   React Router Dom   | _Route, Link, useParams, useHistory_ |
-| Axios | _Used to make and send front-end requests to Rails back-end_ |
-|     Material-UI      | _Used styled components and library to style front-end_ |
-|  Ruby on Rails  | _Used to create back-end logic and database_ |
-|  Cors  | _Used to connect front-end requests to back-end server logic_ |
-|  Bcrypt  | _Security measure to hash passwords and encode/decode JWT payloads_ |
-|  JWT  | _Used to create JSON web tokens for authenticated users_ |
-|  Faker  | _Used to create seed data during development_ |
-|  Pry  | _Used to create a cleaner display in rails console during development_ |
-|  Express Router  | _Lorem ipsum dolor sit amet, consectetur._ |
+| Create React App | _Used to create front-end of app_          |
+| React Router Dom | _Route, Link, useParams, useHistory_       |
+|      Axios       | _Used to make and send front-end requests to Rails back-end_ |
+|   Material-UI    | _Used styled components and library to style front-end_ |
+|  Ruby on Rails   | _Used to create back-end logic and database_ |
+|       Cors       | _Used to connect front-end requests to back-end server logic_ |
+|      Bcrypt      | _Security measure to hash passwords and encode/decode JWT payloads_ |
+|       JWT        | _Used to create JSON web tokens for authenticated users_ |
+|      Faker       | _Used to create seed data during development_ |
+|       Pry        | _Used to create a cleaner display in rails console during development_ |
 
 <br>
 
@@ -119,7 +118,25 @@ src
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Add Contact Form    |    L     |     3 hrs      |     2 hrs     |    3 hrs    |
+| Add Contact Form    |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
+| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
+| Add Contact Form    |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
+| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
+| Add Contact Form    |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
+| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
+| Add Contact Form    |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
+| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
+| Add Contact Form    |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
+| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
+| Add Contact Form    |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
+| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
+| Add Contact Form    |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
+| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
+| Add Contact Form    |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
+| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
+| Add Contact Form    |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
+| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
+| Add Contact Form    |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
 | Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
 | TOTAL               |          |     6 hrs      |     3 hrs     |     TBD     |
 
@@ -140,8 +157,13 @@ src
 
 ## Post-MVP
 
-> Use this section to document ideas you've had that would be fun (or necessary) for your Post-MVP. This will be helpful when you return to your project after graduation!
+- _Add likes, upvotes, and downvotes for comments and posts_
+- _Allow users to send friend requests and accept friend requests_
+- _Allow users to upload profile pics from local directories_
+- _Add search bar that filters posts_
+- _Add sort options to search posts by category_
 
+<br>
 ***
 
 ## Code Showcase
