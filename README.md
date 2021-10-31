@@ -41,8 +41,6 @@ _Users are able to sign up/sign in for an account and receive a JWT. Once signed
 
 ### Libraries and Dependencies
 
-> Use this section to list all supporting libraries and dependencies, and their role in the project. Below is an example - this needs to be replaced!
-
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
 | Create React App | _Used to create front-end of app_          |
