@@ -100,12 +100,34 @@ _Users are able to sign up/sign in for an account and receive a JWT. Once signed
 src
 |__ assets/
       |__ fonts
-      |__ graphics
       |__ images
-      |__ mockups
 |__ components/
       |__ Header.jsx
+      |__ Footer.jsx
+      |__ PostCard.jsx
+      |__ CommentCard.jsx
+      |__ TrendingCard.jsx
 |__ services/
+      |__ api-config.js
+      |__ users.js
+      |__ posts.js
+      |__ comments.js
+|__ services/
+      |__ Layout.jsx
+|__ screens/
+      |__ Home.jsx
+      |__ SignUp.jsx
+      |__ SignIn.jsx
+      |__ Posts.jsx
+      |__ PostDetail.jsx
+      |__ PostCreate.jsx
+      |__ PostEdit.jsx
+      |__ Comments.jsx
+      |__ CommentCreate.jsx
+      |__ CommentEdit.jsx
+|__ containers/
+      |__ PostsContainer.jsx
+      |__ CommentsContainer.jsx
 
 ```
 
