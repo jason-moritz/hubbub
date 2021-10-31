@@ -62,13 +62,14 @@ _Users are able to sign up/sign in for an account and receive a JWT. Once signed
 
 > Use the Wireframes section to display desktop, tablet and mobile views. No hand-drawn wireframes. Use a tool like wireframe.cc, Whimsical or AdobeXD
 
-![Mobile & Desktop Wireframe](https://www.figma.com/file/ji0NXEE6NgiOgYCkHKjSij/hubbub?node-id=0%3A1)
+- Mobile Landing
 
-- Desktop Landing
+![Mobile Homepage](https://www.figma.com/file/ji0NXEE6NgiOgYCkHKjSij/hubbub?node-id=14%3A581)
 
-![Dummy Link](url)
+- Mobile Sign Up
 
-- Desktop Hero
+![Mobile Signup](https://www.figma.com/file/ji0NXEE6NgiOgYCkHKjSij/hubbub?node-id=14%3A320)
+
 
 ![Dummy Link](url)
 
