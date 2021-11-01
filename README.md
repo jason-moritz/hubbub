@@ -64,27 +64,27 @@ _Users are able to sign up/sign in for an account and receive a JWT. Once signed
 
 - Mobile - Home Screen
 
-![Mobile Home](assets/wireframe/Mobile-Home.jsx.png)
+![Mobile Home](assets/wireframe/Mobile-Home.jsx.png?raw=true)
 
 - Mobile - Sign Up
 
-![Mobile SignUp](assets/wireframe/Mobile-SignUp.jsx.png)
+![Mobile SignUp](assets/wireframe/Mobile-SignUp.jsx.png?raw=true)
 
 - Mobile - View Posts
 
-![Mobile Posts](assets/wireframe/Mobile-Posts.jsx.png)
+![Mobile Posts](assets/wireframe/Mobile-Posts.jsx.png?raw=true)
 
 - Mobile - View Post With Comments
 
-![Mobile Post](assets/wireframe/Mobile-Post.jsx.png)
+![Mobile Post](assets/wireframe/Mobile-Post.jsx.png?raw=true)
 
 - Mobile - Create Post
 
-![Mobile Create Post](assets/wireframe/Mobile-CreatePost.jsx.png)
+![Mobile Create Post](assets/wireframe/Mobile-CreatePost.jsx.png?raw=true)
 
 - Mobile - Create Comment
 
-![Mobile Create Comment](assets/wireframe/Mobile-CreateComment.jsx.png)
+![Mobile Create Comment](assets/wireframe/Mobile-CreateComment.jsx.png?raw=true)
 
 #### Component Tree
 
