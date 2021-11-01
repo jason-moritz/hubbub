@@ -64,7 +64,7 @@ _Users are able to sign up/sign in for an account and receive a JWT. Once signed
 
 - Mobile and Desktop frames
 
-![image](hubbub/assets/wireframe/hubbub.pdf)
+![image](./assets/wireframe/hubbub.pdf)
 
 
 ![Dummy Link](url)
