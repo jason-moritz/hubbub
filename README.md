@@ -60,13 +60,11 @@ _Users are able to sign up/sign in for an account and receive a JWT. Once signed
 
 #### Wireframes
 
-- Mobile Landing
+[Wireframe Link](https://www.figma.com/file/ji0NXEE6NgiOgYCkHKjSij/hubbub?node-id=14%3A581 "wireframe link")
 
-![Mobile Homepage](https://www.figma.com/file/ji0NXEE6NgiOgYCkHKjSij/hubbub?node-id=14%3A581 "Mobile homepage")
+- Mobile and Desktop frames
 
-- Mobile Sign Up
-
-[Mobile Signup](https://www.figma.com/file/ji0NXEE6NgiOgYCkHKjSij/hubbub?node-id=14%3A320)
+![](./assets/wireframe/hubbub.pdf)
 
 
 ![Dummy Link](url)
@@ -101,6 +99,9 @@ src
 |__ assets/
       |__ fonts
       |__ images
+|__ helper/
+      |__ sort.js
+      |__ search.js
 |__ components/
       |__ Header.jsx
       |__ Footer.jsx
@@ -112,7 +113,7 @@ src
       |__ users.js
       |__ posts.js
       |__ comments.js
-|__ services/
+|__ layout/
       |__ Layout.jsx
 |__ screens/
       |__ Home.jsx
@@ -122,7 +123,6 @@ src
       |__ PostDetail.jsx
       |__ PostCreate.jsx
       |__ PostEdit.jsx
-      |__ Comments.jsx
       |__ CommentCreate.jsx
       |__ CommentEdit.jsx
 |__ containers/
