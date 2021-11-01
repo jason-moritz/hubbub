@@ -62,26 +62,29 @@ _Users are able to sign up/sign in for an account and receive a JWT. Once signed
 
 [Wireframe Link](https://www.figma.com/file/ji0NXEE6NgiOgYCkHKjSij/hubbub?node-id=14%3A581 "wireframe link")
 
-- Mobile and Desktop frames
+- Mobile - Home Screen
 
-![image](assets/wireframe/hubbub.pdf)
+![Mobile Home](assets/wireframe/Mobile-Home.jsx.png)
 
+- Mobile - Sign Up
 
-![Dummy Link](url)
+![Mobile SignUp](assets/wireframe/Mobile-SignUp.jsx.png)
 
-- Resource Index
+- Mobile - View Posts
 
-![Dummy Link](url)
+![Mobile Posts](assets/wireframe/Mobile-Posts.jsx.png)
 
-- Resource Show
+- Mobile - View Post With Comments
 
-![Dummy Link](url)
+![Mobile Post](assets/wireframe/Mobile-Post.jsx.png)
 
-- Tablet Resource Index
+- Mobile - Create Post
 
-![Dummy Link](url)
+![Mobile Create Post](assets/wireframe/Mobile-CreatePost.jsx.png)
 
-- Mobile Resource Index
+- Mobile - Create Comment
+
+![Mobile Create Comment](assets/wireframe/Mobile-CreateComment.jsx.png)
 
 #### Component Tree
 
