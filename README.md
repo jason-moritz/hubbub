@@ -73,27 +73,27 @@ _Users are able to sign up/sign in for an account and receive a JWT. Once signed
 
 - Mobile - Home Screen
 
-![Mobile Home](assets/wireframe/Mobile_Home.png?raw=true)
+![Mobile Home](readme_assets/wireframe/Mobile_Home.png?raw=true)
 
 - Mobile - Sign Up
 
-![Mobile SignUp](assets/wireframe/Mobile_SignUp.png?raw=true)
+![Mobile SignUp](readme_assets/wireframe/Mobile_SignUp.png?raw=true)
 
 - Mobile - View Posts
 
-![Mobile Posts](assets/wireframe/Mobile_Posts.png?raw=true)
+![Mobile Posts](readme_assets/wireframe/Mobile_Posts.png?raw=true)
 
 - Mobile - View Post With Comments
 
-![Mobile Post](assets/wireframe/Mobile_Post.png?raw=true)
+![Mobile Post](readme_assets/wireframe/Mobile_Post.png?raw=true)
 
 - Mobile - Create Post
 
-![Mobile Create Post](assets/wireframe/Mobile_CreatePost.png?raw=true)
+![Mobile Create Post](readme_assets/wireframe/Mobile_CreatePost.png?raw=true)
 
 - Mobile - Create Comment
 
-![Mobile Create Comment](assets/wireframe/Mobile_CreateComment.png?raw=true)
+![Mobile Create Comment](readme_assets/wireframe/Mobile_CreateComment.png?raw=true)
 
 <br>
 
@@ -103,7 +103,7 @@ _Users are able to sign up/sign in for an account and receive a JWT. Once signed
 
 [Component Tree Link](https://whimsical.com/hubbub-component-hierarchy-BZsJ6GimeVKv5PrkmAwgax "Component Tree Link")
 
-![Component Tree](assets/component_hierarchy/Component_Hierarchy.png?raw=true)
+![Component Tree](readme_assets/component_hierarchy/Component_Hierarchy.png?raw=true)
 
 <br>
 
@@ -177,7 +177,7 @@ src
 
 #### ERD Model
 
-![ERD](assets/erd/erd.png)
+![ERD](readme_assets/erd/erd.png)
 
 <br>
 
