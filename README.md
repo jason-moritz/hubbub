@@ -115,7 +115,6 @@ src
       |__ api-config.js
       |__ users.js
       |__ posts.js
-      |__ comments.js
 |__ layout/
       |__ Layout.jsx
 |__ screens/
@@ -130,7 +129,6 @@ src
       |__ CommentEdit.jsx
 |__ containers/
       |__ PostsContainer.jsx
-      |__ CommentsContainer.jsx
 
 ```
 
@@ -158,7 +156,7 @@ src
 
 #### ERD Model
 
-[ERD](https://drive.google.com/file/d/1kLyQTZqfcA4jjKWQexfEkG2UspyclK8Q/view)
+![ERD](assets/erd/erd.png)
 <br>
 
 ***
