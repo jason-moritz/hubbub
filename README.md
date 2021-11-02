@@ -55,7 +55,6 @@ _Users are able to sign up/sign in for an account and receive a JWT. Once signed
 |      Axios       | _Used to make and send front-end requests to Rails back-end_ |
 |   Material-UI    | _Used styled components and library to style front-end_ |
 |  Ruby on Rails   | _Used to create back-end logic and database_ |
-|  Active Record   | _Used for ease of back-end setup authentication_ |
 |    PostgreSQL    | _Used as the primary development and production database_ |
 |       Cors       | _Used to connect front-end requests to back-end server logic_ |
 |      Bcrypt      | _Security measure to hash passwords and encode/decode JWT payloads_ |
