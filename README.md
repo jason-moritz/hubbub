@@ -17,18 +17,23 @@
 
 <br>
 
+***
+
 ## Overview
 
 _**Hubbub** is a blog app where users can post their thoughts on life and the world and interact with one another. Users are able to comment and give their thoughts on other users' posts, as well as like, upvote, and downvote posts._
 
-
 <br>
+
+***
 
 ## MVP
 
 _Users are able to sign up/sign in for an account and receive a JWT. Once signed in, they will be able to read, create, edit, and delete their own posts, and comment on other users' posts._
 
 <br>
+
+***
 
 ### Goals
 
@@ -38,6 +43,8 @@ _Users are able to sign up/sign in for an account and receive a JWT. Once signed
 - _Style using Material UI_
 
 <br>
+
+***
 
 ### Libraries and Dependencies
 
@@ -55,6 +62,8 @@ _Users are able to sign up/sign in for an account and receive a JWT. Once signed
 |       Pry        | _Used to create a cleaner display in rails console during development_ |
 
 <br>
+
+***
 
 ### Client (Front End)
 
@@ -86,15 +95,21 @@ _Users are able to sign up/sign in for an account and receive a JWT. Once signed
 
 ![Mobile Create Comment](assets/wireframe/Mobile_CreateComment.png?raw=true)
 
+<br>
+
+***
+
 #### Component Tree
 
 [Component Tree Link](https://whimsical.com/hubbub-component-hierarchy-BZsJ6GimeVKv5PrkmAwgax "Component Tree Link")
 
 ![Component Tree](assets/component_hierarchy/Component_Hierarchy.png?raw=true)
 
-#### Component Architecture
+<br>
 
-> Use this section to define your React components and the data architecture of your app. This should be a reflection of how you expect your directory/file tree to look like. 
+***
+
+#### Component Architecture
 
 ``` structure
 
@@ -132,6 +147,10 @@ src
 
 ```
 
+<br>
+
+***
+
 #### Time Estimates
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
@@ -152,11 +171,14 @@ src
 
 <br>
 
+***
+
 ### Server (Back End)
 
 #### ERD Model
 
 ![ERD](assets/erd/erd.png)
+
 <br>
 
 ***
@@ -170,11 +192,16 @@ src
 - _Add sort options to search posts by category_
 
 <br>
+
 ***
 
 ## Code Showcase
 
 > Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
+
+<br>
+
+***
 
 ## Code Issues & Resolutions
 
