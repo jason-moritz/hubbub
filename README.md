@@ -186,6 +186,7 @@ src
 ## Post-MVP
 
 - _Add likes, upvotes, and downvotes for comments and posts_
+- _Add admin property for users_
 - _Allow users to send friend requests and accept friend requests_
 - _Allow users to upload profile pics from local directories_
 - _Add search bar that filters posts_
