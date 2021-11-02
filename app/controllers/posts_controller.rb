@@ -4,7 +4,6 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     @posts = Post.all
-
     render json: @posts
   end
 
@@ -39,7 +38,6 @@ class PostsController < ApplicationController
       render json: @post
     elsif @payload[:id] != @post.user_id
       render json: {
-        error: @post.errors, 
         status: :unauthorized,
         message: 'User is not the owner of this post.'
       }
@@ -57,12 +55,13 @@ class PostsController < ApplicationController
     if @payload[:id] == @post.user_id
       @post.destroy
       render json: { message: 'Post has been destroyed.' }
-    else
+    elsif @payload[:id] != @post.user_id
       render json: {
-        error: @post.errors, 
         status: :unauthorized,
         message: 'User is not the owner of this post.'
       }
+    else
+      render json: @post.errors
     end
   end
 
