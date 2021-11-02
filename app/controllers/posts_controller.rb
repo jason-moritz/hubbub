@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
-
+  before_action :authorize_request, except: [:index, :show]
   # GET /posts
   def index
     @posts = Post.all
@@ -10,7 +10,12 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   def show
-    render json: @post, include: :user_id
+    @user = User.find(@post.user_id)
+    render json: {
+      post: @post, 
+      username: @user.username, 
+      image_url: @user.image_url
+    }
   end
 
   # POST /posts
@@ -20,22 +25,45 @@ class PostsController < ApplicationController
     if @post.save
       render json: @post, status: :created
     else
-      render json: @post.errors, status: :unprocessable_entity
+      render json: {
+        error: @post.errors, 
+        status: :unprocessable_entity,
+        message: 'Authentication failed.'
+      }
     end
   end
 
   # PATCH/PUT /posts/1
   def update
-    if @post.update(post_params)
+    if @payload[:id] == @post.user_id && @post.update(post_params)
       render json: @post
+    elsif @payload[:id] != @post.user_id
+      render json: {
+        error: @post.errors, 
+        status: :unauthorized,
+        message: 'User is not the owner of this post.'
+      }
     else
-      render json: @post.errors, status: :unprocessable_entity
+      render json: {
+        error: @post.errors,
+        status: :unprocessable_entity,
+        message: 'Request body has unpermitted content.'
+      }
     end
   end
 
   # DELETE /posts/1
   def destroy
-    @post.destroy
+    if @payload[:id] == @post.user_id
+      @post.destroy
+      render json: { message: 'Post has been destroyed.' }
+    else
+      render json: {
+        error: @post.errors, 
+        status: :unauthorized,
+        message: 'User is not the owner of this post.'
+      }
+    end
   end
 
   private
