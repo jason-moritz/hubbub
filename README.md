@@ -64,33 +64,33 @@ _Users are able to sign up/sign in for an account and receive a JWT. Once signed
 
 - Mobile - Home Screen
 
-![Mobile Home](assets/wireframe/Mobile-Home.png?raw=true)
+![Mobile Home](assets/wireframe/Mobile_Home.png?raw=true)
 
 - Mobile - Sign Up
 
-![Mobile SignUp](assets/wireframe/Mobile-SignUp.png?raw=true)
+![Mobile SignUp](assets/wireframe/Mobile_SignUp.png?raw=true)
 
 - Mobile - View Posts
 
-![Mobile Posts](assets/wireframe/Mobile-Posts.png?raw=true)
+![Mobile Posts](assets/wireframe/Mobile_Posts.png?raw=true)
 
 - Mobile - View Post With Comments
 
-![Mobile Post](assets/wireframe/Mobile-Post.png?raw=true)
+![Mobile Post](assets/wireframe/Mobile_Post.png?raw=true)
 
 - Mobile - Create Post
 
-![Mobile Create Post](assets/wireframe/Mobile-CreatePost.png?raw=true)
+![Mobile Create Post](assets/wireframe/Mobile_CreatePost.png?raw=true)
 
 - Mobile - Create Comment
 
-![Mobile Create Comment](assets/wireframe/Mobile-CreateComment.png?raw=true)
+![Mobile Create Comment](assets/wireframe/Mobile_CreateComment.png?raw=true)
 
 #### Component Tree
 
-> Use this section to display the structure of how your React components are being rendered. This should show the parent to child relation between you components. In other words, show which components are rendering the other components. Include a link to your component tree
+[Component Tree Link](https://whimsical.com/hubbub-component-hierarchy-BZsJ6GimeVKv5PrkmAwgax "Component Tree Link")
 
-[Component Tree Sample](https://gist.git.generalassemb.ly/davidtwhitlatch/414107e2560ae0bb65e233570f2fe056#file-component-tree-png)
+![Component Tree](assets/component_hierarchy/Component_Hierarchy.png?raw=true)
 
 #### Component Architecture
 
@@ -136,33 +136,21 @@ src
 
 #### Time Estimates
 
-> Use this section to estimate the time necessary to build out each of the components you've described above.
-
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Add Contact Form    |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| Add Contact Form    |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| Add Contact Form    |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| Add Contact Form    |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| Add Contact Form    |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| Add Contact Form    |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| Add Contact Form    |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| Add Contact Form    |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| Add Contact Form    |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| Add Contact Form    |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| TOTAL               |          |     6 hrs      |     3 hrs     |     TBD     |
-
-> _Why is this necessary? Time frames are key to the development cycle. You have limited time to code your app, and your estimates can then be used to evaluate possibilities of your MVP and post-MVP based on time needed. It's best you assume an additional hour for each component, as well as a few hours added to the total time, to play it safe._
+| Define models       |    H     |     1 hr      |     2 hrs     |    3 hrs    |
+| Define controllers  |    H     |     2 hr      |     1 hrs     |     TBD     |
+| Define routes       |    H     |     1 hr      |     2 hrs     |    3 hrs    |
+| Define screens logic|    H     |     6 hrs      |     1 hrs     |     TBD     |
+| Define component logic    |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
+| Define services logic |    H     |     2 hrs      |     1 hrs     |     TBD     |
+| Define container logic    |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
+| Define layout logic |    H     |     1 hr      |     1 hrs     |     TBD     |
+| Base CSS with MUI   |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
+| Define helper logic |    H     |     2 hrs      |     1 hrs     |     TBD     |
+| Define 'friend' logic    |    H     |     3 hrs      |     2 hrs     |    3 hrs    |
+| Advanced styling    |    H     |     20 hrs      |     1 hrs     |     TBD     |
+| TOTAL               |          |     47 hrs      |     3 hrs     |     TBD     |
 
 <br>
 
@@ -170,9 +158,7 @@ src
 
 #### ERD Model
 
-> Use this section to display an image of a computer generated ERD model. You can use draw.io, Lucidchart or another ERD tool.
-
-[ERD Sample](https://drive.google.com/file/d/1kLyQTZqfcA4jjKWQexfEkG2UspyclK8Q/view)
+[ERD](https://drive.google.com/file/d/1kLyQTZqfcA4jjKWQexfEkG2UspyclK8Q/view)
 <br>
 
 ***
