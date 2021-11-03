@@ -19,7 +19,7 @@ export default function Header({ currentUser, handleLogout }) {
             )}
             <Link to='/posts'>Posts</Link>
             {currentUser ? (
-                <Link to='/posts/create'>Post Create</Link>
+                <Link to='/posts/create'>Create</Link>
             ) : (null)}
         </header>
     )

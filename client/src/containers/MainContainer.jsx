@@ -4,6 +4,7 @@ import Home from '../screens/home/Home'
 import Posts from '../screens/posts/Posts'
 import PostCreate from '../screens/posts/PostCreate'
 import PostDetail from '../screens/posts/PostDetail'
+import PostUpdate from '../screens/posts/PostUpdate'
 import {
     getAllPosts,
     getOnePost,
@@ -55,15 +56,21 @@ export default function MainContainer({ currentUser }) {
     return (
         <div>
             <Switch>
+                <Route path='/posts/create'>
+                    <PostCreate
+                        handlePostCreate={handlePostCreate}
+                    />
+                </Route>
+                <Route path='/posts/:id/update'>
+                    <PostUpdate
+                        posts={posts}
+                        handlePostUpdate={handlePostUpdate}
+                    />
+                </Route>
                 <Route path='/posts/:id'>
                     <PostDetail 
                         currentUser={currentUser}
                         handlePostDelete={handlePostDelete}
-                    />
-                </Route>
-                <Route path='/posts/create'>
-                    <PostCreate
-                        handlePostCreate={handlePostCreate}
                     />
                 </Route>
                 <Route path='/posts'>

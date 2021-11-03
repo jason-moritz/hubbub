@@ -35,7 +35,10 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   def update
     if @payload[:id] == @post.user_id && @post.update(post_params)
-      render json: @post
+      render json: @post, include: [ 
+        user: { only: ['username', 'image_url'] },
+        comments: { include: ['id']}],
+        status: :accepted
     elsif @payload[:id] != @post.user_id
       render json: {
         error: 'User is not the owner of this post.'
