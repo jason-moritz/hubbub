@@ -10,7 +10,7 @@ Post.destroy_all
 User.destroy_all
 
 @admin = User.create!(username: 'admin', email: 'test@test.com', password: '123456', image_url: 'test.jpg')
-
+@admin2 = User.create!(username: 'hummingbirds', email: 'test2@test.com', password: '123456', image_url: 'test.jpg')
 puts "#{User.count} users created!"
 
 10.times do
