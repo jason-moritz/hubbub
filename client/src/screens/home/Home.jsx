@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import PostCard from '../../components/PostCard'
 
 
-export default function Home({ currentUser, latestPosts }) {
+export default function Home({ currentUser, latestPosts, handlePostDelete }) {
     return (
         <div>
             {currentUser ? (
@@ -30,8 +30,10 @@ export default function Home({ currentUser, latestPosts }) {
                     {latestPosts.map(latestPost => (
                         <div key={latestPost.id}>
                             <PostCard
-                                post={latestPost} />
-                            <Link to={`/posts/${latestPost.id}`}>Read more!</Link>
+                                currentUser={currentUser}
+                                post={latestPost} 
+                                handlePostDelete={handlePostDelete}
+                            />
                         </div>
                     ))}
                 </div>

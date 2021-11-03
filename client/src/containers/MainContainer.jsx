@@ -3,6 +3,7 @@ import { Route, Switch, useHistory } from 'react-router-dom'
 import Home from '../screens/home/Home'
 import Posts from '../screens/posts/Posts'
 import PostCreate from '../screens/posts/PostCreate'
+import PostDetail from '../screens/posts/PostDetail'
 import {
     getAllPosts,
     getOnePost,
@@ -21,10 +22,14 @@ export default function MainContainer({ currentUser }) {
         const fetchPosts = async () => {
             const postsList = await getAllPosts()
             setPosts(postsList)
-            setLatestPosts(postsList.slice(postsList.length - 4, postsList.length - 1))
+            setLatestPosts(postsList.slice(-3))
         }
         fetchPosts()
     },[])
+
+    useEffect(() => {
+        setLatestPosts(posts.slice(-3))
+    },[posts.length])
 
     const handlePostCreate = async (formData) => {
         const newPost = await createPost(formData)
@@ -49,6 +54,12 @@ export default function MainContainer({ currentUser }) {
     return (
         <div>
             <Switch>
+                <Route path='/posts/:id'>
+                    <PostDetail 
+                        currentUser={currentUser}
+                        handlePostDelete={handlePostDelete}
+                    />
+                </Route>
                 <Route path='/posts/create'>
                     <PostCreate
                         handlePostCreate={handlePostCreate}

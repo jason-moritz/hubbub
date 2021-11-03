@@ -9,15 +9,10 @@ export default function Posts({ currentUser, posts, handlePostDelete }) {
                 {posts.map((post, index) => (
                     <div key={index}>
                         <PostCard
+                            currentUser={currentUser}
                             post={post}
+                            handlePostDelete={handlePostDelete}
                         />
-                        {currentUser && currentUser.id === post.user_id &&
-                            <>
-                                <Link to={`/posts/${post.id}/update`}>Edit</Link>
-                                <button onClick={() => handlePostDelete(post.id)}>Delete</button>
-                            </>
-                        }
-                        <Link to={`/posts/${post.id}`}>Read more!</Link>
                     </div>
                 ))}
         </div>
