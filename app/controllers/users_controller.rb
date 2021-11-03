@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   # def show
-  #   render json: @user
+  #   render json: @user.attributes.except('password_digest')
   # end
 
   # POST /users
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
       render json: {
         user: @user.attributes.except('password_digest'),
         token: @token
-      }, status: :accepted 
+      }, status: :accepted
     else
       render json: @user.errors, status: :unprocessable_entity
     end

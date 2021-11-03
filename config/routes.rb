@@ -3,10 +3,9 @@ Rails.application.routes.draw do
   get '/auth/verify', to: 'authentications#verify'
   
   resources :posts do
-    resources :comments, except: :index
+    resources :comments, except: [:index, :show]
   end
 
-  get '/comments', to 'comments#index'
   resources :users, only: [:create, :update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

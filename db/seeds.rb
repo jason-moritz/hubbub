@@ -19,4 +19,11 @@ end
 
 puts "#{Post.count} posts created!"
 
+Post.all.each do |post|
+    3.times do
+        Comment.create!(content: Faker::Lorem.paragraph(sentence_count: 2), post_id: post.id, user_id: @admin.id)
+    end
+end
+
+puts "#{Comment.count} comments created!"
 

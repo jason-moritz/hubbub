@@ -1,11 +1,13 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:update, :destroy]
-  before_action :authorize_request, except: [:index]
+  before_action :authorize_request
+
+  
   # GET /comments
-  def index
-    @comments = Comment.all
-    render json: @comments
-  end
+  # def index
+  #   @comments = Comment.where(comment.post_id == params[:id])
+  #   render json: @comments, :include user
+  # end
 
   # GET /comments/1
   # def show
@@ -17,13 +19,9 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user = @current_user
     if @comment.save
-      render json: @comment, status: :created, location: @comment
+      render json: @comment, status: :created
     else
-      render json: {
-        error: @comment.errors, 
-        status: :unprocessable_entity,
-        message: 'Authentication failed.'
-      }
+      render json: @comment.errors, status: :unprocessable_entity
     end
   end
 
@@ -33,16 +31,10 @@ class CommentsController < ApplicationController
       render json: @comment
     elsif @payload[:id] != @comment.user_id
       render json: {
-        error: @comment.errors, 
-        status: :unprocessable_entity,
-        message: 'User is not the owner of this comment.'
-      }
+        error: 'User is not the owner of this comment.' 
+        }, status: :unauthorized
     else
-      render json: {
-        error: @comment.errors,
-        status: :unprocessable_entity,
-        message: 'Request body has unpermitted content.'
-      }
+      render json: @comment.errors, status: :unprocessable_entity
     end
   end
 
@@ -53,11 +45,10 @@ class CommentsController < ApplicationController
       render json: { message: 'Comment has been destroyed.'}
     elsif @payload[:id] != @comment.user_id
       render json: {
-        status: :unauthorized,
-        message: 'User is not the owner of this comment.'
-      }
+        error: 'User is not the owner of this comment.'
+        }, status: :unauthorized
     else
-      render json: @post.errors
+      render json: @post.errors, status: :unprocessable_entity
     end
   end
 

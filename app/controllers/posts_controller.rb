@@ -4,17 +4,17 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     @posts = Post.all
-    render json: @posts
+    render json: @posts, :include => [
+      {:user => {:only => ['username', 'image_url']}}, 
+      :comments => {:only => ['id']}
+    ]
   end
 
   # GET /posts/1
   def show
-    @user = User.find(@post.user_id)
-    render json: {
-      post: @post, 
-      username: @user.username, 
-      image_url: @user.image_url
-    }
+    render json: @post, :include => [
+      :user => {:only => ['username', 'image_url']}, 
+      :comments => {:include => [:user => {:only => ['username', 'image_url']}]}]
   end
 
   # POST /posts
@@ -24,11 +24,7 @@ class PostsController < ApplicationController
     if @post.save
       render json: @post, status: :created
     else
-      render json: {
-        error: @post.errors, 
-        status: :unprocessable_entity,
-        message: 'Authentication failed.'
-      }
+      render json: @post.errors, status: :unprocessable_entity
     end
   end
 
@@ -38,15 +34,10 @@ class PostsController < ApplicationController
       render json: @post
     elsif @payload[:id] != @post.user_id
       render json: {
-        status: :unauthorized,
-        message: 'User is not the owner of this post.'
-      }
+        error: 'User is not the owner of this post.'
+        }, status: :unauthorized
     else
-      render json: {
-        error: @post.errors,
-        status: :unprocessable_entity,
-        message: 'Request body has unpermitted content.'
-      }
+      render json: @post.errors, status: :unprocessable_entity
     end
   end
 
@@ -57,11 +48,10 @@ class PostsController < ApplicationController
       render json: { message: 'Post has been destroyed.' }
     elsif @payload[:id] != @post.user_id
       render json: {
-        status: :unauthorized,
-        message: 'User is not the owner of this post.'
-      }
+        error: 'User is not the owner of this post.'
+        }, status: :unauthorized
     else
-      render json: @post.errors
+      render json: @post.errors, status: :unprocessable_entity
     end
   end
 
