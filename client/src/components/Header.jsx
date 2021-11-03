@@ -18,6 +18,7 @@ export default function Header({ currentUser, handleLogout }) {
             <Link to='/login'>Login/Register</Link>
             )}
             <Link to='/posts'>Posts</Link>
+            <Link to='/posts/create'>Post Create</Link>
         </header>
     )
 }
