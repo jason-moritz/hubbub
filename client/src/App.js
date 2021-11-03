@@ -14,31 +14,31 @@ import {
 
 
 function App() {
-  const [user, setUser] = useState(null)
+  const [currentUser, setCurrentUser] = useState(null)
   const history = useHistory()
 
   useEffect(() => {
     const handleVerify = async () => {
       const userData = await userVerify()
-      setUser(userData)
+      setCurrentUser(userData)
     }
     handleVerify()
   },[])
 
   const handleRegister = async (formData) => {
     const userData = await userRegister(formData)
-    setUser(userData)
+    setCurrentUser(userData)
     history.push('/')
   }
 
   const handleLogin = async (formData) => {
     const userData = await userLogin(formData)
-    setUser(userData)
+    setCurrentUser(userData)
     history.push('/')
   }
 
   const handleLogout = () => {
-    setUser(null)
+    setCurrentUser(null)
     localStorage.removeItem('authToken')
     removeToken()
   }
@@ -46,7 +46,7 @@ function App() {
   return (
     <div className="App">
       <Layout
-        user={user}
+        currentUser={currentUser}
         handleLogout={handleLogout}
       >
         <Switch>

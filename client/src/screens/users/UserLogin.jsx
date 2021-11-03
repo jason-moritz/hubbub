@@ -27,7 +27,7 @@ export default function UserLogin({ handleLogin }) {
         <div>
             <Link to='/register'>Not a user? Sign up today!</Link>
             <form onSubmit={handleSubmit}>
-                <input
+                <TextField
                     autoFocus
                     type='text'
                     label='Username'
@@ -35,7 +35,7 @@ export default function UserLogin({ handleLogin }) {
                     value={username}
                     onChange={handleChange}
                 />
-                <input
+                <TextField
                     minLength='6'
                     type='password'
                     label='Password'

@@ -3,11 +3,11 @@ import Footer from '../components/Footer'
 import './Layout.css'
 
 
-export default function Layout({ children, user, handleLogout }) {
+export default function Layout({ children, currentUser, handleLogout }) {
     return (
         <>
             <Header 
-                user={user}
+                currentUser={currentUser}
                 handleLogout={handleLogout}
             />
             <div className='content'>
