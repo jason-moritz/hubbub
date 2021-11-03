@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
       render json: @comment
     elsif @payload[:id] != @comment.user_id
       render json: {
-        error: 'User is not the owner of this comment.' 
+        error: 'User is not the owner of this comment.'
         }, status: :unauthorized
     else
       render json: @comment.errors, status: :unprocessable_entity
