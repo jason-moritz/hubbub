@@ -15,8 +15,7 @@ export default function PostDetail({ currentUser, handlePostDelete }) {
             setPost(postData)
         }
         fetchPost()
-    },[])
-
+    },[id])
 
     return (
         <div>

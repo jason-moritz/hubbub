@@ -49,6 +49,7 @@ export default function MainContainer({ currentUser }) {
     const handlePostDelete = async (id) => {
         await deletePost(id)
         setPosts(prevState => prevState.filter(post => post.id !== Number(id)))
+        history.push('/posts')
     }
 
     return (
