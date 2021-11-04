@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     render json: @posts, include: [
-      user: { only: ['username', 'image_url'] }, 
+      user: { only: ['username', 'image_url'] },
       comments: { only: ['id'] }
     ]
   end
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
     if @post.save
       render json: @post, include: [ 
         user: { only: ['username', 'image_url'] },
-        comments: { include: ['id']}],
+        comments: { only: ['id']}],
         status: :created
     else
       render json: @post.errors, status: :unprocessable_entity
@@ -35,9 +35,9 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   def update
     if @payload[:id] == @post.user_id && @post.update(post_params)
-      render json: @post, include: [ 
+      render json: @post, include: [
         user: { only: ['username', 'image_url'] },
-        comments: { include: ['id']}],
+        comments: { only: ['id'] }],
         status: :accepted
     elsif @payload[:id] != @post.user_id
       render json: {

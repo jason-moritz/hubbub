@@ -20,20 +20,6 @@ export default function PostCard({ currentUser, post, handlePostDelete }) {
                         </>
                     ) : (null)
                     }
-                    {post?.comments.map((comment, index) => (
-                        <div key={index}>
-                            <h5>{comment.user.username}</h5>
-                            <img src={comment.user.image_url} alt='profile-pic' />
-                            <h5>{comment.content}</h5>
-                            {currentUser && currentUser.id === comment?.user_id ? (
-                                <>
-                                    <Link to={`/posts/${post.id}/comments/${comment.id}/update`}>Edit</Link>
-                                    <button onClick={() => handlePostDelete(comment.id)}>Delete</button>
-                                </>
-                            ) : (null)
-                            }
-                        </div>
-                    ))}
                 </>
             ) : (
                 <>    
