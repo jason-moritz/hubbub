@@ -7,8 +7,8 @@ export default function PostCard({ currentUser, post, handlePostDelete }) {
 
     return (
         <div className='post-card'>
-            <img src={post?.user.image_url} alt='profile-pic' />
-            <h3>{post?.user.username}</h3>
+            <img src={post.user?.image_url} alt='profile-pic' />
+            <h3>{post.user?.username}</h3>
             <h5>{post?.title}</h5>
             {id ? (
                 <>
@@ -23,7 +23,7 @@ export default function PostCard({ currentUser, post, handlePostDelete }) {
                 </>
             ) : (
                 <>    
-                    <h5>Comments: {post.comments.length}</h5>
+                    <h5>Comments: {post.comments?.length}</h5>
                     <Link to={`/posts/${post.id}`}>Read more!</Link>
                 </>
             )}
