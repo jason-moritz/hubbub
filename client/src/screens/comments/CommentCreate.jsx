@@ -4,7 +4,7 @@ import { TextField } from '@mui/material'
 
 
 export default function CommentCreate({ handleCommentCreate }) {
-    const [formData, setformData] = useState({
+    const [formData, setFormData] = useState({
         content: ''
     })
 
@@ -13,8 +13,7 @@ export default function CommentCreate({ handleCommentCreate }) {
 
     const handleChange = (e) => {
         const { name, value } = e.target
-
-        setformData(prevState => ({
+        setFormData(prevState => ({
             ...prevState,
             [name]: value
         }))
@@ -33,7 +32,6 @@ export default function CommentCreate({ handleCommentCreate }) {
                     autoFocus
                     multiline={true}
                     rows={10}
-                    maxRows={10}
                     id='comment'
                     type='text'
                     label='Comment'
