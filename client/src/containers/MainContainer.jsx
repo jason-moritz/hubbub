@@ -68,6 +68,11 @@ export default function MainContainer({ currentUser }) {
         })
     }
 
+    const handleCommentDelete = async (id) => {
+        await deleteComment(id)
+        
+    }
+
     return (
         <div>
             <Switch>
@@ -91,6 +96,7 @@ export default function MainContainer({ currentUser }) {
                     <PostDetail 
                         currentUser={currentUser}
                         handlePostDelete={handlePostDelete}
+                        handleCommentDelete={handleCommentDelete}
                     />
                 </Route>
                 <Route path='/posts'>

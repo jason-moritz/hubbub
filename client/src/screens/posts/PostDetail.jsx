@@ -5,7 +5,7 @@ import CommentCard from '../../components/CommentCard'
 import { getOnePost } from '../../services/posts'
 
 
-export default function PostDetail({ currentUser, handlePostDelete }) {
+export default function PostDetail({ currentUser, handlePostDelete, handleCommentDelete }) {
     const [post, setPost] = useState(null)
     const { id } = useParams()
 
@@ -24,10 +24,13 @@ export default function PostDetail({ currentUser, handlePostDelete }) {
                 post={post}
                 handlePostDelete={handlePostDelete}
             />
-            <CommentCard
-                currentUser={currentUser}
-                // comment={comment}
-            />
+            {post?.comments.map(comment => (
+                <CommentCard
+                    currentUser={currentUser}
+                    comment={comment}
+                    handleCommentDelete={handleCommentDelete}
+                />
+            ))}
         </div>
     )
 }
