@@ -13,7 +13,7 @@ export default function CommentCard({ currentUser, comment, handleCommentDelete 
             {currentUser && currentUser.id === comment?.user_id ? (
                 <>
                     <Link to={`/posts/${comment.post_id}/comments/${comment.id}/update`}>Edit</Link>
-                    <button onClick={() => handleCommentDelete(comment.id)}>Delete</button>
+                    <button onClick={() => handleCommentDelete(comment.post_id, comment.id)}>Delete</button>
                 </>
             ) : (null)
             }
