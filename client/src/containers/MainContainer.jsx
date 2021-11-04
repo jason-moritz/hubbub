@@ -71,12 +71,12 @@ export default function MainContainer({ currentUser }) {
     const handleCommentDelete = async (post_id, comment_id) => {
         await deleteComment(post_id, comment_id)
         setPosts(prevState => {
-            const associatedPost = prevState.find(post => post.id === post_id)
-            associatedPost.comments.filter(comment => comment.id !== comment_id)
+            const associatedPost = prevState.find(post => post.id === Number(post_id))
+            associatedPost.comments.filter(comment => comment.id !== Number(comment_id))
         })
         history.push(`/posts/${post_id}`)
     }
-
+    
     return (
         <div>
             <Switch>
