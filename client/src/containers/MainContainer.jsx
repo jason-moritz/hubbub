@@ -70,7 +70,8 @@ export default function MainContainer({ currentUser }) {
     }
 
     const handleCommentUpdate = async (post_id, comment_id, formData) => {
-
+        await putComment(post_id, comment_id, formData)
+        history.push(`/posts/${post_id}`)
     }
 
     return (

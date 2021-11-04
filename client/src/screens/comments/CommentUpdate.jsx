@@ -32,7 +32,7 @@ export default function CommentUpdate({ handleCommentUpdate }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        handleCommentUpdate(formData)
+        handleCommentUpdate(post_id, id, formData)
     }
 
     return (
