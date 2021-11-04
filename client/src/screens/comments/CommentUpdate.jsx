@@ -14,9 +14,12 @@ export default function CommentUpdate({ handleCommentUpdate }) {
 
     useEffect(() => {
         const prefillFormData = async () => {
-            const commentData = await getOneComment()
+            const commentData = await getOneComment(post_id, id)
+            setFormData({
+                content: commentData.comment
+            })
         }
-        
+        prefillFormData()
     },[id])
 
     const handleChange = (e) => {
@@ -34,7 +37,21 @@ export default function CommentUpdate({ handleCommentUpdate }) {
 
     return (
         <div>
-            this is the comment update page
+            <h1>Add your 2 cents!</h1>
+            <form onSubmit={handleSubmit}>
+                <TextField
+                    autoFocus
+                    multiline={true}
+                    rows={10}
+                    id='comment'
+                    type='text'
+                    label='Comment'
+                    name='content'
+                    value={content}
+                    onChange={handleChange}
+                />
+                <button>Submit</button>
+            </form> 
         </div>
     )
 }
