@@ -3,18 +3,19 @@ class PostsController < ApplicationController
   before_action :authorize_request, except: [:index, :show]
   # GET /posts
   def index
-    @posts = Post.all
-    render json: @posts, :include => [
-      {:user => {:only => ['username', 'image_url']}}, 
-      :comments => {:only => ['id']}
+    @posts = Post.all.sort { |a, b| a.id - b.id }
+    render json: @posts, include: [
+      user: { only: ['username', 'image_url'] },
+      comments: { only: ['id'] }
     ]
   end
 
   # GET /posts/1
   def show
-    render json: @post, :include => [
-      :user => {:only => ['username', 'image_url']}, 
-      :comments => {:include => [:user => {:only => ['username', 'image_url']}]}]
+    render json: @post, include: [
+      user: { only: ['username', 'image_url'] },
+      comments: { include: [user: { only: ['username', 'image_url'] }] }
+    ]
   end
 
   # POST /posts
@@ -22,7 +23,10 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = @current_user
     if @post.save
-      render json: @post, status: :created
+      render json: @post, include: [ 
+        user: { only: ['username', 'image_url'] },
+        comments: { only: ['id']}],
+        status: :created
     else
       render json: @post.errors, status: :unprocessable_entity
     end
@@ -31,7 +35,10 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   def update
     if @payload[:id] == @post.user_id && @post.update(post_params)
-      render json: @post
+      render json: @post, include: [
+        user: { only: ['username', 'image_url'] },
+        comments: { only: ['id'] }],
+        status: :accepted
     elsif @payload[:id] != @post.user_id
       render json: {
         error: 'User is not the owner of this post.'
