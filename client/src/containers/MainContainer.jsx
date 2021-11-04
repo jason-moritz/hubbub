@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Route, Switch, useHistory } from 'react-router-dom'
+import { Route, Switch, Redirect, useHistory } from 'react-router-dom'
 import Home from '../screens/home/Home'
 import Posts from '../screens/posts/Posts'
 import PostCreate from '../screens/posts/PostCreate'
@@ -67,6 +67,7 @@ export default function MainContainer({ currentUser }) {
         setPosts(prevState => prevState.map(post => {
             return post.id === post_id ? associatedPost : post
         }))
+        history.push(`/posts/${post_id}`)
     }
 
     const handleCommentUpdate = async (post_id, comment_id, formData) => {
@@ -77,20 +78,32 @@ export default function MainContainer({ currentUser }) {
         <div>
             <Switch>
                 <Route path='/posts/:id/comments/create'>
-                    <CommentCreate
-                        handleCommentCreate={handleCommentCreate}
-                    />
+                    {currentUser ?
+                        <CommentCreate
+                            handleCommentCreate={handleCommentCreate}
+                        />
+                        :
+                        <Redirect to='/login' />
+                    }
                 </Route>
                 <Route path='/posts/create'>
-                    <PostCreate
-                        handlePostCreate={handlePostCreate}
-                    />
+                    {currentUser ? 
+                        <PostCreate
+                            handlePostCreate={handlePostCreate}
+                        />
+                        :
+                        <Redirect to='/login' />
+                    }
                 </Route>
                 <Route path='/posts/:id/update'>
-                    <PostUpdate
-                        posts={posts}
-                        handlePostUpdate={handlePostUpdate}
-                    />
+                    {currentUser ?
+                        <PostUpdate
+                            posts={posts}
+                            handlePostUpdate={handlePostUpdate}
+                        />
+                        :
+                        <Redirect to='/login' />
+                    }
                 </Route>
                 <Route path='/posts/:id'>
                     <PostDetail 
