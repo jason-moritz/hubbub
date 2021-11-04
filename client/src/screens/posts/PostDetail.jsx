@@ -26,10 +26,14 @@ export default function PostDetail({ currentUser, posts, setPosts, handlePostDel
         await deleteComment(post_id, comment_id)
         setToggle(false)
         setComments(prevState => prevState.filter(comment => comment.id !== comment_id))
-        const associatedPost = posts.find(post => post.id === post_id).comments.filter(comment => comment.id !== comment_id)
+        
+        const associatedPost = posts.find(post => post.id === post_id)
+        const newPost = associatedPost.comments.filter(comment => comment.id !== comment_id)
+        console.log('this is the new post', newPost)
         setPosts(prevState => prevState.map((post) => {
-            return post.id === post_id ? associatedPost : post 
+            return post.id === post_id ? newPost : post 
         }))  
+        console.log('this is the posts array', posts)
         setToggle(true)
     }
 
