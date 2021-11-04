@@ -16,8 +16,7 @@ import {
 } from '../services/posts'
 import {
     createComment,
-    putComment,
-    deleteComment
+    putComment
 } from '../services/comments'
 
 
@@ -36,8 +35,8 @@ export default function MainContainer({ currentUser }) {
     },[])
 
     useEffect(() => {
-        setLatestPosts(posts.slice(-3))
-    },[posts.length])
+        setLatestPosts(posts?.slice(-3))
+    },[posts])
 
     const handlePostCreate = async (formData) => {
         const newPost = await createPost(formData)
@@ -51,7 +50,7 @@ export default function MainContainer({ currentUser }) {
             prevState.map(post => (
                 post.id === Number(id) ? updatedPost : post
             )))
-        history.push('/posts')
+        history.push(`/posts/${id}`)
     }
 
     const handlePostDelete = async (id) => {
@@ -72,15 +71,6 @@ export default function MainContainer({ currentUser }) {
 
     }
 
-    const handleCommentDelete = async (post_id, comment_id) => {
-        await deleteComment(post_id, comment_id)
-        setPosts(prevState => {
-            const associatedPost = prevState.find(post => post.id === Number(post_id))
-            associatedPost.comments.filter(comment => comment.id !== Number(comment_id))
-        })
-        history.push(`/posts/${post_id}`)
-    }
-    
     return (
         <div>
             <Switch>
@@ -103,8 +93,9 @@ export default function MainContainer({ currentUser }) {
                 <Route path='/posts/:id'>
                     <PostDetail 
                         currentUser={currentUser}
+                        posts={posts}
+                        setPosts={setPosts}
                         handlePostDelete={handlePostDelete}
-                        handleCommentDelete={handleCommentDelete}
                     />
                 </Route>
                 <Route path='/posts'>
