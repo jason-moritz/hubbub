@@ -60,9 +60,22 @@ export default function MainContainer({ currentUser }) {
         history.push('/posts')
     }
 
+    const handleCommentCreate = async (formData) => {
+        const newComment = await CommentCreate(formData)
+        setPosts(prevState => {
+            const associatedPost = prevState.find(post => post.id === newComment.post_id)
+            associatedPost.comments.push(newComment.id)
+        })
+    }
+
     return (
         <div>
             <Switch>
+                <Route path='/posts/:id/comments'>
+                    <CommentCreate
+                        handleCommentCreate={handleCommentCreate}
+                    />
+                </Route>
                 <Route path='/posts/create'>
                     <PostCreate
                         handlePostCreate={handlePostCreate}

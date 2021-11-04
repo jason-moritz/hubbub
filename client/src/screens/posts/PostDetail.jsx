@@ -26,8 +26,7 @@ export default function PostDetail({ currentUser, handlePostDelete }) {
             />
             <CommentCard
                 currentUser={currentUser}
-                comment={comment}
-            
+                // comment={comment}
             />
         </div>
     )
