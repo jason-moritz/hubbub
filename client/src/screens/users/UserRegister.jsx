@@ -25,6 +25,12 @@ export default function UserRegister({ handleRegister }) {
     }
 
     return (
+        <div>
+        <TextField
+            type='file'
+            value={e => e.target.files}
+            onChange={}
+        />
         <form onSubmit={handleSubmit}>
             <TextField
                 autoFocus
@@ -58,5 +64,6 @@ export default function UserRegister({ handleRegister }) {
             />
             <button>Submit</button>
         </form>
+        </div>
     )
 }
