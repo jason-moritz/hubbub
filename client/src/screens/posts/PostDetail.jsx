@@ -24,6 +24,11 @@ export default function PostDetail({ currentUser, handlePostDelete }) {
                 post={post}
                 handlePostDelete={handlePostDelete}
             />
+            <CommentCard
+                currentUser={currentUser}
+                comment={comment}
+            
+            />
         </div>
     )
 }

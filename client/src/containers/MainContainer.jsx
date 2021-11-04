@@ -5,6 +5,8 @@ import Posts from '../screens/posts/Posts'
 import PostCreate from '../screens/posts/PostCreate'
 import PostDetail from '../screens/posts/PostDetail'
 import PostUpdate from '../screens/posts/PostUpdate'
+import CommentCreate from '../screens/comments/CommentCreate'
+import CommentUpdate from '../screens/comments/CommentUpdate'
 import {
     getAllPosts,
     getOnePost,
@@ -12,6 +14,11 @@ import {
     putPost,
     deletePost
 } from '../services/posts'
+import {
+    createComment,
+    putComment,
+    deleteComment
+} from '../services/comments'
 
 
 export default function MainContainer({ currentUser }) {
