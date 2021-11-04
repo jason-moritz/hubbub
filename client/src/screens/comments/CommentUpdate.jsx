@@ -16,7 +16,7 @@ export default function CommentUpdate({ handleCommentUpdate }) {
         const prefillFormData = async () => {
             const commentData = await getOneComment(post_id, id)
             setFormData({
-                content: commentData.comment
+                content: commentData.content
             })
         }
         prefillFormData()
@@ -37,7 +37,7 @@ export default function CommentUpdate({ handleCommentUpdate }) {
 
     return (
         <div>
-            <h1>Add your 2 cents!</h1>
+            <h1>Update your 2 cents!</h1>
             <form onSubmit={handleSubmit}>
                 <TextField
                     autoFocus
