@@ -34,7 +34,7 @@ export default function PostDetail({ currentUser, posts, setPosts, handlePostDel
         setPosts(prevState => prevState.map((post) => {
             return post.id === post_id ? associatedPost : post 
         }))  
-        
+
         setToggle(true)
     }
 
@@ -47,6 +47,9 @@ export default function PostDetail({ currentUser, posts, setPosts, handlePostDel
                 post={post}
                 handlePostDelete={handlePostDelete}
             />
+            <Link to={`/posts/${post.id}/comments/create`}>
+                <button>Add your two cents</button>
+            </Link>
             {comments.map(comment => (
                 <CommentCard
                     currentUser={currentUser}

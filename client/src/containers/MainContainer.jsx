@@ -59,12 +59,14 @@ export default function MainContainer({ currentUser }) {
         history.push('/posts')
     }
 
-    const handleCommentCreate = async (formData) => {
-        const newComment = await CommentCreate(formData)
-        setPosts(prevState => {
-            const associatedPost = prevState.find(post => post.id === newComment.post_id)
-            associatedPost.comments.push(newComment.id)
-        })
+    const handleCommentCreate = async (post_id, formData) => {
+        const newComment = await CommentCreate(post_id, formData)
+        const associatedPost = posts.find(post => post.id === post_id)
+        associatedPost.comments.push(newComment.id)
+
+        setPosts(prevState => prevState.map(post => {
+            return post.id === post_id ? associatedPost : post
+        }))
     }
 
     const handleCommentUpdate = async (post_id, comment_id, formData) => {
@@ -74,7 +76,7 @@ export default function MainContainer({ currentUser }) {
     return (
         <div>
             <Switch>
-                <Route path='/posts/:id/comments'>
+                <Route path='/posts/:id/comments/create'>
                     <CommentCreate
                         handleCommentCreate={handleCommentCreate}
                     />
