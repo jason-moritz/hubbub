@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { TextField } from '@mui/material'
 
 
-export default function UserRegister({ handleRegister }) {
+export default function UserRegister({ handleRegister, handleImageUpload, userImage }) {
     const [formData, setFormData] = useState({
         username: '',
         email: '',
@@ -24,12 +24,19 @@ export default function UserRegister({ handleRegister }) {
         handleRegister(formData)
     }
 
+    const handleImage = async (e) => {
+        const upload_url = await handleImageUpload(e.target.files[0])
+        setFormData(prevState => ({
+            ...prevState,
+            image_url: upload_url 
+        }))
+    }
+
     return (
         <div>
         <TextField
             type='file'
-            value={e => e.target.files}
-            onChange={}
+            onChange={handleImage}
         />
         <form onSubmit={handleSubmit}>
             <TextField
@@ -47,13 +54,13 @@ export default function UserRegister({ handleRegister }) {
                 value={email}
                 onChange={handleChange}
             />
-            <TextField
+            {/* <TextField
                 type='text'
                 label='Image'
                 name='image_url'
                 value={image_url}
                 onChange={handleChange}
-            />
+            /> */}
             <TextField
                 minLength='6'
                 type='password'

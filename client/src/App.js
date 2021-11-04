@@ -11,10 +11,12 @@ import {
   userVerify, 
   removeToken 
 } from './services/users'
+import { imageUpload } from './services/images'
 
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
+  const [userImage, setUserImage] = useState(null)
   const history = useHistory()
 
   useEffect(() => {
@@ -43,6 +45,11 @@ function App() {
     removeToken()
   }
 
+  const handleImageUpload = async (image) => {
+    const res = await imageUpload(image)
+    setUserImage(res.secure_url)
+  }
+
   return (
     <div className="App">
       <Layout
@@ -58,6 +65,8 @@ function App() {
           <Route path='/register'>
             <UserRegister
               handleRegister={handleRegister}
+              handleImageUpload={handleImageUpload}
+              userImage={userImage}
             />
           </Route>
           <Route path='/'>
