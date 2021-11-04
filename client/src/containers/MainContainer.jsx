@@ -76,7 +76,7 @@ export default function MainContainer({ currentUser }) {
     return (
         <div>
             <Switch>
-                <Route path='/posts/:id/comments/:id/update'>
+                <Route path='/posts/:post_id/comments/:id/update'>
                     {currentUser ?
                         <CommentUpdate
                             handleCommentUpdate={handleCommentUpdate}

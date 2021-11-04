@@ -10,13 +10,13 @@ export default function CommentUpdate({ handleCommentUpdate }) {
     })
 
     const { content } = formData
-    const { id } = useParams()
+    const { post_id, id } = useParams()
 
     useEffect(() => {
-        // const prefillFormData = async () => {
-        //     const commentData = await getOneComment()
-        // }
-        console.log(id)
+        const prefillFormData = async () => {
+            const commentData = await getOneComment()
+        }
+        
     },[id])
 
     const handleChange = (e) => {
