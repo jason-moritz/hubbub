@@ -61,11 +61,8 @@ export default function MainContainer({ currentUser }) {
 
     const handleCommentCreate = async (post_id, formData) => {
         const newComment = await createComment(post_id, formData)
-        debugger
         const associatedPost = posts.find(post => post.id === Number(post_id))
-        debugger
         associatedPost.comments.push({id: newComment.id})
-        debugger
         setPosts(prevState => prevState.map(post => {
             return post.id === post_id ? associatedPost : post
         }))
