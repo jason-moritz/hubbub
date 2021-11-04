@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { getOneComment } from '../../services/comments'
 import { TextField } from '@mui/material'
 
 
@@ -12,10 +13,10 @@ export default function CommentUpdate({ handleCommentUpdate }) {
     const { id } = useParams()
 
     useEffect(() => {
-        const prefillFormData = () => {
-
-        }
-        
+        // const prefillFormData = async () => {
+        //     const commentData = await getOneComment()
+        // }
+        console.log(id)
     },[id])
 
     const handleChange = (e) => {
@@ -33,7 +34,7 @@ export default function CommentUpdate({ handleCommentUpdate }) {
 
     return (
         <div>
-            
+            this is the comment update page
         </div>
     )
 }
