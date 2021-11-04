@@ -24,18 +24,17 @@ export default function PostDetail({ currentUser, posts, setPosts, handlePostDel
 
     const handleCommentDelete = async (post_id, comment_id) => {
         await deleteComment(post_id, comment_id)
+        setToggle(false)
         setComments(prevState => prevState.filter(comment => comment.id !== comment_id))
-        debugger
-        const associatedPost = posts.find(post => post.id === Number(post_id))
-        associatedPost.comments.filter(comment => comment.id !== Number(comment_id))
+        const associatedPost = posts.find(post => post.id === post_id).comments.filter(comment => comment.id !== comment_id)
         setPosts(prevState => prevState.map((post) => {
-            return post.id === Number(post_id) ? associatedPost : post 
+            return post.id === post_id ? associatedPost : post 
         }))  
-        history.push('/posts')
+        setToggle(true)
     }
 
     if (!toggle) return <h3>loading</h3>
-    debugger
+
     return (
         <div>
             <PostCard
