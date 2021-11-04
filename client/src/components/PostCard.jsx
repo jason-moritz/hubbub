@@ -24,13 +24,6 @@ export default function PostCard({ currentUser, post, handlePostDelete }) {
             ) : (
                 <>    
                     <h5>Comments: {post.comments.length}</h5>
-                    {currentUser && currentUser.id === post?.user_id ? (
-                        <>
-                            <Link to={`/posts/${post.id}/update`}>Edit</Link>
-                            <button onClick={() => handlePostDelete(post.id)}>Delete</button>
-                        </>
-                    ) : (null)
-                    }
                     <Link to={`/posts/${post.id}`}>Read more!</Link>
                 </>
             )}

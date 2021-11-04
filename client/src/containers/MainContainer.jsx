@@ -68,6 +68,10 @@ export default function MainContainer({ currentUser }) {
         })
     }
 
+    const handleCommentUpdate = async (post_id, comment_id, formData) => {
+
+    }
+
     const handleCommentDelete = async (post_id, comment_id) => {
         await deleteComment(post_id, comment_id)
         setPosts(prevState => {
