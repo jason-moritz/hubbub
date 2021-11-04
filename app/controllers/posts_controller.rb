@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :authorize_request, except: [:index, :show]
   # GET /posts
   def index
-    @posts = Post.all
+    @posts = Post.all.sort { |a, b| a.id - b.id }
     render json: @posts, include: [
       user: { only: ['username', 'image_url'] },
       comments: { only: ['id'] }
