@@ -16,7 +16,6 @@ import { imageUpload } from './services/images'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
-  const [userImage, setUserImage] = useState(null)
   const history = useHistory()
 
   useEffect(() => {
@@ -47,7 +46,7 @@ function App() {
 
   const handleImageUpload = async (image) => {
     const res = await imageUpload(image)
-    setUserImage(res.secure_url)
+    return res
   }
 
   return (
@@ -66,7 +65,6 @@ function App() {
             <UserRegister
               handleRegister={handleRegister}
               handleImageUpload={handleImageUpload}
-              userImage={userImage}
             />
           </Route>
           <Route path='/'>

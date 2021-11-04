@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { TextField } from '@mui/material'
 
 
-export default function UserRegister({ handleRegister, handleImageUpload, userImage }) {
+export default function UserRegister({ handleRegister, handleImageUpload }) {
     const [formData, setFormData] = useState({
         username: '',
         email: '',
@@ -25,10 +25,10 @@ export default function UserRegister({ handleRegister, handleImageUpload, userIm
     }
 
     const handleImage = async (e) => {
-        const upload_url = await handleImageUpload(e.target.files[0])
+        const uploaded_url = await handleImageUpload(e.target.files[0])
         setFormData(prevState => ({
             ...prevState,
-            image_url: upload_url 
+            image_url: uploaded_url
         }))
     }
 
