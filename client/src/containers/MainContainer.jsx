@@ -76,6 +76,15 @@ export default function MainContainer({ currentUser }) {
     return (
         <div>
             <Switch>
+                <Route path='/posts/:id/comments/:id/update'>
+                    {currentUser ?
+                        <CommentUpdate
+                            handleCommentUpdate={handleCommentUpdate}
+                        />
+                        :
+                        <Redirect to='/login' />
+                    }
+                </Route>
                 <Route path='/posts/:id/comments/create'>
                     {currentUser ?
                         <CommentCreate
