@@ -18,6 +18,10 @@ import { ThemeProvider, createTheme } from '@mui/material/styles'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
+  const [toggleError1, setToggleError1] = useState(false)
+  const [toggleError2, setToggleError2] = useState(false)
+  const [toggleError3, setToggleError3] = useState(false)
+  const [toggleError4, setToggleError4] = useState(false)
   const history = useHistory()
 
   useEffect(() => {
