@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: :update
+  # before_action :set_user, only: :update
 
   # GET /users
   # def index
@@ -30,6 +30,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
+    @user = @current_user
     if @user.update(user_params)
       @token = encode({ id: @user.id })
       render json: {

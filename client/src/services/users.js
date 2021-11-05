@@ -23,6 +23,17 @@ export const userRegister = async (registerData) => {
     }
 }
 
+export const putUser = async (userData) => {
+    try {
+        const res = await api.post('/users/1', userData)
+        localStorate.setItem('authToken', res.data.token)
+        api.defaults.headers.common.authorization = `Bearer ${res.data.token}`
+        return res.data.user
+    } catch (error) {
+        throw error
+    }
+}
+
 export const userVerify = async () => {
     try {
         const token = localStorage.getItem('authToken')

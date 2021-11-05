@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { TextField } from '@mui/material'
 
 
-export default function UserRegister({ handleRegister, handleImageUpload }) {
+export default function UserUpdate({  }) {
     const [formData, setFormData] = useState({
         username: '',
         email: '',
