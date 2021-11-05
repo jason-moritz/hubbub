@@ -36,7 +36,7 @@
 
 .post-card-title {
   font-size: xx-large;
-  text-align: center;
+  text-align: left;
 }
 
 .post-card-comment-counter {
@@ -50,11 +50,13 @@
   margin-left: 1rem;
 }
 
-.post-card-link {
-  color: #1976d2;
-  font-size: medium;
+.post-card-content {
+  text-align: left;
+  font-size: large;
 }
-
+.post-card-link,
 .post-card-link:visited {
   color: #1976d2;
+  text-decoration: none;
+  font-size: medium;
 }

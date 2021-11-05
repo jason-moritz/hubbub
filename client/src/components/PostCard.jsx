@@ -1,5 +1,6 @@
 import './PostCard.css'
 import { Link, useParams } from 'react-router-dom'
+import { Button } from '@mui/material'
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline'
 
 export default function PostCard({ currentUser, post, handlePostDelete }) {
@@ -21,8 +22,10 @@ export default function PostCard({ currentUser, post, handlePostDelete }) {
           </div>
           {currentUser && currentUser.id === post?.user_id ? (
             <div className='post-card-edit-delete'>
-              <Link to={`/posts/${post.id}/update`}>Edit</Link>
-              <button onClick={() => handlePostDelete(post.id)}>Delete</button>
+              <Link className='post-card-link' to={`/posts/${post.id}/update`}>
+                <Button>Edit</Button>
+              </Link>
+              <Button onClick={() => handlePostDelete(post.id)}>Delete</Button>
             </div>
           ) : null}
         </>
@@ -34,7 +37,7 @@ export default function PostCard({ currentUser, post, handlePostDelete }) {
           </div>
           <div className='post-card-link'>
             <Link className='post-card-link' to={`/posts/${post.id}`}>
-              Read more!
+              <Button>Read more!</Button>
             </Link>
           </div>
         </>
