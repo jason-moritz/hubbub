@@ -1,0 +1,15 @@
+.user-login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-login-link,
+.user-login-link:visited {
+  text-decoration: none;
+}
+
+.user-login-form {
+  width: 90vw;
+  max-width: 400px;
+}
