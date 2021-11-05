@@ -32,10 +32,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       @token = encode({ id: @user.id })
-      render json: {
-        user: @user.attributes.except('password_digest'),
-        token: @token
-      }, status: :accepted
+      render json: @user.attributes.except('password_digest'),status: :accepted
     else
       render json: @user.errors, status: :unprocessable_entity
     end
@@ -54,6 +51,10 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:username, :email, :image_url, :password)
+      params.require(:user).permit(:username, :email, :image_url)
+    end
+
+    def password_params
+      params.require(:user).permit(:password)
     end
 end

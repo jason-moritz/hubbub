@@ -9,16 +9,16 @@ export default function UserUpdate({ currentUser, handleUpdate }) {
         email: '',
         image_url: ''
     })
-    const { username, email, image_url, password } = formData
+    // const { username, email, image_url, password } = formData
+    const { id, username, email, image_url } = currentUser
 
-    // useEffect(() => {
-    //     const { username, email, image_url } = currentUser
-    //     setFormData({
-    //         username: username,
-    //         email: email,
-    //         image_url: image_url
-    //     })
-    // })
+    useEffect(() => {
+        setFormData({
+            username: username,
+            email: email,
+            image_url: image_url
+        })
+    },[])
     const handleChange = (e) => {
         const { name, value } = e.target
         setFormData(prevState => ({
@@ -29,7 +29,7 @@ export default function UserUpdate({ currentUser, handleUpdate }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        handleUpdate(formData)
+        handleUpdate(id, formData)
     }
 
     // const handleImage = async (e) => {
@@ -56,14 +56,14 @@ export default function UserUpdate({ currentUser, handleUpdate }) {
                 type='text'
                 label='Username'
                 name='username'
-                value={username}
+                value={formData.username}
                 onChange={handleChange}
             />
             <TextField
                 type='email'
                 label='Email'
                 name='email'
-                value={email}
+                value={formData.email}
                 onChange={handleChange}
             />
             {/* <TextField

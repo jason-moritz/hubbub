@@ -40,8 +40,8 @@ function App() {
     history.push('/')
   }
 
-  const handleUpdate = async (formData) => {
-    const userData = await putUser(formData)
+  const handleUpdate = async (id, formData) => {
+    const userData = await putUser(id, formData)
     setCurrentUser(userData)
     history.push('/')
   }
