@@ -1,5 +1,6 @@
 import './PostCard.css'
 import { Link, useParams } from 'react-router-dom'
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline'
 
 export default function PostCard({ currentUser, post, handlePostDelete }) {
   const { id } = useParams()
@@ -28,10 +29,13 @@ export default function PostCard({ currentUser, post, handlePostDelete }) {
       ) : (
         <>
           <div className='post-card-comment-counter'>
-            <h5>Comments: {post.comments?.length}</h5>
+            <ChatBubbleOutlineIcon />
+            <h5 className='comment-counter'>{post.comments?.length}</h5>
           </div>
           <div className='post-card-link'>
-            <Link to={`/posts/${post.id}`}>Read more!</Link>
+            <Link className='post-card-link' to={`/posts/${post.id}`}>
+              Read more!
+            </Link>
           </div>
         </>
       )}
