@@ -1,3 +1,17 @@
 .footer {
-    flex-shrink: 0;
+  flex-shrink: 0;
+  color: #d7d6c7;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-linkedin-link:visited,
+.footer-github-link:visited {
+  color: #1976d2;
+}
+
+.footer-svg-container {
+  height: 30px;
+  width: 30px;
+  margin: 1rem;
 }

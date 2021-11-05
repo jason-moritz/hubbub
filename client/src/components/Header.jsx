@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Header.css'
-import logo from '../assets/logo.png'
+import Logo from '../assets/logo.png'
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
 import { Button, Menu, MenuItem } from '@mui/material'
@@ -72,7 +72,7 @@ export default function Header({ currentUser, handleLogout }) {
         </Menu>
       </div>
       <Link to='/'>
-        <img className='logo' src={logo} alt='hubbub-logo' />
+        <img className='logo' src={Logo} alt='hubbub-logo' />
       </Link>
     </header>
   )
