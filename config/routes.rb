@@ -6,8 +6,7 @@ Rails.application.routes.draw do
     resources :comments, except: [:index]
   end
 
-  resources :users, only: [:create]
-  put '/users/update', to: 'users#update'
+  resources :users, only: [:create, :update]
   get '/users/find', to: 'users#show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
