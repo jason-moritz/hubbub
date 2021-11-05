@@ -17,6 +17,11 @@ export default function Header({ currentUser, handleLogout }) {
     setToggle(null)
   }
 
+  const logout = () => {
+    handleLogout()
+    handleClose()
+  }
+
   return (
     <header className='header'>
       <div>
@@ -76,7 +81,7 @@ export default function Header({ currentUser, handleLogout }) {
                 </Link>
               </MenuItem>
               <MenuItem>
-                <Button onClick={handleLogout}>Logout</Button>
+                <Button onClick={logout}>Logout</Button>
               </MenuItem>
             </>
           ) : null}
