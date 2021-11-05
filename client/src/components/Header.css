@@ -4,18 +4,34 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
+  margin-bottom: 4rem;
 }
 
 .header-hamburger-button {
   height: 125px;
   width: 125px;
   display: flex;
-  align-items: center;
-  justify-content: baseline;
+  align-items: flex-end;
+  justify-content: center;
 }
 
+.welcome-user-message {
+  font-size: 20px;
+  padding-left: 8px;
+  color: #171b1a;
+}
+.header-navlink,
+.header-navlink:visited {
+  color: #1976d2;
+  text-decoration: none;
+}
 .logo {
   height: 125px;
   width: 125px;
+  padding-right: 40px;
+  padding-bottom: 8px;
   flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

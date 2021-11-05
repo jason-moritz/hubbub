@@ -26,12 +26,13 @@ export default function Header({ currentUser, handleLogout }) {
             aria-controls='nav-menu'
             aria-haspopup='true'
             aria-expanded={open ? 'true' : undefined}
+            sx={{ p: 0 }}
             onClick={handleClick}
           >
             {toggle === null ? (
-              <MenuIcon sx={{ fontSize: 40 }} />
+              <MenuIcon sx={{ fontSize: 40, p: 0 }} />
             ) : (
-              <CloseIcon sx={{ fontSize: 40 }} />
+              <CloseIcon sx={{ fontSize: 40, p: 0 }} />
             )}
           </Button>
         </div>
@@ -40,35 +41,45 @@ export default function Header({ currentUser, handleLogout }) {
           anchorEl={toggle}
           open={open}
           onClose={handleClose}
-          MenuListProps={{
-            'aria-labelledby': 'menu-button',
-          }}
+          transitionDuration={600}
         >
           {currentUser ? (
             <div>
               <MenuItem>
-                <p>Welcome {currentUser.username}</p>
-              </MenuItem>
-              <MenuItem>
-                <Link to='/update'>
-                  <button>Update User Info</button>
-                </Link>
-              </MenuItem>
-              <MenuItem>
-                <button onClick={handleLogout}>Logout</button>
+                <p className='welcome-user-message'>
+                  Welcome {currentUser.username}
+                </p>
               </MenuItem>
             </div>
           ) : (
             <MenuItem>
-              <Link to='/login'>Login/Register</Link>
+              <Link className='header-navlink' to='/login'>
+                <Button onClick={handleClose}>Login/Register</Button>
+              </Link>
             </MenuItem>
           )}
           <MenuItem>
-            <Link to='/posts'>Posts</Link>
+            <Link className='header-navlink' to='/posts'>
+              <Button onClick={handleClose}>Posts</Button>
+            </Link>
           </MenuItem>
-          <MenuItem>
-            {currentUser ? <Link to='/posts/create'>Create</Link> : null}
-          </MenuItem>
+          {currentUser ? (
+            <>
+              <MenuItem>
+                <Link className='header-navlink' to='/posts/create'>
+                  <Button onClick={handleClose}>Create</Button>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link className='header-navlink' to='/update'>
+                  <Button onClick={handleClose}>Update User Info</Button>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Button onClick={handleLogout}>Logout</Button>
+              </MenuItem>
+            </>
+          ) : null}
         </Menu>
       </div>
       <Link to='/'>
