@@ -7,7 +7,7 @@ export default function Home({ currentUser, latestPosts, handlePostDelete }) {
     <div>
       {currentUser ? (
         <>
-          <h1>Welcome back {currentUser.username}!</h1>
+          <h1>Welcome {currentUser.username}!</h1>
           <br />
           <h3>
             Let everyone know what's on your mind{' '}
@@ -16,16 +16,22 @@ export default function Home({ currentUser, latestPosts, handlePostDelete }) {
         </>
       ) : (
         <>
-          <h1>Welcome to Hubbub!</h1>
+          <h1 className='home-welcome-message'>Welcome to Hubbub!</h1>
           <br />
-          <h3>
-            <Link to='/register'>Sign up</Link>
+          <div className='home-helper-text'>
+            <span>
+              <Link className='home-sign-up-link' to='/register'>
+                Sign up
+              </Link>{' '}
+            </span>
             today and see what all the hubbub is about.
-          </h3>
+          </div>
         </>
       )}
+      <br />
+      <br />
       <div>
-        <h3>Latest Posts</h3>
+        <div className='home-latest-post-title'>Latest Posts</div>
         <div>
           {latestPosts.map(latestPost => (
             <div key={latestPost.id}>
