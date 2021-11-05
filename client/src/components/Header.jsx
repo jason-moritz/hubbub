@@ -20,19 +20,21 @@ export default function Header({ currentUser, handleLogout }) {
   return (
     <header className='header'>
       <div>
-        <Button
-          id='menu-button'
-          aria-controls='nav-menu'
-          aria-haspopup='true'
-          aria-expanded={open ? 'true' : undefined}
-          onClick={handleClick}
-        >
-          {toggle === null ? (
-            <MenuIcon sx={{ fontSize: 60 }} />
-          ) : (
-            <CloseIcon sx={{ fontSize: 60 }} />
-          )}
-        </Button>
+        <div className='header-hamburger-button'>
+          <Button
+            id='menu-button'
+            aria-controls='nav-menu'
+            aria-haspopup='true'
+            aria-expanded={open ? 'true' : undefined}
+            onClick={handleClick}
+          >
+            {toggle === null ? (
+              <MenuIcon sx={{ fontSize: 40 }} />
+            ) : (
+              <CloseIcon sx={{ fontSize: 40 }} />
+            )}
+          </Button>
+        </div>
         <Menu
           id='nav-menu'
           anchorEl={toggle}
