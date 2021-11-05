@@ -12,6 +12,9 @@ export default function Header({ currentUser, handleLogout }) {
             {currentUser ? (
                 <div>
                     <p>Welcome {currentUser.username}</p>
+                    <Link to='/update'>
+                        <button>Update User Info</button>
+                    </Link>
                     <button onClick={handleLogout}>Logout</button>
                 </div>
             ) : (

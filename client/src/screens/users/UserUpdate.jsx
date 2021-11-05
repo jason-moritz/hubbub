@@ -1,16 +1,24 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { TextField } from '@mui/material'
 
 
-export default function UserUpdate({  }) {
+export default function UserUpdate({ currentUser, handleUpdate }) {
     const [formData, setFormData] = useState({
         username: '',
         email: '',
-        image_url: '',
-        password: ''
+        image_url: ''
     })
     const { username, email, image_url, password } = formData
 
+    // useEffect(() => {
+    //     const { username, email, image_url } = currentUser
+    //     setFormData({
+    //         username: username,
+    //         email: email,
+    //         image_url: image_url
+    //     })
+    // })
     const handleChange = (e) => {
         const { name, value } = e.target
         setFormData(prevState => ({
@@ -21,26 +29,27 @@ export default function UserUpdate({  }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        handleRegister(formData)
+        handleUpdate(formData)
     }
 
-    const handleImage = async (e) => {
-        const uploaded_url = await handleImageUpload(e.target.files[0])
-        setFormData(prevState => ({
-            ...prevState,
-            image_url: uploaded_url
-        }))
-    }
+    // const handleImage = async (e) => {
+    //     const uploaded_url = await handleImageUpload(e.target.files[0])
+    //     setFormData(prevState => ({
+    //         ...prevState,
+    //         image_url: uploaded_url
+    //     }))
+    // }
 
     return (
         <div>
-        <TextField
+        {/* <TextField
             type='file'
             onChange={handleImage}
         />
         <div>
             <img src={formData.image_url} />
-        </div>
+        </div> */}
+        <Link to='/users/change-password'>Change Password</Link>
         <form onSubmit={handleSubmit}>
             <TextField
                 autoFocus
@@ -64,14 +73,6 @@ export default function UserUpdate({  }) {
                 value={image_url}
                 onChange={handleChange}
             /> */}
-            <TextField
-                minLength='6'
-                type='password'
-                label='Password'
-                name='password'
-                value={password}
-                onChange={handleChange}
-            />
             <button>Submit</button>
         </form>
         </div>
