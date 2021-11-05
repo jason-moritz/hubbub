@@ -32,9 +32,9 @@ export default function Home({ currentUser, latestPosts, handlePostDelete }) {
       <br />
       <div>
         <div className='home-latest-post-title'>Latest Posts</div>
-        <div>
+        <div className='home-latest-post-container'>
           {latestPosts.map(latestPost => (
-            <div key={latestPost.id}>
+            <div key={latestPost.id} className='home-latest-post-container'>
               <PostCard
                 currentUser={currentUser}
                 post={latestPost}
