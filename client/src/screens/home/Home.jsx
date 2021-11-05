@@ -7,12 +7,16 @@ export default function Home({ currentUser, latestPosts, handlePostDelete }) {
     <div>
       {currentUser ? (
         <>
-          <h1>Welcome {currentUser.username}!</h1>
+          <h1 className='home-welcome-message'>
+            Welcome {currentUser.username}!
+          </h1>
           <br />
-          <h3>
+          <div className='home-helper-text'>
             Let everyone know what's on your mind{' '}
-            <Link to='/posts/create'>here</Link>
-          </h3>
+            <Link className='home-link' to='/posts/create'>
+              here
+            </Link>
+          </div>
         </>
       ) : (
         <>
@@ -20,7 +24,7 @@ export default function Home({ currentUser, latestPosts, handlePostDelete }) {
           <br />
           <div className='home-helper-text'>
             <span>
-              <Link className='home-sign-up-link' to='/register'>
+              <Link className='home-link' to='/register'>
                 Sign up
               </Link>{' '}
             </span>

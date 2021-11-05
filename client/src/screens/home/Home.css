@@ -4,14 +4,13 @@
 
 .home-helper-text {
   font-size: large;
+  margin: 0 2rem;
 }
 
-.home-sign-up-link {
-  color: #1976d2;
-}
-
+.home-link,
 .home-sign-up-link:visited {
   color: #1976d2;
+  text-decoration: none;
 }
 
 .home-latest-post-title {
