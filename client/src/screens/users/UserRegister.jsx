@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Button, TextField } from '@mui/material'
-
 export default function UserRegister({ handleRegister, handleImageUpload }) {
   const [formData, setFormData] = useState({
     username: '',
@@ -35,14 +34,13 @@ export default function UserRegister({ handleRegister, handleImageUpload }) {
 
   return (
     <div className='user-register-container'>
-      <TextField focused fullWidth type='file' onChange={handleImage} />
+      <TextField fullWidth type='file' onChange={handleImage} />
       <div>
         <img src={formData.image_url} />
       </div>
       <form onSubmit={handleSubmit}>
         <TextField
           autoFocus
-          focused
           fullWidth
           required
           type='text'
@@ -53,7 +51,6 @@ export default function UserRegister({ handleRegister, handleImageUpload }) {
           onChange={handleChange}
         />
         <TextField
-          focused
           fullWidth
           required
           type='email'
@@ -71,7 +68,6 @@ export default function UserRegister({ handleRegister, handleImageUpload }) {
                 onChange={handleChange}
             /> */}
         <TextField
-          focused
           fullWidth
           required
           type='password'

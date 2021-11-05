@@ -14,6 +14,7 @@ import {
   removeToken,
 } from './services/users'
 import { imageUpload } from './services/images'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
@@ -56,37 +57,45 @@ function App() {
     return res
   }
 
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  })
+
   return (
     <div className='App'>
-      <Layout currentUser={currentUser} handleLogout={handleLogout}>
-        <Switch>
-          <Route path='/login'>
-            <UserLogin handleLogin={handleLogin} />
-          </Route>
-          <Route path='/register'>
-            <UserRegister
-              handleRegister={handleRegister}
-              handleImageUpload={handleImageUpload}
-            />
-          </Route>
-          <Route path='/update'>
-            {currentUser ? (
-              <UserUpdate
-                currentUser={currentUser}
-                handleUpdate={handleUpdate}
+      <ThemeProvider theme={darkTheme}>
+        <Layout currentUser={currentUser} handleLogout={handleLogout}>
+          <Switch>
+            <Route path='/login'>
+              <UserLogin handleLogin={handleLogin} />
+            </Route>
+            <Route path='/register'>
+              <UserRegister
+                handleRegister={handleRegister}
+                handleImageUpload={handleImageUpload}
               />
-            ) : (
-              <Redirect to='/login' />
-            )}
-          </Route>
-          <Route path='/'>
-            <MainContainer
-              currentUser={currentUser}
-              handleImageUpload={handleImageUpload}
-            />
-          </Route>
-        </Switch>
-      </Layout>
+            </Route>
+            <Route path='/update'>
+              {currentUser ? (
+                <UserUpdate
+                  currentUser={currentUser}
+                  handleUpdate={handleUpdate}
+                />
+              ) : (
+                <Redirect to='/login' />
+              )}
+            </Route>
+            <Route path='/'>
+              <MainContainer
+                currentUser={currentUser}
+                handleImageUpload={handleImageUpload}
+              />
+            </Route>
+          </Switch>
+        </Layout>
+      </ThemeProvider>
     </div>
   )
 }
