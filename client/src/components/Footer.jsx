@@ -1,6 +1,4 @@
 import { Link } from 'react-router-dom'
-import Github from '../assets/github.svg'
-import LinkedIn from '../assets/linkedin.svg'
 import './Footer.css'
 
 export default function Footer() {
