@@ -1,5 +1,11 @@
 .post-card {
-    width: 200px;
-    height: 300px;
-    border: solid 2px black;
+  width: 90%;
+  min-width: 300px;
+  max-width: 400px;
+  height: 40%;
+  min-height: 300px;
+  max-height: 400px;
+  background-color: #262f30;
+  margin: 2rem;
+  border-radius: 10px;
 }

@@ -1,3 +1,13 @@
 .header {
   flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 125px;
+  width: 125px;
+  flex-grow: 1;
 }

@@ -3,33 +3,41 @@ import { Link } from 'react-router-dom'
 import './Header.css'
 import logo from '../assets/logo.png'
 import MenuIcon from '@mui/icons-material/Menu'
+import CloseIcon from '@mui/icons-material/Close'
 import { Button, Menu, MenuItem } from '@mui/material'
 
 export default function Header({ currentUser, handleLogout }) {
-  const [toggle, setToggle] = useState(false)
-  const handleClick = () => {
-    setToggle(prevToggle => (prevToggle = !prevToggle))
+  const [toggle, setToggle] = useState(null)
+  const open = Boolean(toggle)
+  const handleClick = e => {
+    setToggle(e.currentTarget)
+  }
+
+  const handleClose = () => {
+    setToggle(null)
   }
 
   return (
     <header className='header'>
-      <Link to='/'>
-        <img src={logo} alt='hubbub-logo' />
-      </Link>
       <div>
         <Button
           id='menu-button'
           aria-controls='nav-menu'
           aria-haspopup='true'
-          aria-expanded={toggle ? 'true' : undefined}
+          aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
         >
-          <MenuIcon />
+          {toggle === null ? (
+            <MenuIcon sx={{ fontSize: 60 }} />
+          ) : (
+            <CloseIcon sx={{ fontSize: 60 }} />
+          )}
         </Button>
         <Menu
           id='nav-menu'
-          open={toggle}
-          onClose={handleClick}
+          anchorEl={toggle}
+          open={open}
+          onClose={handleClose}
           MenuListProps={{
             'aria-labelledby': 'menu-button',
           }}
@@ -61,6 +69,9 @@ export default function Header({ currentUser, handleLogout }) {
           </MenuItem>
         </Menu>
       </div>
+      <Link to='/'>
+        <img className='logo' src={logo} alt='hubbub-logo' />
+      </Link>
     </header>
   )
 }
