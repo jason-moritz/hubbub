@@ -8,4 +8,34 @@
   background-color: #262f30;
   margin: 2rem;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.post-card-user {
+  display: flex;
+  flex-direction: row;
+  font-size: large;
+  justify-content: baseline;
+  align-items: center;
+}
+
+.avatar {
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  object-position: center;
+  object-fit: cover;
+}
+
+.username {
+  margin-left: 20px;
+  text-decoration: underline;
+}
+
+.post-card-title {
+  font-size: xx-large;
+  color: #1976d2;
+  text-align: left;
 }

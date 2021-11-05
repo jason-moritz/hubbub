@@ -7,8 +7,8 @@ export default function PostCard({ currentUser, post, handlePostDelete }) {
   return (
     <div className='post-card'>
       <div className='post-card-user'>
-        <img src={post.user?.image_url} alt='profile-pic' />
-        <h3>{post.user?.username}</h3>
+        <img className='avatar' src={post.user?.image_url} alt='profile-pic' />
+        <h3 className='username'>{post.user?.username}</h3>
       </div>
       <div className='post-card-title'>
         <h5>{post?.title}</h5>
