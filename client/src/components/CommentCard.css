@@ -1,5 +1,47 @@
 .comment-card {
-    width: 200px;
-    height: 200px;
-    border: solid 2px purple;
+  width: 50vw;
+  min-width: 200px;
+  max-width: 400px;
+  height: 20%;
+  min-height: 200px;
+  max-height: 400px;
+  background-color: #262f30;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 20px;
+}
+
+.comment-card-user {
+  display: flex;
+  flex-direction: row;
+  font-size: large;
+  justify-content: baseline;
+  align-items: center;
+}
+
+.comment-avatar {
+  height: 60px;
+  width: 60px;
+  border-radius: 50px;
+  object-position: center;
+  object-fit: cover;
+}
+
+.comment-username {
+  font-size: medium;
+  margin-left: 20px;
+  text-decoration: underline;
+}
+.comment-card-content {
+  text-align: left;
+  font-size: medium;
+}
+
+.comment-card-link,
+.post-card-link:visited {
+  color: #1976d2;
+  text-decoration: none;
+  font-size: medium;
 }
