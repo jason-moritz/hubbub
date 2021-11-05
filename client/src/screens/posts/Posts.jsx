@@ -11,7 +11,6 @@ export default function Posts({ currentUser, posts, handlePostDelete }) {
             <h1>All the Hubbub</h1>
                 {posts?.map((post, index) => (
                     <div key={index}>
-                        {console.log(post.user)}
                         <PostCard
                             currentUser={currentUser}
                             post={post}
