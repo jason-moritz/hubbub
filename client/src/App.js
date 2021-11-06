@@ -66,8 +66,6 @@ function App() {
 
   const handleUpdate = async (id, formData) => {
     const userData = await putUser(id, formData)
-    localStorage.removeItem('authToken')
-    removeToken()
     setCurrentUser(userData)
     history.push('/')
   }
