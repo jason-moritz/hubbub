@@ -32,7 +32,11 @@ export default function UserLogin({
       <Link className='user-login-link' to='/register'>
         <Button>Not a user? Sign up today!</Button>
       </Link>
-      <form className='user-login-form' onSubmit={handleSubmit}>
+      <form
+        className='user-login-form'
+        autoComplete='off'
+        onSubmit={handleSubmit}
+      >
         <TextField
           autoFocus
           required
@@ -59,7 +63,7 @@ export default function UserLogin({
           value={password}
           onChange={handleChange}
         />
-        <Button>Submit</Button>
+        <Button type='submit'>Submit</Button>
       </form>
     </div>
   )

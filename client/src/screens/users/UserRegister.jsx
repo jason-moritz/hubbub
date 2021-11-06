@@ -39,11 +39,16 @@ export default function UserRegister({ handleRegister, handleImageUpload }) {
       <div>
         <img src={formData.image_url} />
       </div>
-      <form onSubmit={handleSubmit}>
+      <form
+        className='user-register-form'
+        autoComplete='off'
+        onSubmit={handleSubmit}
+      >
         <TextField
           autoFocus
-          fullWidth
           required
+          fullWidth
+          id='user-register-username'
           type='text'
           variant='standard'
           label='Username'
@@ -52,8 +57,9 @@ export default function UserRegister({ handleRegister, handleImageUpload }) {
           onChange={handleChange}
         />
         <TextField
-          fullWidth
           required
+          fullWidth
+          id='user-register-email'
           type='email'
           variant='standard'
           label='Email'
@@ -69,8 +75,9 @@ export default function UserRegister({ handleRegister, handleImageUpload }) {
                 onChange={handleChange}
             /> */}
         <TextField
-          fullWidth
           required
+          fullWidth
+          id='user-register-password'
           type='password'
           minLength='6'
           variant='standard'
@@ -79,7 +86,7 @@ export default function UserRegister({ handleRegister, handleImageUpload }) {
           value={password}
           onChange={handleChange}
         />
-        <Button>Submit</Button>
+        <Button type='submit'>Submit</Button>
       </form>
     </div>
   )
