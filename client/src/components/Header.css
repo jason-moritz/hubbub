@@ -35,3 +35,23 @@
   justify-content: center;
   align-items: baseline;
 }
+
+@media screen and (min-width: 1024px) {
+  .header-hamburger-button {
+    height: 75px;
+  }
+
+  .logo {
+    height: 75px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header-hamburger-button {
+    height: 100px;
+  }
+
+  .logo {
+    height: 100px;
+  }
+}
