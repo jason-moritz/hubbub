@@ -1,5 +1,62 @@
 .post-card {
-    width: 200px;
-    height: 300px;
-    border: solid 2px black;
+  width: 80vw;
+  min-width: 200px;
+  max-width: 400px;
+  height: 20%;
+  min-height: 200px;
+  max-height: 400px;
+  background-color: #262f30;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 20px;
+}
+
+.post-card-user {
+  display: flex;
+  flex-direction: row;
+  font-size: large;
+  justify-content: baseline;
+  align-items: center;
+}
+
+.avatar {
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  object-position: center;
+  object-fit: cover;
+}
+
+.username {
+  margin-left: 20px;
+  text-decoration: underline;
+}
+
+.post-card-title {
+  font-size: x-large;
+  text-align: left;
+}
+
+.post-card-comment-counter {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: large;
+}
+
+.comment-counter {
+  margin-left: 1rem;
+}
+
+.post-card-content {
+  text-align: left;
+  font-size: large;
+}
+.post-card-link,
+.post-card-link:visited {
+  color: #90caf9;
+  text-decoration: none;
+  font-size: medium;
 }

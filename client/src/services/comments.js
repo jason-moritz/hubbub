@@ -1,9 +1,18 @@
 import api from './api-config'
 
 
-export const createComment = async (commentData) => {
+export const getOneComment = async (post_id, comment_id) => {
     try {
-        const res = await api.comment('/comments', { comment: commentData })
+        const res = await api.get(`/posts/${post_id}/comments/${comment_id}`)
+        return res.data
+    } catch (error) {
+        throw error
+    }
+}
+
+export const createComment = async (post_id, commentData) => {
+    try {
+        const res = await api.post(`/posts/${post_id}/comments`, { comment: commentData })
         return res.data
     } catch (error) {
         throw error
