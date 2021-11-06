@@ -18,7 +18,7 @@ export const registerUser = async registerData => {
     api.defaults.headers.common.authorization = `Bearer ${res.data.token}`
     return res.data.user
   } catch (error) {
-    return error.message
+    return error.response
   }
 }
 

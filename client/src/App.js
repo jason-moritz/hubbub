@@ -42,8 +42,14 @@ function App() {
 
   const handleRegister = async formData => {
     const userData = await registerUser(formData)
-    setCurrentUser(userData)
-    history.push('/')
+    if (userData.username) {
+      setCurrentUser(userData)
+      history.push('/')
+    } else if (userData.data.username) {
+      setUsernameError(true)
+    } else if (userData.data.email) {
+      setEmailError(true)
+    }
   }
 
   const handleLogin = async formData => {
