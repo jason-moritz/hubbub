@@ -37,6 +37,7 @@
 .comment-card-content {
   text-align: left;
   font-size: medium;
+  overflow-wrap: break-word;
 }
 
 .comment-card-link,

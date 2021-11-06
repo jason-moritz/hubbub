@@ -40,11 +40,12 @@ export default function UserRegister({
   }
 
   const handleImage = async e => {
-    const uploaded_url = await handleImageUpload(e.target.files[0])
+    const { files } = e.target
+    const uploaded_img = await handleImageUpload(files[0])
     setFormData(prevState => ({
       ...prevState,
-      image_url: uploaded_url.secure_url,
-      public_img: uploaded_url.public_id,
+      image_url: uploaded_img.secure_url,
+      public_img: uploaded_img.public_id,
     }))
   }
 
@@ -103,13 +104,6 @@ export default function UserRegister({
           value={email}
           onChange={handleChange}
         />
-        {/* <TextField
-                type='text'
-                label='Image'
-                name='image_url'
-                value={image_url}
-                onChange={handleChange}
-            /> */}
         <TextField
           required
           fullWidth
@@ -126,6 +120,8 @@ export default function UserRegister({
         />
         <Button type='submit'>Submit</Button>
       </form>
+      <br />
+      <br />
     </div>
   )
 }

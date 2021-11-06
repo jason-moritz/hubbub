@@ -10,11 +10,11 @@
 }
 
 .image-preview {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   object-position: center;
   object-fit: cover;
-  border-radius: 50px;
+  border-radius: 4px;
   border: solid 4px #90caf9;
   margin: 0 auto;
 }

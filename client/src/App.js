@@ -13,7 +13,7 @@ import {
   putUser,
   removeToken,
 } from './services/users'
-import { imageUpload } from './services/images'
+import { imageUpload, imageUpdate } from './services/images'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 
 function App() {
@@ -66,6 +66,8 @@ function App() {
 
   const handleUpdate = async (id, formData) => {
     const userData = await putUser(id, formData)
+    localStorage.removeItem('authToken')
+    removeToken()
     setCurrentUser(userData)
     history.push('/')
   }
@@ -74,10 +76,16 @@ function App() {
     setCurrentUser(null)
     localStorage.removeItem('authToken')
     removeToken()
+    history.push('/')
   }
 
   const handleImageUpload = async image => {
     const res = await imageUpload(image)
+    return res
+  }
+
+  const handleImageUpdate = async (public_url, image) => {
+    const res = await imageUpdate(public_url, image)
     return res
   }
 
@@ -118,6 +126,11 @@ function App() {
                 <UserUpdate
                   currentUser={currentUser}
                   handleUpdate={handleUpdate}
+                  handleImageUpload={handleImageUpload}
+                  usernameError={usernameError}
+                  setUsernameError={setUsernameError}
+                  emailError={emailError}
+                  setEmailError={setEmailError}
                 />
               ) : (
                 <Redirect to='/login' />
@@ -127,6 +140,7 @@ function App() {
               <MainContainer
                 currentUser={currentUser}
                 handleImageUpload={handleImageUpload}
+                handleImageUpdate={handleImageUpdate}
               />
             </Route>
           </Switch>

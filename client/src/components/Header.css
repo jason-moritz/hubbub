@@ -4,12 +4,12 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 4rem;
+  margin: 1rem 0.5rem 5rem 0.5rem;
 }
 
 .header-hamburger-button {
-  height: 125px;
-  width: 125px;
+  height: 50px;
+  width: auto;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -17,21 +17,41 @@
 
 .welcome-user-message {
   font-size: 20px;
-  padding-left: 8px;
-  color: #171b1a;
+  text-align: center;
+  text-overflow: ellipsis;
 }
+
 .header-navlink,
 .header-navlink:visited {
   color: #90caf9;
   text-decoration: none;
 }
 .logo {
-  height: 125px;
-  width: 125px;
-  padding-right: 40px;
+  height: 50px;
   padding-bottom: 8px;
+  padding-right: 24px;
   flex-grow: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
+}
+
+@media screen and (min-width: 1024px) {
+  .header-hamburger-button {
+    height: 75px;
+  }
+
+  .logo {
+    height: 75px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header-hamburger-button {
+    height: 100px;
+  }
+
+  .logo {
+    height: 100px;
+  }
 }
