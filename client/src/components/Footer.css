@@ -6,6 +6,8 @@
   justify-content: center;
 }
 
+.footer-linkedin-link,
+.footer-github-link,
 .footer-linkedin-link:visited,
 .footer-github-link:visited {
   color: #90caf9;

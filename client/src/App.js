@@ -74,6 +74,7 @@ function App() {
     setCurrentUser(null)
     localStorage.removeItem('authToken')
     removeToken()
+    history.push('/')
   }
 
   const handleImageUpload = async image => {
