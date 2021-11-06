@@ -104,13 +104,6 @@ export default function UserRegister({
           value={email}
           onChange={handleChange}
         />
-        {/* <TextField
-                type='text'
-                label='Image'
-                name='image_url'
-                value={image_url}
-                onChange={handleChange}
-            /> */}
         <TextField
           required
           fullWidth

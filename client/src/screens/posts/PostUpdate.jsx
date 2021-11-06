@@ -23,6 +23,7 @@ export default function PostUpdate({
       setFormData({
         title: title,
         content: content,
+        image_url: image_url,
         public_img: public_img,
       })
     }
@@ -44,7 +45,7 @@ export default function PostUpdate({
     handlePostUpdate(id, formData)
   }
 
-  const handleImage = async (public_url, e) => {
+  const handleImage = async (e, public_url) => {
     const { files } = e.target
     const uploaded_img = await handleImageUpdate(public_url, files[0])
     setFormData(prevState => ({

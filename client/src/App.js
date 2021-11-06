@@ -66,6 +66,8 @@ function App() {
 
   const handleUpdate = async (id, formData) => {
     const userData = await putUser(id, formData)
+    localStorage.removeItem('authToken')
+    removeToken()
     setCurrentUser(userData)
     history.push('/')
   }
@@ -124,6 +126,11 @@ function App() {
                 <UserUpdate
                   currentUser={currentUser}
                   handleUpdate={handleUpdate}
+                  handleImageUpload={handleImageUpload}
+                  usernameError={usernameError}
+                  setUsernameError={setUsernameError}
+                  emailError={emailError}
+                  setEmailError={setEmailError}
                 />
               ) : (
                 <Redirect to='/login' />
