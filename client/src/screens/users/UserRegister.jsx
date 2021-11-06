@@ -1,7 +1,16 @@
 import { useState } from 'react'
 import { Button, TextField } from '@mui/material'
 
-export default function UserRegister({ handleRegister, handleImageUpload }) {
+export default function UserRegister({
+  handleRegister,
+  handleImageUpload,
+  usernameError,
+  setUsernameError,
+  passwordError,
+  setPasswordError,
+  emailError,
+  setEmailError,
+}) {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -13,6 +22,11 @@ export default function UserRegister({ handleRegister, handleImageUpload }) {
 
   const handleChange = e => {
     const { name, value } = e.target
+
+    setUsernameError(false)
+    setPasswordError(false)
+    setEmailError(false)
+
     setFormData(prevState => ({
       ...prevState,
       [name]: value,
@@ -53,6 +67,8 @@ export default function UserRegister({ handleRegister, handleImageUpload }) {
           variant='standard'
           label='Username'
           name='username'
+          error={usernameError}
+          helperText={usernameError ? 'Username is already in use.' : null}
           value={username}
           onChange={handleChange}
         />
@@ -64,6 +80,10 @@ export default function UserRegister({ handleRegister, handleImageUpload }) {
           variant='standard'
           label='Email'
           name='email'
+          error={emailError}
+          helperText={
+            emailError ? 'Account already associated with this email.' : null
+          }
           value={email}
           onChange={handleChange}
         />
@@ -85,7 +105,7 @@ export default function UserRegister({ handleRegister, handleImageUpload }) {
           helperText='6 character minimum'
           value={password}
           onChange={handleChange}
-          inputProps={{ minLength: 6 }}
+          inputProps={{ minLength: 6, maxLength: 24 }}
         />
         <Button type='submit'>Submit</Button>
       </form>

@@ -32,8 +32,6 @@ export default function UserLogin({
     handleLogin(formData)
   }
 
-  console.log(usernameError)
-  console.log(passwordError)
   return (
     <div className='user-login-container'>
       <Link className='user-login-link' to='/register'>
@@ -71,7 +69,7 @@ export default function UserLogin({
           value={password}
           onChange={handleChange}
         />
-        <Button type='submit'>Submit</Button>
+        <Button type='submit'>Login</Button>
       </form>
     </div>
   )

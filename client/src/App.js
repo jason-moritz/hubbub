@@ -99,6 +99,12 @@ function App() {
               <UserRegister
                 handleRegister={handleRegister}
                 handleImageUpload={handleImageUpload}
+                usernameError={usernameError}
+                setUsernameError={setUsernameError}
+                passwordError={passwordError}
+                setPasswordError={setPasswordError}
+                emailError={emailError}
+                setEmailError={setEmailError}
               />
             </Route>
             <Route path='/update'>
