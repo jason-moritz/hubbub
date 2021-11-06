@@ -32,7 +32,10 @@ class UsersController < ApplicationController
   def update
     if @user.update(update_params)
       @token = encode({ id: @user.id })
-      render json: @user.attributes.except('password_digest'), status: :accepted
+      render json: {
+        user: @user.attributes.except('password_digest'),
+        token: @token
+      }, status: :accepted
     else
       render json: @user.errors, status: :unprocessable_entity
     end
