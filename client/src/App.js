@@ -7,9 +7,9 @@ import UserLogin from './screens/users/UserLogin'
 import UserUpdate from './screens/users/UserUpdate'
 import MainContainer from './containers/MainContainer'
 import {
-  userRegister,
-  userLogin,
-  userVerify,
+  registerUser,
+  loginUser,
+  verifyUser,
   putUser,
   removeToken,
 } from './services/users'
@@ -18,28 +18,29 @@ import { ThemeProvider, createTheme } from '@mui/material/styles'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
-  const [toggleError1, setToggleError1] = useState(false)
-  const [toggleError2, setToggleError2] = useState(false)
-  const [toggleError3, setToggleError3] = useState(false)
-  const [toggleError4, setToggleError4] = useState(false)
+  const [usernameError, setUsernameError] = useState(false)
+  const [passwordError, setPasswordError] = useState(false)
+  const [emailError, setEmailError] = useState(false)
+  const [passwordConfirmationError, setPasswordConfirmationError] =
+    useState(false)
   const history = useHistory()
 
   useEffect(() => {
     const handleVerify = async () => {
-      const userData = await userVerify()
+      const userData = await verifyUser()
       setCurrentUser(userData)
     }
     handleVerify()
   }, [])
 
   const handleRegister = async formData => {
-    const userData = await userRegister(formData)
+    const userData = await registerUser(formData)
     setCurrentUser(userData)
     history.push('/')
   }
 
   const handleLogin = async formData => {
-    const userData = await userLogin(formData)
+    const userData = await loginUser(formData)
     setCurrentUser(userData)
     history.push('/')
   }
@@ -73,7 +74,13 @@ function App() {
         <Layout currentUser={currentUser} handleLogout={handleLogout}>
           <Switch>
             <Route path='/login'>
-              <UserLogin handleLogin={handleLogin} />
+              <UserLogin
+                handleLogin={handleLogin}
+                usernameError={usernameError}
+                setUsernameError={setUsernameError}
+                passwordError={passwordError}
+                setPasswordError={setPasswordError}
+              />
             </Route>
             <Route path='/register'>
               <UserRegister

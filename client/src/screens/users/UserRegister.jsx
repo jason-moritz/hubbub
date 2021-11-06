@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Button, TextField } from '@mui/material'
+
 export default function UserRegister({ handleRegister, handleImageUpload }) {
   const [formData, setFormData] = useState({
     username: '',

@@ -1,6 +1,6 @@
 import api from './api-config'
 
-export const userLogin = async loginData => {
+export const loginUser = async loginData => {
   try {
     const res = await api.post('/auth/login', { authentication: loginData })
     localStorage.setItem('authToken', res.data.token)
@@ -11,7 +11,7 @@ export const userLogin = async loginData => {
   }
 }
 
-export const userRegister = async registerData => {
+export const registerUser = async registerData => {
   try {
     const res = await api.post('/users', { user: registerData })
     localStorage.setItem('authToken', res.data.token)
@@ -33,7 +33,7 @@ export const putUser = async (id, userData) => {
   }
 }
 
-export const userVerify = async () => {
+export const verifyUser = async () => {
   try {
     const token = localStorage.getItem('authToken')
     if (token) {

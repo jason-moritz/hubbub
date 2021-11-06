@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom'
 import { Button, TextField } from '@mui/material'
 import './UserLogin.css'
 
-export default function UserLogin({ handleLogin }) {
+export default function UserLogin({
+  handleLogin,
+  usernameError,
+  passwordError,
+}) {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
   })
-  const [toggle1, setToggle1] = useState(false)
-  const [toggle1, setToggle1] = useState(false)
   const { username, password } = formData
 
   const handleChange = e => {
@@ -33,14 +35,14 @@ export default function UserLogin({ handleLogin }) {
       <form className='user-login-form' onSubmit={handleSubmit}>
         <TextField
           autoFocus
-          required={1}
+          required
           fullWidth
           id='user-login-username'
           type='text'
           variant='standard'
           label='Username'
           name='username'
-          error={toggle1}
+          error={usernameError}
           value={username}
           onChange={handleChange}
         />
@@ -53,7 +55,7 @@ export default function UserLogin({ handleLogin }) {
           label='Password'
           name='password'
           helperText='6 character minimum'
-          error={toggle2}
+          error={passwordError}
           value={password}
           onChange={handleChange}
         />
