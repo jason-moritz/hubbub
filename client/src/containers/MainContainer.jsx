@@ -16,7 +16,11 @@ import {
 } from '../services/posts'
 import { createComment, putComment } from '../services/comments'
 
-export default function MainContainer({ currentUser, handleImageUpload }) {
+export default function MainContainer({
+  currentUser,
+  handleImageUpload,
+  handleImageUpdate,
+}) {
   const [posts, setPosts] = useState([])
   const [latestPosts, setLatestPosts] = useState([])
   const history = useHistory()
@@ -100,7 +104,11 @@ export default function MainContainer({ currentUser, handleImageUpload }) {
         </Route>
         <Route path='/posts/:id/update'>
           {currentUser ? (
-            <PostUpdate posts={posts} handlePostUpdate={handlePostUpdate} />
+            <PostUpdate
+              posts={posts}
+              handlePostUpdate={handlePostUpdate}
+              handleImageUpdate={handleImageUpdate}
+            />
           ) : (
             <Redirect to='/login' />
           )}

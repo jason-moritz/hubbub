@@ -16,4 +16,19 @@ export const imageUpload = async image => {
   }
 }
 
-export const imageUpdate = async image => {}
+export const imageUpdate = async (public_url, image) => {
+  try {
+    const deleteConfirmation = await imageApi.post(
+      `/image/destroy/${public_url}`
+    )
+    if (deleteConfirmation) {
+      const imageData = new FormData()
+      imageData.append('file', image)
+      imageData.append('upload_preset', 'hubbub_images')
+      const res = await imageApi.post('/image/upload', imageData)
+      return res.data
+    }
+  } catch (error) {
+    throw error
+  }
+}

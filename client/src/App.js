@@ -13,7 +13,7 @@ import {
   putUser,
   removeToken,
 } from './services/users'
-import { imageUpload } from './services/images'
+import { imageUpload, imageUpdate } from './services/images'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 
 function App() {
@@ -82,6 +82,11 @@ function App() {
     return res
   }
 
+  const handleImageUpdate = async (public_url, image) => {
+    const res = await imageUpdate(public_url, image)
+    return res
+  }
+
   const darkTheme = createTheme({
     palette: {
       mode: 'dark',
@@ -128,6 +133,7 @@ function App() {
               <MainContainer
                 currentUser={currentUser}
                 handleImageUpload={handleImageUpload}
+                handleImageUpdate={handleImageUpdate}
               />
             </Route>
           </Switch>
