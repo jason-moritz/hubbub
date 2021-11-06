@@ -1,0 +1,10 @@
+.post-create-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post-create-form {
+  width: 90vw;
+  max-width: 400px;
+}

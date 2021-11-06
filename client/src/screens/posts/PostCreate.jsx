@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Button, TextField } from '@mui/material'
+import './PostCreate.css'
 
 export default function PostCreate({ handlePostCreate, handleImageUpload }) {
   const [formData, setFormData] = useState({
@@ -33,13 +34,17 @@ export default function PostCreate({ handlePostCreate, handleImageUpload }) {
   }
 
   return (
-    <div>
+    <div className='post-create-container'>
       <h1>Create a new post!</h1>
-      <form className='post-create-form' onSubmit={handleSubmit}>
+      <form
+        className='post-create-form'
+        autoComplete='off'
+        onSubmit={handleSubmit}
+      >
         <TextField
           fullWidth
-          id='post-create-image'
           type='file'
+          id='post-create-photo-upload'
           label='Image'
           margin='normal'
           color={formData.image_url ? 'success' : 'primary'}
@@ -48,8 +53,11 @@ export default function PostCreate({ handlePostCreate, handleImageUpload }) {
               ? 'Image uploaded successfully!'
               : 'Upload a photo'
           }
-          onChange={handleChange}
+          onChange={handleImage}
         />
+        {formData.image_url ? (
+          <img className='image-preview' src={formData.image_url} />
+        ) : null}
         <TextField
           autoFocus
           required
