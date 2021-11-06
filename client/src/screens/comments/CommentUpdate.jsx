@@ -1,57 +1,65 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getOneComment } from '../../services/comments'
-import { TextField } from '@mui/material'
-
+import { Button, TextField } from '@mui/material'
 
 export default function CommentUpdate({ handleCommentUpdate }) {
-    const [formData, setFormData] = useState({
-        content: ''
-    })
+  const [formData, setFormData] = useState({
+    content: '',
+  })
 
-    const { content } = formData
-    const { post_id, id } = useParams()
+  const { content } = formData
+  const { post_id, id } = useParams()
 
-    useEffect(() => {
-        const prefillFormData = async () => {
-            const commentData = await getOneComment(post_id, id)
-            setFormData({
-                content: commentData.content
-            })
-        }
-        prefillFormData()
-    },[id])
-
-    const handleChange = (e) => {
-        const { name, value } = e.target
-        setFormData(prevState => ({
-            ...prevState,
-            [name]: value
-        }))
+  useEffect(() => {
+    const prefillFormData = async () => {
+      const commentData = await getOneComment(post_id, id)
+      setFormData({
+        content: commentData.content,
+      })
     }
+    prefillFormData()
+  }, [id])
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        handleCommentUpdate(post_id, id, formData)
-    }
+  const handleChange = e => {
+    const { name, value } = e.target
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value,
+    }))
+  }
 
-    return (
-        <div>
-            <h1>Update your 2 cents!</h1>
-            <form onSubmit={handleSubmit}>
-                <TextField
-                    autoFocus
-                    multiline={true}
-                    rows={10}
-                    id='comment'
-                    type='text'
-                    label='Comment'
-                    name='content'
-                    value={content}
-                    onChange={handleChange}
-                />
-                <button>Submit</button>
-            </form> 
-        </div>
-    )
+  const handleSubmit = e => {
+    e.preventDefault()
+    handleCommentUpdate(post_id, id, formData)
+  }
+
+  return (
+    <div className='comment-create-container'>
+      <h1>Update your 2 cents!</h1>
+      <form
+        className='comment-create-form'
+        autoComplete='off'
+        onSubmit={handleSubmit}
+      >
+        <TextField
+          autoFocus
+          required
+          fullWidth
+          id='comment-update-title'
+          type='text'
+          variant='standard'
+          label='Comment'
+          name='content'
+          margin='normal'
+          multiline={true}
+          rows={5}
+          value={content}
+          onChange={handleChange}
+          inputProps={{ minLength: 3, maxLength: 240 }}
+        />
+        <Button type='submit'>Submit</Button>
+      </form>
+    </div>
+  )
 }

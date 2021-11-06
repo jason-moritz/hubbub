@@ -1,0 +1,10 @@
+.comment-create-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comment-create-form {
+  width: 90vw;
+  max-width: 400px;
+}
