@@ -120,6 +120,8 @@ export default function UserRegister({
         />
         <Button type='submit'>Submit</Button>
       </form>
+      <br />
+      <br />
     </div>
   )
 }

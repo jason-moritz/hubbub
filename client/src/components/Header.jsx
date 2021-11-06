@@ -50,11 +50,9 @@ export default function Header({ currentUser, handleLogout }) {
         >
           {currentUser ? (
             <div>
-              <MenuItem>
-                <p className='welcome-user-message'>
-                  Welcome {currentUser.username}
-                </p>
-              </MenuItem>
+              <p className='welcome-user-message'>
+                Welcome {currentUser.username}
+              </p>
             </div>
           ) : (
             <MenuItem>

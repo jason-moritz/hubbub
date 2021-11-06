@@ -17,7 +17,8 @@
 
 .welcome-user-message {
   font-size: 20px;
-  padding-left: 8px;
+  text-align: center;
+  text-overflow: ellipsis;
 }
 
 .header-navlink,

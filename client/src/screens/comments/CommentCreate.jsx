@@ -50,6 +50,8 @@ export default function CommentCreate({ handleCommentCreate }) {
         />
         <Button type='submit'>Submit</Button>
       </form>
+      <br />
+      <br />
     </div>
   )
 }

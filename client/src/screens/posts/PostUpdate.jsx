@@ -111,6 +111,8 @@ export default function PostUpdate({
         />
         <Button type='submit'>Submit</Button>
       </form>
+      <br />
+      <br />
     </div>
   )
 }

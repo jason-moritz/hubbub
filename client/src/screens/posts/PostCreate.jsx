@@ -90,6 +90,8 @@ export default function PostCreate({ handlePostCreate, handleImageUpload }) {
         />
         <Button type='submit'>Submit</Button>
       </form>
+      <br />
+      <br />
     </div>
   )
 }

@@ -114,6 +114,8 @@ export default function UserUpdate({
         />
         <Button type='submit'>Submit</Button>
       </form>
+      <br />
+      <br />
     </div>
   )
 }

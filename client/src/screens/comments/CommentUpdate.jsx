@@ -60,6 +60,8 @@ export default function CommentUpdate({ handleCommentUpdate }) {
         />
         <Button type='submit'>Submit</Button>
       </form>
+      <br />
+      <br />
     </div>
   )
 }
