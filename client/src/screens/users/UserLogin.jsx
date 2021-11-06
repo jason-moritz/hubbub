@@ -51,6 +51,7 @@ export default function UserLogin({
           variant='standard'
           label='Username'
           name='username'
+          margin='normal'
           error={usernameError}
           helperText={usernameError ? 'Incorrect username' : null}
           value={username}
@@ -64,6 +65,7 @@ export default function UserLogin({
           variant='standard'
           label='Password'
           name='password'
+          margin='normal'
           error={passwordError}
           helperText={passwordError ? 'Incorrect password' : null}
           value={password}

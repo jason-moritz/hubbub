@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Button, TextField } from '@mui/material'
+import './UserRegister.css'
 
 export default function UserRegister({
   handleRegister,
@@ -49,15 +50,28 @@ export default function UserRegister({
 
   return (
     <div className='user-register-container'>
-      <TextField fullWidth type='file' onChange={handleImage} />
-      <div>
-        <img src={formData.image_url} />
-      </div>
       <form
         className='user-register-form'
         autoComplete='off'
         onSubmit={handleSubmit}
       >
+        <TextField
+          fullWidth
+          type='file'
+          id='user-register-photo-upload'
+          label='Image'
+          margin='normal'
+          color={formData.image_url ? 'success' : 'primary'}
+          helperText={
+            formData.image_url
+              ? 'Image uploaded successfully!'
+              : 'Upload a profile pic'
+          }
+          onChange={handleImage}
+        />
+        {formData.image_url ? (
+          <img className='image-preview' src={formData.image_url} />
+        ) : null}
         <TextField
           autoFocus
           required
@@ -67,6 +81,7 @@ export default function UserRegister({
           variant='standard'
           label='Username'
           name='username'
+          margin='normal'
           error={usernameError}
           helperText={usernameError ? 'Username is already in use.' : null}
           value={username}
@@ -80,6 +95,7 @@ export default function UserRegister({
           variant='standard'
           label='Email'
           name='email'
+          margin='normal'
           error={emailError}
           helperText={
             emailError ? 'Account already associated with this email.' : null
@@ -102,6 +118,7 @@ export default function UserRegister({
           variant='standard'
           label='Password'
           name='password'
+          margin='normal'
           helperText='6 character minimum'
           value={password}
           onChange={handleChange}

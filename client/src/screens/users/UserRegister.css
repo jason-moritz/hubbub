@@ -1,3 +1,20 @@
 .user-register-container {
-  color: #1976d2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-register-form {
+  width: 90vw;
+  max-width: 400px;
+}
+
+.image-preview {
+  width: 100px;
+  height: 100px;
+  object-position: center;
+  object-fit: cover;
+  border-radius: 50px;
+  border: solid 4px #90caf9;
+  margin: 0 auto;
 }
