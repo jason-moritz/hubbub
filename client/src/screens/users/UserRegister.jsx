@@ -79,12 +79,13 @@ export default function UserRegister({ handleRegister, handleImageUpload }) {
           fullWidth
           id='user-register-password'
           type='password'
-          minLength='6'
           variant='standard'
           label='Password'
           name='password'
+          helperText='6 character minimum'
           value={password}
           onChange={handleChange}
+          inputProps={{ minLength: 6 }}
         />
         <Button type='submit'>Submit</Button>
       </form>

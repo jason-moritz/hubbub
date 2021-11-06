@@ -58,7 +58,6 @@ export default function UserLogin({
           variant='standard'
           label='Password'
           name='password'
-          helperText='6 character minimum'
           error={passwordError}
           value={password}
           onChange={handleChange}
