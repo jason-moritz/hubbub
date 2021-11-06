@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, TextField } from '@mui/material'
 import './UserLogin.css'
@@ -6,7 +6,9 @@ import './UserLogin.css'
 export default function UserLogin({
   handleLogin,
   usernameError,
+  setUsernameError,
   passwordError,
+  setPasswordError,
 }) {
   const [formData, setFormData] = useState({
     username: '',
@@ -16,6 +18,9 @@ export default function UserLogin({
 
   const handleChange = e => {
     const { name, value } = e.target
+    setUsernameError(false)
+    setPasswordError(false)
+
     setFormData(prevState => ({
       ...prevState,
       [name]: value,
@@ -27,6 +32,8 @@ export default function UserLogin({
     handleLogin(formData)
   }
 
+  console.log(usernameError)
+  console.log(passwordError)
   return (
     <div className='user-login-container'>
       <Link className='user-login-link' to='/register'>
@@ -47,6 +54,7 @@ export default function UserLogin({
           label='Username'
           name='username'
           error={usernameError}
+          helperText={usernameError ? 'Incorrect username' : null}
           value={username}
           onChange={handleChange}
         />
@@ -59,6 +67,7 @@ export default function UserLogin({
           label='Password'
           name='password'
           error={passwordError}
+          helperText={passwordError ? 'Incorrect password' : null}
           value={password}
           onChange={handleChange}
         />

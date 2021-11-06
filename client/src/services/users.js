@@ -7,7 +7,7 @@ export const loginUser = async loginData => {
     api.defaults.headers.common.authorization = `Bearer ${res.data.token}`
     return res.data.user
   } catch (error) {
-    throw error
+    return error.message
   }
 }
 

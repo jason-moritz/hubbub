@@ -33,6 +33,13 @@ function App() {
     handleVerify()
   }, [])
 
+  useEffect(() => {
+    setUsernameError(false)
+    setPasswordError(false)
+    setEmailError(false)
+    setPasswordConfirmationError(false)
+  }, [])
+
   const handleRegister = async formData => {
     const userData = await registerUser(formData)
     setCurrentUser(userData)
@@ -41,8 +48,14 @@ function App() {
 
   const handleLogin = async formData => {
     const userData = await loginUser(formData)
-    setCurrentUser(userData)
-    history.push('/')
+    if (userData.username) {
+      setCurrentUser(userData)
+      history.push('/')
+    } else if (userData.includes('401')) {
+      setPasswordError(true)
+    } else {
+      setUsernameError(true)
+    }
   }
 
   const handleUpdate = async (id, formData) => {
