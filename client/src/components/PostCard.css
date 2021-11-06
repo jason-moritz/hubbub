@@ -53,7 +53,9 @@
 .post-card-content {
   text-align: left;
   font-size: large;
+  overflow-wrap: break-word;
 }
+
 .post-card-link,
 .post-card-link:visited {
   color: #90caf9;

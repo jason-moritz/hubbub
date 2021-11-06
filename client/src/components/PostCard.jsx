@@ -1,7 +1,7 @@
-import './PostCard.css'
 import { Link, useParams } from 'react-router-dom'
 import { Button } from '@mui/material'
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline'
+import './PostCard.css'
 
 export default function PostCard({ currentUser, post, handlePostDelete }) {
   const { id } = useParams()
