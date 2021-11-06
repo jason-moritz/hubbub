@@ -41,4 +41,14 @@
   .home-helper-text {
     font-size: 2rem;
   }
+
+  .home-latest-post-container {
+    flex-direction: row;
+    justify-content: center;
+    overflow-x: scroll;
+  }
+
+  .home-latest-post-card {
+    margin: 1rem;
+  }
 }
