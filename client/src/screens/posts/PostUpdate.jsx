@@ -13,6 +13,7 @@ export default function PostUpdate({
     image_url: '',
     public_img: '',
   })
+  const [toggle, setToggle] = useState(false)
   const { title, content, image_url } = formData
   const { id } = useParams()
 
@@ -42,17 +43,21 @@ export default function PostUpdate({
 
   const handleSubmit = e => {
     e.preventDefault()
+    setToggle(false)
     handlePostUpdate(id, formData)
   }
 
   const handleImage = async (e, public_url) => {
     const { files } = e.target
     const uploaded_img = await handleImageUpdate(public_url, files[0])
-    setFormData(prevState => ({
-      ...prevState,
-      image_url: uploaded_img.secure_url,
-      public_img: uploaded_img.public_id,
-    }))
+    if (uploaded_img.secure_url) {
+      setToggle(true)
+      setFormData(prevState => ({
+        ...prevState,
+        image_url: uploaded_img.secure_url,
+        public_img: uploaded_img.public_id,
+      }))
+    }
   }
 
   return (
@@ -69,11 +74,9 @@ export default function PostUpdate({
           id='post-update-photo-upload'
           label='Image'
           margin='normal'
-          color={formData.image_url ? 'success' : 'primary'}
+          color={toggle ? 'success' : 'primary'}
           helperText={
-            formData.image_url
-              ? 'Image updated successfully!'
-              : 'Upload a photo'
+            toggle ? 'Image updated successfully!' : 'Upload a new image'
           }
           onChange={handleImage}
         />

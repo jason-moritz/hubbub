@@ -17,7 +17,7 @@ export default function UserUpdate({
     image_url: '',
     public_img: '',
   })
-  // const { username, email, image_url, password } = formData
+  const [toggle, setToggle] = useState(false)
   const { id, username, email, image_url, public_img } = currentUser
 
   useEffect(() => {
@@ -39,22 +39,28 @@ export default function UserUpdate({
 
   const handleSubmit = e => {
     e.preventDefault()
+    setToggle(false)
     handleUpdate(id, formData)
   }
 
   const handleImage = async e => {
     const { files } = e.target
     const uploaded_img = await handleImageUpload(files[0])
-    setFormData(prevState => ({
-      ...prevState,
-      image_url: uploaded_img.secure_url,
-      public_img: uploaded_img.public_id,
-    }))
+    if (uploaded_img.secure_url) {
+      setToggle(true)
+      setFormData(prevState => ({
+        ...prevState,
+        image_url: uploaded_img.secure_url,
+        public_img: uploaded_img.public_id,
+      }))
+    }
   }
 
   return (
-    <div>
-      <Link to='/users/change-password'>Change Password</Link>
+    <div className='user-register-container'>
+      <Link className='user-login-link' to='/users/change-password'>
+        <Button>Change Password</Button>
+      </Link>
       <form
         className='user-register-form'
         autoComplete='off'
@@ -66,11 +72,9 @@ export default function UserUpdate({
           id='user-update-photo-upload'
           label='Image'
           margin='normal'
-          color={formData.image_url ? 'success' : 'primary'}
+          color={toggle ? 'success' : 'primary'}
           helperText={
-            formData.image_url
-              ? 'Image uploaded successfully!'
-              : 'Upload a profile pic'
+            toggle ? 'Image uploaded successfully!' : 'Upload a new profile pic'
           }
           onChange={handleImage}
         />
