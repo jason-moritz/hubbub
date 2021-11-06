@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { TextField } from '@mui/material'
+import { Button, TextField } from '@mui/material'
 
 export default function PostCreate({ handlePostCreate }) {
   const [formData, setFormData] = useState({
@@ -48,7 +48,7 @@ export default function PostCreate({ handlePostCreate }) {
           value={image_url}
           onChange={handleChange}
         />
-        <button>Submit</button>
+        <Button type='submit'>Submit</Button>
       </form>
     </div>
   )
