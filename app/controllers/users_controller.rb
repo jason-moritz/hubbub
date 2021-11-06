@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show update]
-
+  before_action :set_user, except: :create
+  before_action :authorize_request, except: :create
   # GET /users
   # def index
   #   @users = User.all
@@ -30,11 +30,25 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
-    if @user.update_attributes(user_params)
+    if @user.update(update_params)
       @token = encode({ id: @user.id })
       render json: @user.attributes.except('password_digest'), status: :accepted
     else
       render json: @user.errors, status: :unprocessable_entity
+    end
+  end
+
+  def update_password
+    if @user.authenticate(password_params[:old_password]) && password_params[:password] == password_params[:password_confirmation]
+      @user.update(password_params[:password])
+    end
+    if @user.update(password_params[:password])
+      @token = encode({ id: @user.id })
+      render json: @user.attributes.except('password_digest'), status: :accepted
+    else
+      render json: {
+        error: 'Passwords do not match.'
+      }, status: :unprocessable_entity
     end
   end
 
@@ -55,7 +69,11 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :email, :image_url, :password, :public_img)
   end
 
+  def update_params
+    params.require(:user).permit(:username, :email, :image_url, :public_img)
+  end
+
   def password_params
-    params.require(:user).permit(:password)
+    params.require(:security).permit(:old_password, :password, :password_confirmation)
   end
 end
