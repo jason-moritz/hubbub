@@ -10,6 +10,7 @@
 .hubbub-definition {
   font-style: italic;
 }
+
 .home-helper-text {
   font-size: large;
   margin: 0 2rem;
@@ -36,6 +37,11 @@
     font-size: 3rem;
   }
 
+  .hubbub-title {
+    font-size: 2rem;
+  }
+
+  .hubbub-definition,
   .home-helper-text {
     font-size: 1.5rem;
   }
@@ -46,15 +52,20 @@
     font-size: 4rem;
   }
 
+  .hubbub-title {
+    font-size: 3rem;
+  }
+
+  .hubbub-definition,
   .home-helper-text {
     font-size: 2rem;
   }
 
-  .home-latest-post-container {
+  /* .home-latest-post-container {
     flex-direction: row;
     justify-content: center;
     overflow-x: scroll;
-  }
+  } */
 
   .home-latest-post-card {
     margin: 1rem;

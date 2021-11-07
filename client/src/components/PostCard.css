@@ -24,7 +24,8 @@
 .avatar {
   height: 100px;
   width: 100px;
-  border-radius: 50px;
+  border: solid 4px #90caf9;
+  border-radius: 10px;
   object-position: center;
   object-fit: cover;
 }
