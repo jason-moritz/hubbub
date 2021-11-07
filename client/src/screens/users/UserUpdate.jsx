@@ -28,12 +28,12 @@ export default function UserUpdate({
       image_url: image_url,
       public_img: public_img,
     })
-  }, [])
+  }, [username, email, image_url, public_img])
 
   useEffect(() => {
     setUsernameError(false)
     setEmailError(false)
-  }, [])
+  }, [setUsernameError, setEmailError])
 
   const handleChange = e => {
     const { name, value } = e.target
@@ -92,7 +92,11 @@ export default function UserUpdate({
           onChange={handleImage}
         />
         {formData.image_url ? (
-          <img className='image-preview' src={formData.image_url} />
+          <img
+            className='image-preview'
+            src={formData.image_url}
+            alt='avatar'
+          />
         ) : null}
         <TextField
           autoFocus

@@ -27,7 +27,7 @@ export default function UserUpdatePassword({
     setPasswordError(false)
     setPasswordConfirmationError(false)
     setShowPassword(false)
-  }, [])
+  }, [setPasswordError, setPasswordConfirmationError, setShowPassword])
 
   const handleChange = e => {
     const { name, value } = e.target

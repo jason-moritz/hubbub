@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link, useParams, useHistory } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import PostCard from '../../components/PostCard'
 import CommentCard from '../../components/CommentCard'
 import { getOnePost } from '../../services/posts'
@@ -18,7 +18,6 @@ export default function PostDetail({
   const [comments, setComments] = useState(null)
   const [toggle, setToggle] = useState(false)
   const { id } = useParams()
-  const history = useHistory()
 
   useEffect(() => {
     const fetchPost = async () => {

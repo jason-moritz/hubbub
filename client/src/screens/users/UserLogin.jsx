@@ -26,7 +26,7 @@ export default function UserLogin({
     setUsernameError(false)
     setPasswordError(false)
     setShowPassword(false)
-  }, [])
+  }, [setUsernameError, setPasswordError, setShowPassword])
 
   const handleChange = e => {
     const { name, value } = e.target

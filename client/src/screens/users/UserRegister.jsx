@@ -25,14 +25,14 @@ export default function UserRegister({
     password: '',
     public_img: '',
   })
-  const { username, email, image_url, password } = formData
+  const { username, email, password } = formData
 
   useEffect(() => {
     setUsernameError(false)
     setEmailError(false)
     setPasswordError(false)
     setShowPassword(false)
-  }, [])
+  }, [setUsernameError, setEmailError, setPasswordError, setShowPassword])
 
   const handleChange = e => {
     const { name, value } = e.target
@@ -91,7 +91,11 @@ export default function UserRegister({
           onChange={handleImage}
         />
         {formData.image_url ? (
-          <img className='image-preview' src={formData.image_url} />
+          <img
+            className='image-preview'
+            src={formData.image_url}
+            alt='avatar'
+          />
         ) : null}
         <TextField
           autoFocus

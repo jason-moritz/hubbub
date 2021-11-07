@@ -15,7 +15,7 @@ export default function PostUpdate({
     public_img: '',
   })
   const [toggle, setToggle] = useState(false)
-  const { title, content, image_url } = formData
+  const { title, content } = formData
   const { id } = useParams()
 
   useEffect(() => {
