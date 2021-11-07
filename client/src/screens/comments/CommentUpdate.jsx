@@ -20,7 +20,7 @@ export default function CommentUpdate({ handleCommentUpdate }) {
       })
     }
     prefillFormData()
-  }, [id])
+  }, [id, post_id])
 
   const handleChange = e => {
     const { name, value } = e.target

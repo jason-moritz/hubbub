@@ -32,6 +32,7 @@ export default function PostCard({ currentUser, post, handlePostDelete }) {
           <img
             className='post-card-image-preview'
             src={post?.image_url ? post?.image_url : null}
+            alt='post-attachment-preview'
           />
           <div className='post-card-content'>
             <h5>{post?.content}</h5>

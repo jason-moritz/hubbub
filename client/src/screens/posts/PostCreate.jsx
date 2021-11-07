@@ -51,16 +51,18 @@ export default function PostCreate({ handlePostCreate, handleImageUpload }) {
           id='post-create-photo-upload'
           label='Image'
           margin='normal'
-          color={formData.image_url ? 'success' : 'primary'}
+          color={image_url ? 'success' : 'primary'}
           helperText={
-            formData.image_url
-              ? 'Image uploaded successfully!'
-              : 'Upload a photo'
+            image_url ? 'Image uploaded successfully!' : 'Upload a photo'
           }
           onChange={handleImage}
         />
-        {formData.image_url ? (
-          <img className='image-preview' src={formData.image_url} />
+        {image_url ? (
+          <img
+            className='image-preview'
+            src={image_url}
+            alt='post-attachment-preview'
+          />
         ) : null}
         <TextField
           autoFocus

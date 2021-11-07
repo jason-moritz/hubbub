@@ -7,13 +7,7 @@ import PostDetail from '../screens/posts/PostDetail'
 import PostUpdate from '../screens/posts/PostUpdate'
 import CommentCreate from '../screens/comments/CommentCreate'
 import CommentUpdate from '../screens/comments/CommentUpdate'
-import {
-  getAllPosts,
-  getOnePost,
-  createPost,
-  putPost,
-  deletePost,
-} from '../services/posts'
+import { getAllPosts, createPost, putPost, deletePost } from '../services/posts'
 import { createComment, putComment } from '../services/comments'
 
 export default function MainContainer({
