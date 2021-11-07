@@ -32,6 +32,11 @@ export default function UserUpdatePassword({
   const handleSubmit = e => {
     e.preventDefault()
     handleUpdatePassword(currentUser.id, formData)
+    setFormData({
+      old_password: '',
+      password: '',
+      password_confirmation: '',
+    })
   }
 
   return (

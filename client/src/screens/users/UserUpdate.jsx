@@ -40,6 +40,8 @@ export default function UserUpdate({
   const handleSubmit = e => {
     e.preventDefault()
     setToggle(false)
+    setUsernameError(false)
+    setEmailError(false)
     handleUpdate(id, formData)
   }
 

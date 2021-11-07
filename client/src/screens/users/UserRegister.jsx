@@ -37,6 +37,11 @@ export default function UserRegister({
   const handleSubmit = e => {
     e.preventDefault()
     handleRegister(formData)
+
+    setFormData(prevState => ({
+      ...prevState,
+      password: '',
+    }))
   }
 
   const handleImage = async e => {

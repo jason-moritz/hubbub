@@ -30,6 +30,10 @@ export default function UserLogin({
   const handleSubmit = e => {
     e.preventDefault()
     handleLogin(formData)
+    setFormData(prevState => ({
+      ...prevState,
+      password: '',
+    }))
   }
 
   return (
