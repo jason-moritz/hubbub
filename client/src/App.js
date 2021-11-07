@@ -21,6 +21,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
+  const [showPassword, setShowPassword] = useState(false)
   const [usernameError, setUsernameError] = useState(false)
   const [passwordError, setPasswordError] = useState(false)
   const [passwordConfirmationError, setPasswordConfirmationError] =
@@ -91,6 +92,10 @@ function App() {
     history.push('/')
   }
 
+  const handlePasswordToggle = () => {
+    setShowPassword(prevState => (prevState = !prevState))
+  }
+
   const handleImageUpload = async image => {
     const res = await imageUpload(image)
     return res
@@ -116,6 +121,9 @@ function App() {
               <UserUpdatePassword
                 currentUser={currentUser}
                 handleUpdatePassword={handleUpdatePassword}
+                handlePasswordToggle={handlePasswordToggle}
+                showPassword={showPassword}
+                setShowPassword={setShowPassword}
                 passwordError={passwordError}
                 setPasswordError={setPasswordError}
                 passwordConfirmationError={passwordConfirmationError}
@@ -125,6 +133,9 @@ function App() {
             <Route path='/login'>
               <UserLogin
                 handleLogin={handleLogin}
+                handlePasswordToggle={handlePasswordToggle}
+                showPassword={showPassword}
+                setShowPassword={setShowPassword}
                 usernameError={usernameError}
                 setUsernameError={setUsernameError}
                 passwordError={passwordError}
@@ -135,6 +146,9 @@ function App() {
               <UserRegister
                 handleRegister={handleRegister}
                 handleImageUpload={handleImageUpload}
+                handlePasswordToggle={handlePasswordToggle}
+                showPassword={showPassword}
+                setShowPassword={setShowPassword}
                 usernameError={usernameError}
                 setUsernameError={setUsernameError}
                 passwordError={passwordError}

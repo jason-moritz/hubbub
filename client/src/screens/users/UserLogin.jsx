@@ -1,15 +1,20 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Button, TextField } from '@mui/material'
+import { Button, TextField, IconButton, InputAdornment } from '@mui/material'
+import Visibility from '@mui/icons-material/Visibility'
+import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import BackButton from '../../components/BackButton'
 import './UserLogin.css'
 
 export default function UserLogin({
   handleLogin,
+  handlePasswordToggle,
   usernameError,
   setUsernameError,
   passwordError,
   setPasswordError,
+  showPassword,
+  setShowPassword,
 }) {
   const [formData, setFormData] = useState({
     username: '',
@@ -20,6 +25,7 @@ export default function UserLogin({
   useEffect(() => {
     setUsernameError(false)
     setPasswordError(false)
+    setShowPassword(false)
   }, [])
 
   const handleChange = e => {
@@ -72,7 +78,7 @@ export default function UserLogin({
           required
           fullWidth
           id='user-login-password'
-          type='password'
+          type={showPassword ? 'text' : 'password'}
           variant='standard'
           label='Password'
           name='password'
@@ -81,6 +87,15 @@ export default function UserLogin({
           helperText={passwordError ? 'Incorrect password' : null}
           value={password}
           onChange={handleChange}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position='end'>
+                <IconButton onClick={handlePasswordToggle}>
+                  {showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
         <Button type='submit'>Login</Button>
       </form>

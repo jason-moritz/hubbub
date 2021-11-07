@@ -1,11 +1,16 @@
 import { useState, useEffect } from 'react'
-import { Button, TextField } from '@mui/material'
+import { Button, TextField, IconButton, InputAdornment } from '@mui/material'
+import Visibility from '@mui/icons-material/Visibility'
+import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import BackButton from '../../components/BackButton'
 import './UserRegister.css'
 
 export default function UserRegister({
   handleRegister,
   handleImageUpload,
+  handlePasswordToggle,
+  showPassword,
+  setShowPassword,
   usernameError,
   setUsernameError,
   passwordError,
@@ -26,6 +31,7 @@ export default function UserRegister({
     setUsernameError(false)
     setEmailError(false)
     setPasswordError(false)
+    setShowPassword(false)
   }, [])
 
   const handleChange = e => {
@@ -121,7 +127,7 @@ export default function UserRegister({
           required
           fullWidth
           id='user-register-password'
-          type='password'
+          type={showPassword ? 'text' : 'password'}
           variant='standard'
           label='Password'
           name='password'
@@ -130,6 +136,15 @@ export default function UserRegister({
           value={password}
           onChange={handleChange}
           inputProps={{ minLength: 6, maxLength: 24 }}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position='end'>
+                <IconButton onClick={handlePasswordToggle}>
+                  {showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
         <Button type='submit'>Submit</Button>
       </form>

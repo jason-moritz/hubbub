@@ -1,11 +1,16 @@
 import { useState, useEffect } from 'react'
-import { Button, TextField } from '@mui/material'
+import { Button, TextField, IconButton, InputAdornment } from '@mui/material'
+import Visibility from '@mui/icons-material/Visibility'
+import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import './UserUpdatePassword.css'
 import BackButton from '../../components/BackButton'
 
 export default function UserUpdatePassword({
   currentUser,
   handleUpdatePassword,
+  handlePasswordToggle,
+  showPassword,
+  setShowPassword,
   passwordError,
   setPasswordError,
   passwordConfirmationError,
@@ -21,6 +26,7 @@ export default function UserUpdatePassword({
   useEffect(() => {
     setPasswordError(false)
     setPasswordConfirmationError(false)
+    setShowPassword(false)
   }, [])
 
   const handleChange = e => {
@@ -67,7 +73,7 @@ export default function UserUpdatePassword({
           required
           fullWidth
           id='user-old-password'
-          type='password'
+          type={showPassword ? 'text' : 'password'}
           variant='standard'
           label='Old Password'
           name='old_password'
@@ -76,12 +82,21 @@ export default function UserUpdatePassword({
           helperText={passwordError ? 'Incorrect password' : null}
           value={old_password}
           onChange={handleChange}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position='end'>
+                <IconButton onClick={handlePasswordToggle}>
+                  {showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
         <TextField
           required
           fullWidth
           id='user-new-password'
-          type='password'
+          type={showPassword ? 'text' : 'password'}
           variant='standard'
           label='New Password'
           name='password'
@@ -95,12 +110,21 @@ export default function UserUpdatePassword({
           value={password}
           onChange={handleChange}
           inputProps={{ minLength: 6, maxLength: 24 }}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position='end'>
+                <IconButton onClick={handlePasswordToggle}>
+                  {showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
         <TextField
           required
           fullWidth
           id='user-password-confirmation'
-          type='password'
+          type={showPassword ? 'text' : 'password'}
           variant='standard'
           label='Confirm Password'
           name='password_confirmation'
@@ -110,6 +134,15 @@ export default function UserUpdatePassword({
           value={password_confirmation}
           onChange={handleChange}
           inputProps={{ minLength: 6, maxLength: 24 }}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position='end'>
+                <IconButton onClick={handlePasswordToggle}>
+                  {showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
         <Button type='submit'>Submit</Button>
       </form>
