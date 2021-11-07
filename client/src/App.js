@@ -12,7 +12,6 @@ import {
   loginUser,
   verifyUser,
   putUser,
-  putUserPasssword,
   removeToken,
   putUserPassword,
 } from './services/users'
