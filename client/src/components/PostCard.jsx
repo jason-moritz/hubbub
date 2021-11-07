@@ -38,7 +38,9 @@ export default function PostCard({ currentUser, post, handlePostDelete }) {
           </div>
           <div className='post-card-link'>
             <Link className='post-card-link' to={`/posts/${post.id}`}>
-              <Button>Read more!</Button>
+              <Button>
+                <span className='post-card-button-text'>Read more!</span>
+              </Button>
             </Link>
           </div>
         </>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Button, TextField } from '@mui/material'
 import './UserUpdatePassword.css'
 import BackButton from '../../components/BackButton'
@@ -18,6 +18,11 @@ export default function UserUpdatePassword({
   })
   const { old_password, password, password_confirmation } = formData
 
+  useEffect(() => {
+    setPasswordError(false)
+    setPasswordConfirmationError(false)
+  }, [])
+
   const handleChange = e => {
     const { name, value } = e.target
 
@@ -32,12 +37,22 @@ export default function UserUpdatePassword({
 
   const handleSubmit = e => {
     e.preventDefault()
-    handleUpdatePassword(currentUser.id, formData)
-    setFormData({
-      old_password: '',
-      password: '',
-      password_confirmation: '',
-    })
+    if (handleUpdatePassword(currentUser.id, formData)) {
+      setPasswordError(false)
+      setPasswordConfirmationError(false)
+    }
+    if (passwordError) {
+      setFormData(prevState => ({
+        ...prevState,
+        old_password: '',
+      }))
+    } else if (passwordConfirmationError) {
+      setFormData(prevState => ({
+        ...prevState,
+        password: '',
+        password_confirmation: '',
+      }))
+    }
   }
 
   return (

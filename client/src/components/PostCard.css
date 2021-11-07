@@ -73,3 +73,9 @@
   text-decoration: none;
   font-size: medium;
 }
+
+@media screen and (min-width: 768px) {
+  .post-card-button-text {
+    font-size: large;
+  }
+}

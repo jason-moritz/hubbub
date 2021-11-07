@@ -36,13 +36,6 @@ function App() {
     handleVerify()
   }, [])
 
-  useEffect(() => {
-    setUsernameError(false)
-    setPasswordError(false)
-    setEmailError(false)
-    setPasswordConfirmationError(false)
-  }, [])
-
   const handleRegister = async formData => {
     const userData = await registerUser(formData)
     if (userData.username) {
@@ -69,7 +62,6 @@ function App() {
 
   const handleUpdate = async (id, formData) => {
     const userData = await putUser(id, formData)
-    debugger
     if (userData.username) {
       setCurrentUser(userData)
       history.push('/')

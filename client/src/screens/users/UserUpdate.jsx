@@ -30,8 +30,16 @@ export default function UserUpdate({
     })
   }, [])
 
+  useEffect(() => {
+    setUsernameError(false)
+    setEmailError(false)
+  }, [])
+
   const handleChange = e => {
     const { name, value } = e.target
+    setToggle(false)
+    setUsernameError(false)
+    setEmailError(false)
     setFormData(prevState => ({
       ...prevState,
       [name]: value,
@@ -40,10 +48,10 @@ export default function UserUpdate({
 
   const handleSubmit = e => {
     e.preventDefault()
-    setToggle(false)
-    setUsernameError(false)
-    setEmailError(false)
-    handleUpdate(id, formData)
+    if (handleUpdate(id, formData)) {
+      setUsernameError(false)
+      setEmailError(false)
+    }
   }
 
   const handleImage = async e => {

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Button, TextField } from '@mui/material'
 import BackButton from '../../components/BackButton'
 import './UserRegister.css'
@@ -21,6 +21,12 @@ export default function UserRegister({
     public_img: '',
   })
   const { username, email, image_url, password } = formData
+
+  useEffect(() => {
+    setUsernameError(false)
+    setEmailError(false)
+    setPasswordError(false)
+  }, [])
 
   const handleChange = e => {
     const { name, value } = e.target

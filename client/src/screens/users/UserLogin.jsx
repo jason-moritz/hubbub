@@ -17,6 +17,11 @@ export default function UserLogin({
   })
   const { username, password } = formData
 
+  useEffect(() => {
+    setUsernameError(false)
+    setPasswordError(false)
+  }, [])
+
   const handleChange = e => {
     const { name, value } = e.target
     setUsernameError(false)
