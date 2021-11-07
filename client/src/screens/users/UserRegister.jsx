@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Button, TextField } from '@mui/material'
+import BackButton from '../../components/BackButton'
 import './UserRegister.css'
 
 export default function UserRegister({
@@ -56,6 +57,7 @@ export default function UserRegister({
 
   return (
     <div className='user-register-container'>
+      <BackButton location='' />
       <form
         className='user-register-form'
         autoComplete='off'
