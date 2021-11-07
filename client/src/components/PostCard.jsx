@@ -17,8 +17,8 @@ export default function PostCard({ currentUser, post, handlePostDelete }) {
       </div>
       {id ? (
         <>
+          <img className='post-card-image-preview' src={post?.image_url} />
           <div className='post-card-content'>
-            <img className='image-preview' src={post?.image_url} />
             <h5>{post?.content}</h5>
           </div>
           {currentUser && currentUser.id === post?.user_id ? (
