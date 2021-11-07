@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, TextField } from '@mui/material'
+import BackButton from '../../components/BackButton'
 
 export default function UserUpdate({
   currentUser,
@@ -40,6 +41,8 @@ export default function UserUpdate({
   const handleSubmit = e => {
     e.preventDefault()
     setToggle(false)
+    setUsernameError(false)
+    setEmailError(false)
     handleUpdate(id, formData)
   }
 
@@ -58,6 +61,7 @@ export default function UserUpdate({
 
   return (
     <div className='user-register-container'>
+      <BackButton location='' />
       <Link className='user-login-link' to='/users/change-password'>
         <Button>Change Password</Button>
       </Link>

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Button, TextField } from '@mui/material'
 import './PostCreate.css'
+import BackButton from '../../components/BackButton'
 
 export default function PostCreate({ handlePostCreate, handleImageUpload }) {
   const [formData, setFormData] = useState({
@@ -36,6 +37,8 @@ export default function PostCreate({ handlePostCreate, handleImageUpload }) {
 
   return (
     <div className='post-create-container'>
+      <BackButton location='posts' />
+
       <h1>Create a new post!</h1>
       <form
         className='post-create-form'

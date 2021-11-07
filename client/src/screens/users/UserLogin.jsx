@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, TextField } from '@mui/material'
+import BackButton from '../../components/BackButton'
 import './UserLogin.css'
 
 export default function UserLogin({
@@ -30,10 +31,15 @@ export default function UserLogin({
   const handleSubmit = e => {
     e.preventDefault()
     handleLogin(formData)
+    setFormData(prevState => ({
+      ...prevState,
+      password: '',
+    }))
   }
 
   return (
     <div className='user-login-container'>
+      <BackButton location='' />
       <Link className='user-login-link' to='/register'>
         <Button>Not a user? Sign up today!</Button>
       </Link>

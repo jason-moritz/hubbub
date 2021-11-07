@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getOneComment } from '../../services/comments'
 import { Button, TextField } from '@mui/material'
+import BackButton from '../../components/BackButton'
 
 export default function CommentUpdate({ handleCommentUpdate }) {
   const [formData, setFormData] = useState({
@@ -36,6 +37,7 @@ export default function CommentUpdate({ handleCommentUpdate }) {
 
   return (
     <div className='comment-create-container'>
+      <BackButton location={`posts/${post_id}`} />
       <h1>Update your 2 cents!</h1>
       <form
         className='comment-create-form'

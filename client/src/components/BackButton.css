@@ -1,0 +1,12 @@
+.back-button {
+  display: flex;
+  place-self: flex-start;
+  padding-left: 1rem;
+  padding-bottom: 2rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .back-button {
+    display: none;
+  }
+}

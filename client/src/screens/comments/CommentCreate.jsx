@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Button, TextField } from '@mui/material'
+import BackButton from '../../components/BackButton'
 import './CommentCreate.css'
 
 export default function CommentCreate({ handleCommentCreate }) {
@@ -26,6 +27,7 @@ export default function CommentCreate({ handleCommentCreate }) {
 
   return (
     <div className='comment-create-container'>
+      <BackButton location={`posts/${id}`} />
       <h1>Add your 2 cents!</h1>
       <form
         className='comment-create-form'

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import PostCard from '../../components/PostCard'
+import BackButton from '../../components/BackButton'
 import './Posts.css'
 
 export default function Posts({ currentUser, posts, handlePostDelete }) {
@@ -8,6 +9,7 @@ export default function Posts({ currentUser, posts, handlePostDelete }) {
 
   return (
     <div>
+      <BackButton location='' />
       <h1>All the Hubbub</h1>
       <div className='posts-allposts-container'>
         {posts?.map((post, index) => (

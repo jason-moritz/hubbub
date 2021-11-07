@@ -1,10 +1,10 @@
 .post-card {
   width: 80vw;
   min-width: 200px;
-  max-width: 400px;
+  max-width: 600px;
   height: 20%;
   min-height: 200px;
-  max-height: 400px;
+  max-height: 1000px;
   background-color: #262f30;
   border-radius: 10px;
   display: flex;
@@ -48,6 +48,16 @@
 
 .comment-counter {
   margin-left: 1rem;
+}
+
+.post-card-image-preview {
+  width: 200px;
+  height: 200px;
+  object-position: center;
+  object-fit: cover;
+  border-radius: 4px;
+  border: solid 4px #90caf9;
+  margin: 0 auto;
 }
 
 .post-card-content {

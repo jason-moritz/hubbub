@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { Button, TextField } from '@mui/material'
+import BackButton from '../../components/BackButton'
 
 export default function PostUpdate({
   posts,
@@ -62,6 +63,7 @@ export default function PostUpdate({
 
   return (
     <div className='post-create-container'>
+      <BackButton location={`posts/${id}`} />
       <h1>Update your post!</h1>
       <form
         className='post-create-form'

@@ -5,13 +5,16 @@ import Layout from './layouts/Layout'
 import UserRegister from './screens/users/UserRegister'
 import UserLogin from './screens/users/UserLogin'
 import UserUpdate from './screens/users/UserUpdate'
+import UserUpdatePassword from './screens/users/UserUpdatePassword'
 import MainContainer from './containers/MainContainer'
 import {
   registerUser,
   loginUser,
   verifyUser,
   putUser,
+  putUserPasssword,
   removeToken,
+  putUserPassword,
 } from './services/users'
 import { imageUpload, imageUpdate } from './services/images'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
@@ -20,9 +23,9 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null)
   const [usernameError, setUsernameError] = useState(false)
   const [passwordError, setPasswordError] = useState(false)
-  const [emailError, setEmailError] = useState(false)
   const [passwordConfirmationError, setPasswordConfirmationError] =
     useState(false)
+  const [emailError, setEmailError] = useState(false)
   const history = useHistory()
 
   useEffect(() => {
@@ -57,7 +60,7 @@ function App() {
     if (userData.username) {
       setCurrentUser(userData)
       history.push('/')
-    } else if (userData.includes('401')) {
+    } else if (userData.request.status === Number(401)) {
       setPasswordError(true)
     } else {
       setUsernameError(true)
@@ -66,8 +69,27 @@ function App() {
 
   const handleUpdate = async (id, formData) => {
     const userData = await putUser(id, formData)
-    setCurrentUser(userData)
-    history.push('/')
+    debugger
+    if (userData.username) {
+      setCurrentUser(userData)
+      history.push('/')
+    } else if (userData.data.username) {
+      setUsernameError(true)
+    } else if (userData.data.email) {
+      setEmailError(true)
+    }
+  }
+
+  const handleUpdatePassword = async (id, formData) => {
+    const userData = await putUserPassword(id, formData)
+    if (userData.username) {
+      setCurrentUser(userData)
+      history.push('/')
+    } else if (userData.request.status === Number(401)) {
+      setPasswordError(true)
+    } else if (userData.request.status === Number(422)) {
+      setPasswordConfirmationError(true)
+    }
   }
 
   const handleLogout = () => {
@@ -98,6 +120,16 @@ function App() {
       <ThemeProvider theme={darkTheme}>
         <Layout currentUser={currentUser} handleLogout={handleLogout}>
           <Switch>
+            <Route path='/users/change-password'>
+              <UserUpdatePassword
+                currentUser={currentUser}
+                handleUpdatePassword={handleUpdatePassword}
+                passwordError={passwordError}
+                setPasswordError={setPasswordError}
+                passwordConfirmationError={passwordConfirmationError}
+                setPasswordConfirmationError={setPasswordConfirmationError}
+              />
+            </Route>
             <Route path='/login'>
               <UserLogin
                 handleLogin={handleLogin}

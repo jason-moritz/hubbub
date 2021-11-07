@@ -23,6 +23,15 @@ export default function Home({ currentUser, latestPosts, handlePostDelete }) {
           <h1 className='home-welcome-message'>Welcome to Hubbub!</h1>
           <br />
           <div className='home-helper-text'>
+            <div className='hubbub-definition'>
+              <span className='hubbub-title'>hubbub</span>
+              <br />
+              noun, hub·​bub | \ ˈhə-ˌbəb
+              <br />
+              Noise, uproar, or chaos caused by a crowd.
+            </div>
+            <br />
+            <br />
             <span>
               <Link className='home-link' to='/register'>
                 Sign up
