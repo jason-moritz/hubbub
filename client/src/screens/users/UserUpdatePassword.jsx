@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Button, TextField } from '@mui/material'
 import './UserUpdatePassword.css'
+import BackButton from '../../components/BackButton'
 
 export default function UserUpdatePassword({
   currentUser,
@@ -41,6 +42,7 @@ export default function UserUpdatePassword({
 
   return (
     <div className='user-register-container'>
+      <BackButton location='update' />
       <form
         className='user-register-form'
         autoComplete='off'

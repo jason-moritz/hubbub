@@ -5,6 +5,7 @@ import CommentCard from '../../components/CommentCard'
 import { getOnePost } from '../../services/posts'
 import { deleteComment } from '../../services/comments'
 import { Button } from '@mui/material'
+import BackButton from '../../components/BackButton'
 import './PostDetail.css'
 
 export default function PostDetail({
@@ -55,6 +56,7 @@ export default function PostDetail({
 
   return (
     <div className='postdetail-main-container'>
+      <BackButton location='posts' />
       <PostCard
         currentUser={currentUser}
         post={post}
