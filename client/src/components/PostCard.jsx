@@ -49,13 +49,13 @@ export default function PostCard({ currentUser, post, handlePostDelete }) {
       ) : (
         <>
           <div className='post-card-comment-counter'>
-            <ChatBubbleOutlineIcon />
+            <ChatBubbleOutlineIcon fontSize='inherit' />
             <h5 className='comment-counter'>{post.comments?.length}</h5>
           </div>
           <div className='post-card-link'>
             <Link className='post-card-link' to={`/posts/${post.id}`}>
               <Button>
-                <span className='post-card-button-text'>Read more!</span>
+                <span className='button-link'>Read more!</span>
               </Button>
             </Link>
           </div>

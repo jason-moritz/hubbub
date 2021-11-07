@@ -58,7 +58,7 @@ export default function Header({ currentUser, handleLogout }) {
             <MenuItem key='link-login'>
               <Link className='header-navlink' to='/login'>
                 <Button onClick={handleClose}>
-                  <span className='nav-link-text'>Login/Register</span>
+                  <span className='button-link'>Login/Register</span>
                 </Button>
               </Link>
             </MenuItem>
@@ -66,7 +66,7 @@ export default function Header({ currentUser, handleLogout }) {
           <MenuItem key='link-posts'>
             <Link className='header-navlink' to='/posts'>
               <Button onClick={handleClose}>
-                <span className='nav-link-text'>Posts</span>
+                <span className='button-link'>Posts</span>
               </Button>
             </Link>
           </MenuItem>
@@ -75,20 +75,20 @@ export default function Header({ currentUser, handleLogout }) {
                 <MenuItem key='link-create'>
                   <Link className='header-navlink' to='/posts/create'>
                     <Button onClick={handleClose}>
-                      <span className='nav-link-text'>Create</span>
+                      <span className='button-link'>Create</span>
                     </Button>
                   </Link>
                 </MenuItem>,
                 <MenuItem key='link-update'>
                   <Link className='header-navlink' to='/update'>
                     <Button onClick={handleClose}>
-                      <span className='nav-link-text'>Update User Info</span>
+                      <span className='button-link'>Update User Info</span>
                     </Button>
                   </Link>
                 </MenuItem>,
                 <MenuItem key='logout'>
                   <Button onClick={logout}>
-                    <span className='nav-link-text'>Logout</span>
+                    <span className='button-link'>Logout</span>
                   </Button>
                 </MenuItem>,
               ]

@@ -32,7 +32,6 @@
 
 .username {
   margin-left: 20px;
-  text-decoration: underline;
 }
 
 .post-card-title {
@@ -44,7 +43,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  font-size: large;
+  font-size: x-large;
 }
 
 .comment-counter {
@@ -77,5 +76,9 @@
 @media screen and (min-width: 768px) {
   .post-card-button-text {
     font-size: large;
+  }
+
+  .post-card-comment-counter {
+    font-size: x-large;
   }
 }
