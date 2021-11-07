@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     if @user.save
       @token = encode({ id: @user.id })
       render json: {
-        error: @user.attributes.except('password_digest'),
+        user: @user.attributes.except('password_digest'),
         token: @token
       }, status: :created
     else
@@ -33,14 +33,11 @@ class UsersController < ApplicationController
     if @user.update(update_params)
       @token = encode({ id: @user.id })
       render json: {
-        error: @user.attributes.except('password_digest'),
+        user: @user.attributes.except('password_digest'),
         token: @token
       }, status: :accepted
     else
-      render json: {
-        user: @user.errors,
-        error: 'Unaccepted fields'
-      }, status: :unprocessable_entity
+      render json: @user.errors, status: :unprocessable_entity
     end
   end
 

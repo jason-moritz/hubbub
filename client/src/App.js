@@ -26,7 +26,6 @@ function App() {
   const [passwordConfirmationError, setPasswordConfirmationError] =
     useState(false)
   const [emailError, setEmailError] = useState(false)
-  const [updateError, setUpdateError] = useState(false)
   const history = useHistory()
 
   useEffect(() => {
@@ -70,11 +69,14 @@ function App() {
 
   const handleUpdate = async (id, formData) => {
     const userData = await putUser(id, formData)
+    debugger
     if (userData.username) {
       setCurrentUser(userData)
       history.push('/')
-    } else {
-      setUpdateError(true)
+    } else if (userData.data.username) {
+      setUsernameError(true)
+    } else if (userData.data.email) {
+      setEmailError(true)
     }
   }
 
