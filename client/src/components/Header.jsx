@@ -56,33 +56,39 @@ export default function Header({ currentUser, handleLogout }) {
             </div>
           ) : (
             <MenuItem>
-              <Link className='header-navlink' to='/login'>
+              <Link className='header-navlink' key='login' to='/login'>
                 <Button onClick={handleClose}>Login/Register</Button>
               </Link>
             </MenuItem>
           )}
           <MenuItem>
-            <Link className='header-navlink' to='/posts'>
+            <Link className='header-navlink' key='all-posts' to='/posts'>
               <Button onClick={handleClose}>Posts</Button>
             </Link>
           </MenuItem>
-          {currentUser ? (
-            <>
-              <MenuItem>
-                <Link className='header-navlink' to='/posts/create'>
-                  <Button onClick={handleClose}>Create</Button>
-                </Link>
-              </MenuItem>
-              <MenuItem>
-                <Link className='header-navlink' to='/update'>
-                  <Button onClick={handleClose}>Update User Info</Button>
-                </Link>
-              </MenuItem>
-              <MenuItem>
-                <Button onClick={logout}>Logout</Button>
-              </MenuItem>
-            </>
-          ) : null}
+          {currentUser
+            ? [
+                <MenuItem>
+                  <Link
+                    className='header-navlink'
+                    key='create'
+                    to='/posts/create'
+                  >
+                    <Button onClick={handleClose}>Create</Button>
+                  </Link>
+                </MenuItem>,
+                <MenuItem>
+                  <Link className='header-navlink' key='update' to='/update'>
+                    <Button onClick={handleClose}>Update User Info</Button>
+                  </Link>
+                </MenuItem>,
+                <MenuItem>
+                  <Button key='logout' onClick={logout}>
+                    Logout
+                  </Button>
+                </MenuItem>,
+              ]
+            : null}
         </Menu>
       </div>
       <Link to='/'>
