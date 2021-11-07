@@ -37,7 +37,10 @@ class UsersController < ApplicationController
         token: @token
       }, status: :accepted
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: {
+        user: @user.errors,
+        error: 'Unaccepted fields'
+      }, status: :unprocessable_entity
     end
   end
 

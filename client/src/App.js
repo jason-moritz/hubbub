@@ -23,9 +23,10 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null)
   const [usernameError, setUsernameError] = useState(false)
   const [passwordError, setPasswordError] = useState(false)
-  const [emailError, setEmailError] = useState(false)
   const [passwordConfirmationError, setPasswordConfirmationError] =
     useState(false)
+  const [emailError, setEmailError] = useState(false)
+  const [updateError, setUpdateError] = useState(false)
   const history = useHistory()
 
   useEffect(() => {
@@ -60,7 +61,7 @@ function App() {
     if (userData.username) {
       setCurrentUser(userData)
       history.push('/')
-    } else if (userData.includes('401')) {
+    } else if (userData.request.status === Number(401)) {
       setPasswordError(true)
     } else {
       setUsernameError(true)
@@ -69,8 +70,12 @@ function App() {
 
   const handleUpdate = async (id, formData) => {
     const userData = await putUser(id, formData)
-    setCurrentUser(userData)
-    history.push('/')
+    if (userData.username) {
+      setCurrentUser(userData)
+      history.push('/')
+    } else {
+      setUpdateError(true)
+    }
   }
 
   const handleUpdatePassword = async (id, formData) => {
@@ -78,8 +83,10 @@ function App() {
     if (userData.username) {
       setCurrentUser(userData)
       history.push('/')
-    } else {
-      console.log(userData)
+    } else if (userData.request.status === Number(401)) {
+      setPasswordError(true)
+    } else if (userData.request.status === Number(422)) {
+      setPasswordConfirmationError(true)
     }
   }
 
