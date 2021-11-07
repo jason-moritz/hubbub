@@ -70,6 +70,7 @@ export default function UserRegister({
   return (
     <div className='user-register-container'>
       <BackButton location='' />
+      <h1 className='user-form-title'>User Registration</h1>
       <form
         className='user-register-form'
         autoComplete='off'

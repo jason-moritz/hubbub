@@ -64,6 +64,7 @@ export default function UserUpdatePassword({
   return (
     <div className='user-register-container'>
       <BackButton location='update' />
+      <h1 className='user-form-title'>Update Your Password</h1>
       <form
         className='user-register-form'
         autoComplete='off'
@@ -102,11 +103,7 @@ export default function UserUpdatePassword({
           name='password'
           margin='normal'
           error={passwordConfirmationError}
-          helperText={
-            passwordConfirmationError
-              ? 'Passwords must match'
-              : '6 character minimum'
-          }
+          helperText={passwordConfirmationError ? 'Passwords must match' : null}
           value={password}
           onChange={handleChange}
           inputProps={{ minLength: 6, maxLength: 24 }}

@@ -70,6 +70,7 @@ export default function UserUpdate({
   return (
     <div className='user-register-container'>
       <BackButton location='' />
+      <h1 className='user-form-title'>Update Your Info</h1>
       <Link className='user-login-link' to='/users/change-password'>
         <Button>Change Password</Button>
       </Link>

@@ -51,6 +51,7 @@ export default function UserLogin({
   return (
     <div className='user-login-container'>
       <BackButton location='' />
+      <h1 className='user-form-title'>Welcome back!</h1>
       <Link className='user-login-link' to='/register'>
         <Button>Not a user? Sign up today!</Button>
       </Link>
