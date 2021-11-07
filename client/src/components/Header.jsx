@@ -49,43 +49,37 @@ export default function Header({ currentUser, handleLogout }) {
           transitionDuration={600}
         >
           {currentUser ? (
-            <div>
+            <div key='welcome'>
               <p className='welcome-user-message'>
                 Welcome {currentUser.username}
               </p>
             </div>
           ) : (
-            <MenuItem>
-              <Link className='header-navlink' key='login' to='/login'>
+            <MenuItem key='link-login'>
+              <Link className='header-navlink' to='/login'>
                 <Button onClick={handleClose}>Login/Register</Button>
               </Link>
             </MenuItem>
           )}
-          <MenuItem>
-            <Link className='header-navlink' key='all-posts' to='/posts'>
+          <MenuItem key='link-posts'>
+            <Link className='header-navlink' to='/posts'>
               <Button onClick={handleClose}>Posts</Button>
             </Link>
           </MenuItem>
           {currentUser
             ? [
-                <MenuItem>
-                  <Link
-                    className='header-navlink'
-                    key='create'
-                    to='/posts/create'
-                  >
+                <MenuItem key='link-create'>
+                  <Link className='header-navlink' to='/posts/create'>
                     <Button onClick={handleClose}>Create</Button>
                   </Link>
                 </MenuItem>,
-                <MenuItem>
-                  <Link className='header-navlink' key='update' to='/update'>
+                <MenuItem key='link-update'>
+                  <Link className='header-navlink' to='/update'>
                     <Button onClick={handleClose}>Update User Info</Button>
                   </Link>
                 </MenuItem>,
-                <MenuItem>
-                  <Button key='logout' onClick={logout}>
-                    Logout
-                  </Button>
+                <MenuItem key='logout'>
+                  <Button onClick={logout}>Logout</Button>
                 </MenuItem>,
               ]
             : null}
