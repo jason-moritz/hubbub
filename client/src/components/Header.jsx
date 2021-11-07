@@ -57,29 +57,39 @@ export default function Header({ currentUser, handleLogout }) {
           ) : (
             <MenuItem key='link-login'>
               <Link className='header-navlink' to='/login'>
-                <Button onClick={handleClose}>Login/Register</Button>
+                <Button onClick={handleClose}>
+                  <span className='nav-link-text'>Login/Register</span>
+                </Button>
               </Link>
             </MenuItem>
           )}
           <MenuItem key='link-posts'>
             <Link className='header-navlink' to='/posts'>
-              <Button onClick={handleClose}>Posts</Button>
+              <Button onClick={handleClose}>
+                <span className='nav-link-text'>Posts</span>
+              </Button>
             </Link>
           </MenuItem>
           {currentUser
             ? [
                 <MenuItem key='link-create'>
                   <Link className='header-navlink' to='/posts/create'>
-                    <Button onClick={handleClose}>Create</Button>
+                    <Button onClick={handleClose}>
+                      <span className='nav-link-text'>Create</span>
+                    </Button>
                   </Link>
                 </MenuItem>,
                 <MenuItem key='link-update'>
                   <Link className='header-navlink' to='/update'>
-                    <Button onClick={handleClose}>Update User Info</Button>
+                    <Button onClick={handleClose}>
+                      <span className='nav-link-text'>Update User Info</span>
+                    </Button>
                   </Link>
                 </MenuItem>,
                 <MenuItem key='logout'>
-                  <Button onClick={logout}>Logout</Button>
+                  <Button onClick={logout}>
+                    <span className='nav-link-text'>Logout</span>
+                  </Button>
                 </MenuItem>,
               ]
             : null}

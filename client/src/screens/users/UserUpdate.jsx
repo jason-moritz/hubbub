@@ -72,7 +72,9 @@ export default function UserUpdate({
       <BackButton location='' />
       <h1 className='user-form-title'>Update Your Info</h1>
       <Link className='user-login-link' to='/users/change-password'>
-        <Button>Change Password</Button>
+        <Button>
+          <span className='button-link'>Change Password</span>
+        </Button>
       </Link>
       <form
         className='user-register-form'
@@ -129,7 +131,9 @@ export default function UserUpdate({
           value={formData.email}
           onChange={handleChange}
         />
-        <Button type='submit'>Submit</Button>
+        <Button type='submit'>
+          <span className='button-link'>Submit</span>
+        </Button>
       </form>
       <br />
       <br />

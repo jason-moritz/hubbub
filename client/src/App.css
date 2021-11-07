@@ -16,3 +16,9 @@ body {
   background-color: #171b1a;
   color: #d7d6c7;
 }
+
+@media screen and (min-width: 768px) {
+  .button-link {
+    font-size: large;
+  }
+}

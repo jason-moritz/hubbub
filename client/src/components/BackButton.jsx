@@ -11,7 +11,9 @@ export default function BackButton({ location }) {
 
   return (
     <div className='back-button'>
-      <Button onClick={handleClick}>Go Back</Button>
+      <Button onClick={handleClick}>
+        <span className='button-link'>Go Back</span>
+      </Button>
     </div>
   )
 }

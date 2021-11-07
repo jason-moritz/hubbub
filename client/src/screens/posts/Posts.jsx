@@ -12,7 +12,9 @@ export default function Posts({ currentUser, posts, handlePostDelete }) {
       <BackButton location='' />
       <h1>All the Hubbub</h1>
       <Link className='user-login-link' to='/posts/create'>
-        <Button>Create Post</Button>
+        <Button>
+          <span className='button-link'>Create Post</span>
+        </Button>
       </Link>
       <div className='posts-allposts-container'>
         {posts?.map((post, index) => (

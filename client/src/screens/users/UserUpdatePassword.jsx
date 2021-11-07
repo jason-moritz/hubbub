@@ -141,7 +141,9 @@ export default function UserUpdatePassword({
             ),
           }}
         />
-        <Button type='submit'>Submit</Button>
+        <Button type='submit'>
+          <span className='button-link'>Submit</span>
+        </Button>
       </form>
       <br />
       <br />
