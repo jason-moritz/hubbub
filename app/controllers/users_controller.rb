@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     if @user.save
       @token = encode({ id: @user.id })
       render json: {
-        user: @user.attributes.except('password_digest'),
+        error: @user.attributes.except('password_digest'),
         token: @token
       }, status: :created
     else
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     if @user.update(update_params)
       @token = encode({ id: @user.id })
       render json: {
-        user: @user.attributes.except('password_digest'),
+        error: @user.attributes.except('password_digest'),
         token: @token
       }, status: :accepted
     else
@@ -42,14 +42,20 @@ class UsersController < ApplicationController
   end
 
   def update_password
-    if @user.authenticate(password_params[:old_password]) && password_params[:password] == password_params[:password_confirmation]
-      @user.update(password_params[:password])
-    end
-    if @user.update(password_params[:password])
+    if @user.authenticate(confirm_params[:old_password]) && password_params[:password] == confirm_params[:password_confirmation] && @user.update(password_params)
       @token = encode({ id: @user.id })
-      render json: @user.attributes.except('password_digest'), status: :accepted
+      render json: {
+        user: @user.attributes.except('password_digest'),
+        token: @token
+      }, status: :accepted
+    elsif !@user.authenticate(confirm_params[:old_password])
+      render json: {
+        user: @user.errors,
+        error: 'Current password is invalid.'
+      }, status: :unauthorized
     else
       render json: {
+        user: @user.errors,
         error: 'Passwords do not match.'
       }, status: :unprocessable_entity
     end
@@ -76,7 +82,11 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :email, :image_url, :public_img)
   end
 
+  def confirm_params
+    params.require(:security).permit(:old_password, :password_confirmation)
+  end
+
   def password_params
-    params.require(:security).permit(:old_password, :password, :password_confirmation)
+    params.require(:security).permit(:password)
   end
 end

@@ -29,7 +29,18 @@ export const putUser = async (id, userData) => {
     api.defaults.headers.common.authorization = `Bearer ${res.data.token}`
     return res.data.user
   } catch (error) {
-    throw error
+    return error.response
+  }
+}
+
+export const putUserPassword = async (id, userData) => {
+  try {
+    const res = await api.put(`/users/${id}/security`, { security: userData })
+    localStorage.setItem('authToken', res.data.token)
+    api.defaults.headers.common.authorization = `Bearer ${res.data.token}`
+    return res.data.user
+  } catch (error) {
+    return error.response
   }
 }
 

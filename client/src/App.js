@@ -5,13 +5,16 @@ import Layout from './layouts/Layout'
 import UserRegister from './screens/users/UserRegister'
 import UserLogin from './screens/users/UserLogin'
 import UserUpdate from './screens/users/UserUpdate'
+import UserUpdatePassword from './screens/users/UserUpdatePassword'
 import MainContainer from './containers/MainContainer'
 import {
   registerUser,
   loginUser,
   verifyUser,
   putUser,
+  putUserPasssword,
   removeToken,
+  putUserPassword,
 } from './services/users'
 import { imageUpload, imageUpdate } from './services/images'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
@@ -70,6 +73,16 @@ function App() {
     history.push('/')
   }
 
+  const handleUpdatePassword = async (id, formData) => {
+    const userData = await putUserPassword(id, formData)
+    if (userData.username) {
+      setCurrentUser(userData)
+      history.push('/')
+    } else {
+      console.log(userData)
+    }
+  }
+
   const handleLogout = () => {
     setCurrentUser(null)
     localStorage.removeItem('authToken')
@@ -98,6 +111,16 @@ function App() {
       <ThemeProvider theme={darkTheme}>
         <Layout currentUser={currentUser} handleLogout={handleLogout}>
           <Switch>
+            <Route path='/users/change-password'>
+              <UserUpdatePassword
+                currentUser={currentUser}
+                handleUpdatePassword={handleUpdatePassword}
+                passwordError={passwordError}
+                setPasswordError={setPasswordError}
+                passwordConfirmationError={passwordConfirmationError}
+                setPasswordConfirmationError={setPasswordConfirmationError}
+              />
+            </Route>
             <Route path='/login'>
               <UserLogin
                 handleLogin={handleLogin}
