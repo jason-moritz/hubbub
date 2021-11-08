@@ -81,6 +81,7 @@
 @media screen and (min-width: 768px) {
   .post-card {
     min-height: 410px;
+    padding: 40px;
   }
 
   .post-card-button-text {
@@ -116,6 +117,7 @@
   .post-card {
     width: 40vw;
     height: fit-content;
+    min-height: 250px;
   }
 
   .post-card-title {
