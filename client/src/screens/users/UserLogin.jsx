@@ -73,7 +73,7 @@ export default function UserLogin({
           name='username'
           margin='normal'
           error={usernameError}
-          helperText={usernameError ? 'Incorrect username' : null}
+          helperText={usernameError ? 'Incorrect username or password' : null}
           value={username}
           onChange={handleChange}
         />
@@ -87,7 +87,7 @@ export default function UserLogin({
           name='password'
           margin='normal'
           error={passwordError}
-          helperText={passwordError ? 'Incorrect password' : null}
+          helperText={passwordError ? 'Incorrect username or password' : null}
           value={password}
           onChange={handleChange}
           InputProps={{
