@@ -10,23 +10,30 @@ Comment.destroy_all
 Post.destroy_all
 User.destroy_all
 
-@admin = User.create!(username: 'admin', email: 'test@test.com', password: '123456',
+@admin = User.create!(username: 'TheDeveloper', email: 'test@test.com', password: '123456',
                       image_url: 'https://res.cloudinary.com/dwhdm5z4a/image/upload/v1636123204/hubbub_images/wqfo905juwsykmwbfdi2.jpg', public_img: 'hubbub_images/wqfo905juwsykmwbfdi2')
-@admin2 = User.create!(username: 'hummingbirds', email: 'test2@test.com', password: '123456',
-                       image_url: 'https://res.cloudinary.com/dwhdm5z4a/image/upload/v1636070712/hubbub_images/xesamqfajtcsvpvn24av.jpg', public_img: 'hubbub_images/xesamqfajtcsvpvn24av')
+@admin2 = User.create!(username: 'Chewie', email: 'test2@test.com', password: '123456',
+                       image_url: 'https://res.cloudinary.com/dwhdm5z4a/image/upload/v1636336422/hubbub_images/ewvfw2ofsjlcqdu3lanj.jpg')
+@admin3 = User.create!(username: 'Grogu', email: 'test3@test.com', password: '123456', image_url: 'https://res.cloudinary.com/dwhdm5z4a/image/upload/v1636334211/hubbub_images/xru2tegzimkovh1nif9w.jpg')
+@admin4 = User.create!(username: 'StevenTheCat', email: 'test4@test.com', password: '123456', image_url: 'https://res.cloudinary.com/dwhdm5z4a/image/upload/v1636222617/hubbub_images/nucogedywf6b0qleyv7q.jpg')
+@admin5 = User.create!(username: 'TheLastAirBender', email: 'test5@test.com', password: '123456', image_url: 'https://res.cloudinary.com/dwhdm5z4a/image/upload/v1636334339/hubbub_images/pjzry2nkaqlwejn9g7ls.jpg')
+
 puts "#{User.count} users created!"
 
-10.times do
-  Post.create!(title: Faker::Lorem.words(number: 2), content: Faker::Lorem.paragraph(sentence_count: 4),
-               image_url: Faker::Internet.url, public_img: Faker::Internet.url, user_id: @admin.id)
+User.all.map do |user|
+  Post.create!(title: Faker::Quote.robin, content: Faker::TvShows::NewGirl.quote, user: user)
+  Post.create!(title: Faker::Quote.robin, content: Faker::TvShows::Friends.quote, user: user)
+  Post.create!(title: Faker::Quote.robin, content: Faker::TvShows::MichaelScott.quote, user: user)
 end
 
 puts "#{Post.count} posts created!"
 
 Post.all.each do |post|
-  3.times do
-    Comment.create!(content: Faker::Lorem.paragraph(sentence_count: 2), post_id: post.id, user_id: @admin.id)
-  end
+  Comment.create!(content: Faker::Movies::StarWars.quote(character: 'han_solo'), post_id: post.id, user: @admin)
+  Comment.create!(content: Faker::Movies::StarWars.wookiee_sentence, post_id: post.id, user: @admin2)
+  Comment.create!(content: Faker::Quote.yoda, post_id: post.id, user: @admin3)
+  Comment.create!(content: Faker::Movies::StarWars.quote(character: 'leia_organa'), post_id: post.id, user: @admin4)
+  Comment.create!(content: Faker::Movies::HarryPotter.quote, post_id: post.id, user: @admin5)
 end
 
 puts "#{Comment.count} comments created!"

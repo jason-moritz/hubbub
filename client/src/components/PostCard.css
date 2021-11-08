@@ -1,10 +1,9 @@
 .post-card {
   width: 80vw;
   min-width: 200px;
-  max-width: 400px;
-  height: 20%;
-  min-height: 200px;
-  max-height: 1000px;
+  max-width: 700px;
+  height: fit-content;
+  min-height: 20%;
   background-color: #262f30;
   border-radius: 10px;
   display: flex;
@@ -37,6 +36,7 @@
 .post-card-title {
   font-size: x-large;
   text-align: left;
+  margin: 1rem 0;
 }
 
 .post-card-comment-counter {
@@ -64,6 +64,7 @@
   text-align: left;
   font-size: large;
   overflow-wrap: break-word;
+  margin: 1rem 0;
 }
 
 .post-card-link,
@@ -73,7 +74,15 @@
   font-size: medium;
 }
 
+.post-card-read-more-link {
+  font-size: large;
+}
+
 @media screen and (min-width: 768px) {
+  .post-card {
+    height: 410px;
+  }
+
   .post-card-button-text {
     font-size: large;
   }
@@ -93,7 +102,27 @@
   .post-card-content {
     font-size: x-large;
   }
+
   .post-card-comment-counter {
     font-size: x-large;
+  }
+
+  .post-card-read-more-link {
+    font-size: x-large;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .post-card {
+    width: 40vw;
+    height: fit-content;
+  }
+
+  .post-card-title {
+    height: 80px;
+    margin-bottom: 0px;
+  }
+
+  .post-card-read-more-link {
   }
 }

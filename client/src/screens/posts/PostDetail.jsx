@@ -54,32 +54,37 @@ export default function PostDetail({
   if (!toggle) return <h3>loading</h3>
 
   return (
-    <div className='postdetail-main-container'>
-      <BackButton location='posts' />
-      <PostCard
-        currentUser={currentUser}
-        post={post}
-        handlePostDelete={handlePostDelete}
-      />
-      <Link
-        className='postdetail-link'
-        to={`/posts/${post.id}/comments/create`}
-      >
-        <Button>
-          <span className='button-link-comment'>Add your two cents</span>
-        </Button>
-      </Link>
-      <div className='postdetail-comments-container'>
-        {comments.map((comment, index) => (
-          <div key={index} className='postdetail-comments-card'>
-            <CommentCard
-              currentUser={currentUser}
-              comment={comment}
-              handleCommentDelete={handleCommentDelete}
-            />
-          </div>
-        ))}
+    <div className='postdetail-overall-container'>
+      <div className='postdetail-left-container'></div>
+
+      <div className='postdetail-main-container'>
+        <BackButton location='posts' />
+        <PostCard
+          currentUser={currentUser}
+          post={post}
+          handlePostDelete={handlePostDelete}
+        />
+        <Link
+          className='postdetail-link'
+          to={`/posts/${post.id}/comments/create`}
+        >
+          <Button>
+            <span className='button-link-comment'>Add your two cents</span>
+          </Button>
+        </Link>
+        <div className='postdetail-comments-container'>
+          {comments.map((comment, index) => (
+            <div key={index} className='postdetail-comments-card'>
+              <CommentCard
+                currentUser={currentUser}
+                comment={comment}
+                handleCommentDelete={handleCommentDelete}
+              />
+            </div>
+          ))}
+        </div>
       </div>
+      <div className='postdetail-right-container'></div>
     </div>
   )
 }
