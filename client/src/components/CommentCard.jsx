@@ -25,11 +25,9 @@ export default function CommentCard({
           }
           alt='profile-pic'
         />
-        <h3 className='comment-username'>{comment?.user.username}</h3>
+        <div className='comment-username'>{comment?.user.username}</div>
       </div>
-      <div className='comment-card-content'>
-        <h5>{comment?.content}</h5>
-      </div>
+      <div className='comment-card-content'>{comment?.content}</div>
       {currentUser && currentUser.id === comment?.user_id ? (
         <div className='comment-edit-delete'>
           <Link

@@ -24,19 +24,17 @@ export default function PostCard({ currentUser, post, handlePostDelete }) {
         />
         <h3 className='username'>{post.user?.username}</h3>
       </div>
-      <div className='post-card-title'>
-        <h5>{post?.title}</h5>
-      </div>
+      <div className='post-card-title'>{post?.title}</div>
       {id ? (
         <>
-          <img
-            className='post-card-image-preview'
-            src={post?.image_url ? post?.image_url : null}
-            alt='post-attachment-preview'
-          />
-          <div className='post-card-content'>
-            <h5>{post?.content}</h5>
-          </div>
+          {post.image_url ? (
+            <img
+              className='post-card-image-preview'
+              src={post?.image_url}
+              alt='post-attachment-preview'
+            />
+          ) : null}
+          <div className='post-card-content'>{post?.content}</div>
           {currentUser && currentUser.id === post?.user_id ? (
             <div className='post-card-edit-delete'>
               <Link className='post-card-link' to={`/posts/${post.id}/update`}>

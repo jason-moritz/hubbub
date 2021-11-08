@@ -1,8 +1,8 @@
 .comment-card {
   width: 50vw;
   min-width: 200px;
-  max-width: 300px;
-  height: 20%;
+  max-width: 500px;
+  height: fit-content;
   min-height: 100px;
   max-height: 400px;
   background-color: #262f30;
@@ -38,6 +38,7 @@
   text-align: left;
   font-size: medium;
   overflow-wrap: break-word;
+  margin: 1rem 0;
 }
 
 .comment-card-link,
@@ -50,5 +51,13 @@
 @media screen and (min-width: 768px) {
   .comment-card-button-link {
     font-size: medium;
+  }
+
+  .comment-username {
+    font-size: x-large;
+  }
+
+  .comment-card-content {
+    font-size: x-large;
   }
 }

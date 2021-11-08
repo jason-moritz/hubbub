@@ -19,3 +19,24 @@
   flex-direction: column;
   align-items: center;
 }
+
+@media screen and (min-width: 1024px) {
+  .postdetail-overall-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .postdetail-left-container {
+    background-color: #90caf9;
+    border-radius: 0 10px 10px 0;
+    width: 100%;
+    margin: 1rem 3rem 0 0;
+  }
+
+  .postdetail-right-container {
+    background-color: #90caf9;
+    border-radius: 10px 0 0 10px;
+    width: 100%;
+    margin: 1rem 0 0 3rem;
+  }
+}
