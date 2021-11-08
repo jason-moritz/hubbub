@@ -47,6 +47,18 @@
   }
 }
 
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .home-latest-post-container {
+    flex-direction: row;
+    justify-content: flex-start;
+    overflow-x: scroll;
+  }
+
+  .home-latest-post-card {
+    margin: 0 1rem;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .home-welcome-message {
     font-size: 4rem;
@@ -60,12 +72,6 @@
   .home-helper-text {
     font-size: 2rem;
   }
-
-  /* .home-latest-post-container {
-    flex-direction: row;
-    justify-content: center;
-    overflow-x: scroll;
-  } */
 
   .home-latest-post-card {
     margin: 1rem;

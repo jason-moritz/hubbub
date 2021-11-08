@@ -46,3 +46,9 @@
   text-decoration: none;
   font-size: medium;
 }
+
+@media screen and (min-width: 768px) {
+  .comment-card-button-link {
+    font-size: medium;
+  }
+}

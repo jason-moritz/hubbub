@@ -66,7 +66,7 @@ export default function PostDetail({
         to={`/posts/${post.id}/comments/create`}
       >
         <Button>
-          <p className='button-text'>Add your two cents</p>
+          <span className='button-link-comment'>Add your two cents</span>
         </Button>
       </Link>
       <div className='postdetail-posts-container'>

@@ -37,13 +37,13 @@ export default function CommentCard({
             to={`/posts/${comment.post_id}/comments/${comment.id}/update`}
           >
             <Button>
-              <span className='button-link'>Edit</span>
+              <span className='comment-card-button-link'>Edit</span>
             </Button>
           </Link>
           <Button
             onClick={() => handleCommentDelete(comment.post_id, comment.id)}
           >
-            <span className='button-link'>Delete</span>
+            <span className='comment-card-button-link'>Delete</span>
           </Button>
         </div>
       ) : null}

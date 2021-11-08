@@ -7,9 +7,10 @@
 .postdetail-link,
 .postdetail-link:visited {
   color: #90caf9;
+  text-decoration: none;
 }
 
-.button-text {
+.button-link-comment {
   font-size: x-large;
 }
 

@@ -18,7 +18,7 @@ export default function Posts({ currentUser, posts, handlePostDelete }) {
       </Link>
       <div className='posts-allposts-container'>
         {posts?.map((post, index) => (
-          <div key={index} className='posts-allposts-container'>
+          <div key={index} className='posts-allposts-card'>
             <PostCard
               currentUser={currentUser}
               post={post}

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { Button, TextField, IconButton, InputAdornment } from '@mui/material'
 import Visibility from '@mui/icons-material/Visibility'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
@@ -71,6 +72,11 @@ export default function UserRegister({
     <div className='user-register-container'>
       <BackButton location='' />
       <h1 className='user-form-title'>User Registration</h1>
+      <Link className='user-login-link' to='/login'>
+        <Button>
+          <span className='button-link'>Already a user? Sign in here!</span>
+        </Button>
+      </Link>
       <form
         className='user-register-form'
         autoComplete='off'

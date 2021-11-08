@@ -40,9 +40,13 @@ export default function PostCard({ currentUser, post, handlePostDelete }) {
           {currentUser && currentUser.id === post?.user_id ? (
             <div className='post-card-edit-delete'>
               <Link className='post-card-link' to={`/posts/${post.id}/update`}>
-                <Button>Edit</Button>
+                <Button>
+                  <span className='post-card-button-link'>Edit</span>
+                </Button>
               </Link>
-              <Button onClick={() => handlePostDelete(post.id)}>Delete</Button>
+              <Button onClick={() => handlePostDelete(post.id)}>
+                <span className='post-card-button-link'>Delete</span>
+              </Button>
             </div>
           ) : null}
         </>
