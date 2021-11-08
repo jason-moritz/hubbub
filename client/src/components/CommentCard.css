@@ -32,7 +32,7 @@
 
 .comment-username {
   font-size: medium;
-  margin-left: 10px;
+  padding-left: 10px;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
