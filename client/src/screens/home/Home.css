@@ -45,6 +45,10 @@
   .home-helper-text {
     font-size: 1.5rem;
   }
+
+  .home-latest-post-title {
+    font-size: xx-large;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {

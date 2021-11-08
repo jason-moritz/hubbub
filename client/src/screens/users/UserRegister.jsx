@@ -84,6 +84,7 @@ export default function UserRegister({
       >
         <TextField
           fullWidth
+          hiddenlabel={true}
           type='file'
           id='user-register-photo-upload'
           label='Image'

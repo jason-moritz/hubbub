@@ -20,6 +20,14 @@
   align-items: center;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .postdetail-comments-container {
+    flex-direction: row;
+    justify-content: flex-start;
+    overflow-x: scroll;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .postdetail-overall-container {
     display: flex;
@@ -30,15 +38,15 @@
     background-color: #90caf9;
     border-radius: 0 10px 10px 0;
     width: 100%;
-    max-width: 250px;
-    margin: 1rem 3rem 0 0;
+    max-width: 200px;
+    margin: 1rem 2rem 0 0;
   }
 
   .postdetail-right-container {
     background-color: #90caf9;
     border-radius: 10px 0 0 10px;
     width: 100%;
-    max-width: 250px;
-    margin: 1rem 0 0 3rem;
+    max-width: 200px;
+    margin: 1rem 0 0 2rem;
   }
 }

@@ -53,9 +53,8 @@ function App() {
     if (userData.username) {
       setCurrentUser(userData)
       history.push('/')
-    } else if (userData.request.status === Number(401)) {
-      setPasswordError(true)
     } else {
+      setPasswordError(true)
       setUsernameError(true)
     }
   }
