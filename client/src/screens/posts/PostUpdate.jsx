@@ -94,7 +94,7 @@ export default function PostUpdate({
           margin='normal'
           value={title}
           onChange={handleChange}
-          inputProps={{ minLength: 3, maxLength: 30 }}
+          inputProps={{ minLength: 3, maxLength: 50 }}
         />
         <TextField
           required
@@ -109,7 +109,7 @@ export default function PostUpdate({
           rows={5}
           value={content}
           onChange={handleChange}
-          inputProps={{ minLength: 3, maxLength: 240 }}
+          inputProps={{ minLength: 3, maxLength: 400 }}
         />
         <Button type='submit'>
           <span className='button-link'>Submit</span>

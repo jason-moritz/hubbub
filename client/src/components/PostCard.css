@@ -75,7 +75,15 @@
   font-size: medium;
 }
 
+.post-card-read-more-link {
+  font-size: large;
+}
+
 @media screen and (min-width: 768px) {
+  .post-card {
+    height: 410px;
+  }
+
   .post-card-button-text {
     font-size: large;
   }
@@ -95,7 +103,27 @@
   .post-card-content {
     font-size: x-large;
   }
+
   .post-card-comment-counter {
     font-size: x-large;
+  }
+
+  .post-card-read-more-link {
+    font-size: x-large;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .post-card {
+    width: 40vw;
+    height: 350px;
+  }
+
+  .post-card-title {
+    height: 80px;
+    margin-bottom: 0px;
+  }
+
+  .post-card-read-more-link {
   }
 }
