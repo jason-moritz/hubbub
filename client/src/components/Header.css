@@ -18,7 +18,7 @@
 .welcome-user-message {
   font-size: 20px;
   text-align: center;
-  text-overflow: ellipsis;
+  inline-size: 90%;
 }
 
 .header-navlink,
@@ -26,6 +26,7 @@
   color: #90caf9;
   text-decoration: none;
 }
+
 .logo {
   height: 50px;
   padding-bottom: 8px;
@@ -36,9 +37,17 @@
   align-items: baseline;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) {
   .header-hamburger-button {
     height: 75px;
+  }
+
+  .welcome-user-message {
+    font-size: x-large;
+  }
+
+  .nav-link-text {
+    font-size: large;
   }
 
   .logo {

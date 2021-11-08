@@ -15,7 +15,7 @@ export default function PostUpdate({
     public_img: '',
   })
   const [toggle, setToggle] = useState(false)
-  const { title, content, image_url } = formData
+  const { title, content } = formData
   const { id } = useParams()
 
   useEffect(() => {
@@ -111,7 +111,9 @@ export default function PostUpdate({
           onChange={handleChange}
           inputProps={{ minLength: 3, maxLength: 240 }}
         />
-        <Button type='submit'>Submit</Button>
+        <Button type='submit'>
+          <span className='button-link'>Submit</span>
+        </Button>
       </form>
       <br />
       <br />

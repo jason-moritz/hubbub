@@ -1,7 +1,7 @@
 .post-card {
   width: 80vw;
   min-width: 200px;
-  max-width: 600px;
+  max-width: 400px;
   height: 20%;
   min-height: 200px;
   max-height: 1000px;
@@ -24,14 +24,14 @@
 .avatar {
   height: 100px;
   width: 100px;
-  border-radius: 50px;
+  border: solid 4px #90caf9;
+  border-radius: 10px;
   object-position: center;
   object-fit: cover;
 }
 
 .username {
   margin-left: 20px;
-  text-decoration: underline;
 }
 
 .post-card-title {
@@ -43,7 +43,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  font-size: large;
+  font-size: x-large;
 }
 
 .comment-counter {
@@ -71,4 +71,29 @@
   color: #90caf9;
   text-decoration: none;
   font-size: medium;
+}
+
+@media screen and (min-width: 768px) {
+  .post-card-button-text {
+    font-size: large;
+  }
+
+  .post-card-button-link {
+    font-size: large;
+  }
+
+  .post-card-username {
+    font-size: x-large;
+  }
+
+  .post-card-title {
+    font-size: xx-large;
+  }
+
+  .post-card-content {
+    font-size: x-large;
+  }
+  .post-card-comment-counter {
+    font-size: x-large;
+  }
 }

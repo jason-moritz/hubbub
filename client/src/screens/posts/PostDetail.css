@@ -7,13 +7,14 @@
 .postdetail-link,
 .postdetail-link:visited {
   color: #90caf9;
+  text-decoration: none;
 }
 
-.button-text {
+.button-link-comment {
   font-size: x-large;
 }
 
-.postdetail-posts-container {
+.postdetail-comments-container {
   display: flex;
   flex-direction: column;
   align-items: center;

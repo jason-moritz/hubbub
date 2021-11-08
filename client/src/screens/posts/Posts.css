@@ -3,3 +3,23 @@
   flex-direction: column;
   align-items: center;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .posts-allposts-container {
+    flex-direction: row;
+    justify-content: flex-start;
+    overflow-x: scroll;
+  }
+
+  .posts-allposts-card {
+    margin: 0 1rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .posts-allposts-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}

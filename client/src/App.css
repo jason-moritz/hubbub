@@ -15,4 +15,15 @@ body {
   flex-direction: column;
   background-color: #171b1a;
   color: #d7d6c7;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.button-link {
+  font-size: large;
+}
+
+@media screen and (min-width: 768px) {
+  .button-link {
+    font-size: x-large;
+  }
 }

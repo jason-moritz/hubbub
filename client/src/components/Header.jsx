@@ -49,40 +49,50 @@ export default function Header({ currentUser, handleLogout }) {
           transitionDuration={600}
         >
           {currentUser ? (
-            <div>
+            <div key='welcome'>
               <p className='welcome-user-message'>
                 Welcome {currentUser.username}
               </p>
             </div>
           ) : (
-            <MenuItem>
+            <MenuItem key='link-login'>
               <Link className='header-navlink' to='/login'>
-                <Button onClick={handleClose}>Login/Register</Button>
+                <Button onClick={handleClose}>
+                  <span className='button-link'>Login/Register</span>
+                </Button>
               </Link>
             </MenuItem>
           )}
-          <MenuItem>
+          <MenuItem key='link-posts'>
             <Link className='header-navlink' to='/posts'>
-              <Button onClick={handleClose}>Posts</Button>
+              <Button onClick={handleClose}>
+                <span className='button-link'>Posts</span>
+              </Button>
             </Link>
           </MenuItem>
-          {currentUser ? (
-            <>
-              <MenuItem>
-                <Link className='header-navlink' to='/posts/create'>
-                  <Button onClick={handleClose}>Create</Button>
-                </Link>
-              </MenuItem>
-              <MenuItem>
-                <Link className='header-navlink' to='/update'>
-                  <Button onClick={handleClose}>Update User Info</Button>
-                </Link>
-              </MenuItem>
-              <MenuItem>
-                <Button onClick={logout}>Logout</Button>
-              </MenuItem>
-            </>
-          ) : null}
+          {currentUser
+            ? [
+                <MenuItem key='link-create'>
+                  <Link className='header-navlink' to='/posts/create'>
+                    <Button onClick={handleClose}>
+                      <span className='button-link'>Create</span>
+                    </Button>
+                  </Link>
+                </MenuItem>,
+                <MenuItem key='link-update'>
+                  <Link className='header-navlink' to='/update'>
+                    <Button onClick={handleClose}>
+                      <span className='button-link'>Update User Info</span>
+                    </Button>
+                  </Link>
+                </MenuItem>,
+                <MenuItem key='logout'>
+                  <Button onClick={logout}>
+                    <span className='button-link'>Logout</span>
+                  </Button>
+                </MenuItem>,
+              ]
+            : null}
         </Menu>
       </div>
       <Link to='/'>

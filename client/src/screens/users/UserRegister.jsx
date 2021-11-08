@@ -1,11 +1,17 @@
-import { useState } from 'react'
-import { Button, TextField } from '@mui/material'
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { Button, TextField, IconButton, InputAdornment } from '@mui/material'
+import Visibility from '@mui/icons-material/Visibility'
+import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import BackButton from '../../components/BackButton'
 import './UserRegister.css'
 
 export default function UserRegister({
   handleRegister,
   handleImageUpload,
+  handlePasswordToggle,
+  showPassword,
+  setShowPassword,
   usernameError,
   setUsernameError,
   passwordError,
@@ -20,7 +26,14 @@ export default function UserRegister({
     password: '',
     public_img: '',
   })
-  const { username, email, image_url, password } = formData
+  const { username, email, password } = formData
+
+  useEffect(() => {
+    setUsernameError(false)
+    setEmailError(false)
+    setPasswordError(false)
+    setShowPassword(false)
+  }, [setUsernameError, setEmailError, setPasswordError, setShowPassword])
 
   const handleChange = e => {
     const { name, value } = e.target
@@ -58,6 +71,12 @@ export default function UserRegister({
   return (
     <div className='user-register-container'>
       <BackButton location='' />
+      <h1 className='user-form-title'>User Registration</h1>
+      <Link className='user-login-link' to='/login'>
+        <Button>
+          <span className='button-link'>Already a user? Sign in here!</span>
+        </Button>
+      </Link>
       <form
         className='user-register-form'
         autoComplete='off'
@@ -78,7 +97,11 @@ export default function UserRegister({
           onChange={handleImage}
         />
         {formData.image_url ? (
-          <img className='image-preview' src={formData.image_url} />
+          <img
+            className='image-preview'
+            src={formData.image_url}
+            alt='avatar'
+          />
         ) : null}
         <TextField
           autoFocus
@@ -115,7 +138,7 @@ export default function UserRegister({
           required
           fullWidth
           id='user-register-password'
-          type='password'
+          type={showPassword ? 'text' : 'password'}
           variant='standard'
           label='Password'
           name='password'
@@ -124,8 +147,19 @@ export default function UserRegister({
           value={password}
           onChange={handleChange}
           inputProps={{ minLength: 6, maxLength: 24 }}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position='end'>
+                <IconButton onClick={handlePasswordToggle}>
+                  {showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
-        <Button type='submit'>Submit</Button>
+        <Button type='submit'>
+          <span className='button-link'>Submit</span>
+        </Button>
       </form>
       <br />
       <br />

@@ -28,10 +28,18 @@ export default function UserUpdate({
       image_url: image_url,
       public_img: public_img,
     })
-  }, [])
+  }, [username, email, image_url, public_img])
+
+  useEffect(() => {
+    setUsernameError(false)
+    setEmailError(false)
+  }, [setUsernameError, setEmailError])
 
   const handleChange = e => {
     const { name, value } = e.target
+    setToggle(false)
+    setUsernameError(false)
+    setEmailError(false)
     setFormData(prevState => ({
       ...prevState,
       [name]: value,
@@ -40,10 +48,10 @@ export default function UserUpdate({
 
   const handleSubmit = e => {
     e.preventDefault()
-    setToggle(false)
-    setUsernameError(false)
-    setEmailError(false)
-    handleUpdate(id, formData)
+    if (handleUpdate(id, formData)) {
+      setUsernameError(false)
+      setEmailError(false)
+    }
   }
 
   const handleImage = async e => {
@@ -62,8 +70,11 @@ export default function UserUpdate({
   return (
     <div className='user-register-container'>
       <BackButton location='' />
+      <h1 className='user-form-title'>Update Your Info</h1>
       <Link className='user-login-link' to='/users/change-password'>
-        <Button>Change Password</Button>
+        <Button>
+          <span className='button-link'>Change Password</span>
+        </Button>
       </Link>
       <form
         className='user-register-form'
@@ -83,7 +94,11 @@ export default function UserUpdate({
           onChange={handleImage}
         />
         {formData.image_url ? (
-          <img className='image-preview' src={formData.image_url} />
+          <img
+            className='image-preview'
+            src={formData.image_url}
+            alt='avatar'
+          />
         ) : null}
         <TextField
           autoFocus
@@ -116,7 +131,9 @@ export default function UserUpdate({
           value={formData.email}
           onChange={handleChange}
         />
-        <Button type='submit'>Submit</Button>
+        <Button type='submit'>
+          <span className='button-link'>Submit</span>
+        </Button>
       </form>
       <br />
       <br />

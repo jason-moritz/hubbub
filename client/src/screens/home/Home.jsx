@@ -14,7 +14,7 @@ export default function Home({ currentUser, latestPosts, handlePostDelete }) {
           <div className='home-helper-text'>
             Let everyone know what's on your mind{' '}
             <Link className='home-link' to='/posts/create'>
-              here
+              here.
             </Link>
           </div>
         </>

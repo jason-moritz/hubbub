@@ -1,21 +1,32 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Button, TextField } from '@mui/material'
+import { Button, TextField, IconButton, InputAdornment } from '@mui/material'
+import Visibility from '@mui/icons-material/Visibility'
+import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import BackButton from '../../components/BackButton'
 import './UserLogin.css'
 
 export default function UserLogin({
   handleLogin,
+  handlePasswordToggle,
   usernameError,
   setUsernameError,
   passwordError,
   setPasswordError,
+  showPassword,
+  setShowPassword,
 }) {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
   })
   const { username, password } = formData
+
+  useEffect(() => {
+    setUsernameError(false)
+    setPasswordError(false)
+    setShowPassword(false)
+  }, [setUsernameError, setPasswordError, setShowPassword])
 
   const handleChange = e => {
     const { name, value } = e.target
@@ -40,8 +51,11 @@ export default function UserLogin({
   return (
     <div className='user-login-container'>
       <BackButton location='' />
+      <h1 className='user-form-title'>Welcome back!</h1>
       <Link className='user-login-link' to='/register'>
-        <Button>Not a user? Sign up today!</Button>
+        <Button>
+          <span className='button-link'>Not a user? Sign up today!</span>
+        </Button>
       </Link>
       <form
         className='user-login-form'
@@ -67,7 +81,7 @@ export default function UserLogin({
           required
           fullWidth
           id='user-login-password'
-          type='password'
+          type={showPassword ? 'text' : 'password'}
           variant='standard'
           label='Password'
           name='password'
@@ -76,6 +90,15 @@ export default function UserLogin({
           helperText={passwordError ? 'Incorrect password' : null}
           value={password}
           onChange={handleChange}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position='end'>
+                <IconButton onClick={handlePasswordToggle}>
+                  {showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
         <Button type='submit'>Login</Button>
       </form>
