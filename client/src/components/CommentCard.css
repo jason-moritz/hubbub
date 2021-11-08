@@ -52,10 +52,3 @@
     font-size: medium;
   }
 }
-
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  .comment-card {
-    width: 300px;
-    height: 200px;
-  }
-}
