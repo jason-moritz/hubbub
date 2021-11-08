@@ -56,7 +56,6 @@ export default function PostDetail({
   return (
     <div className='postdetail-overall-container'>
       <div className='postdetail-left-container'></div>
-
       <div className='postdetail-main-container'>
         <BackButton location='posts' />
         <PostCard
