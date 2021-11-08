@@ -2,9 +2,8 @@
   width: 80vw;
   min-width: 200px;
   max-width: 700px;
-  height: 20%;
-  min-height: 200px;
-  max-height: 1000px;
+  height: fit-content;
+  min-height: 20%;
   background-color: #262f30;
   border-radius: 10px;
   display: flex;
@@ -116,7 +115,7 @@
 @media screen and (min-width: 1024px) {
   .post-card {
     width: 40vw;
-    height: 350px;
+    height: fit-content;
   }
 
   .post-card-title {
