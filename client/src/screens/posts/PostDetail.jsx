@@ -69,9 +69,9 @@ export default function PostDetail({
           <span className='button-link-comment'>Add your two cents</span>
         </Button>
       </Link>
-      <div className='postdetail-posts-container'>
+      <div className='postdetail-comments-container'>
         {comments.map((comment, index) => (
-          <div key={index} className='postdetail-posts-container'>
+          <div key={index} className='postdetail-comments-card'>
             <CommentCard
               currentUser={currentUser}
               comment={comment}
