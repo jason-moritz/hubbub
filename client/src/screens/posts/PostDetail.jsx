@@ -72,17 +72,17 @@ export default function PostDetail({
             <span className='button-link-comment'>Add your two cents</span>
           </Button>
         </Link>
-        <div className='postdetail-comments-container'>
-          {comments.map((comment, index) => (
-            <div key={index} className='postdetail-comments-card'>
-              <CommentCard
-                currentUser={currentUser}
-                comment={comment}
-                handleCommentDelete={handleCommentDelete}
-              />
-            </div>
-          ))}
-        </div>
+      </div>
+      <div className='postdetail-comments-container'>
+        {comments.map((comment, index) => (
+          <div key={index} className='postdetail-comments-card'>
+            <CommentCard
+              currentUser={currentUser}
+              comment={comment}
+              handleCommentDelete={handleCommentDelete}
+            />
+          </div>
+        ))}
       </div>
       <div className='postdetail-right-container'></div>
     </div>
