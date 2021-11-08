@@ -50,7 +50,9 @@ export default function CommentCreate({ handleCommentCreate }) {
           onChange={handleChange}
           inputProps={{ minLength: 3, maxLength: 240 }}
         />
-        <Button type='submit'>Submit</Button>
+        <Button type='submit'>
+          <span className='button-link'>Submit</span>
+        </Button>
       </form>
       <br />
       <br />
